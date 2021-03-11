@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MatrixSharp.Net
 {
-	internal class RestClient //: IDisposable
+	internal sealed class RestClient : IDisposable
 	{
 		public RestClient()
 		{
@@ -40,24 +40,32 @@ namespace MatrixSharp.Net
 				return;
 
 			var asJson = await response.Content.ReadFromJsonAsync<StandardErrorResponse>();
-			if (asJson != null)
-				switch (asJson.ErrorCode)
-				{
-					case ErrorCode.M_LIMIT_EXCEEDED:
-						{
-							var ratelimitedError = await response.Content.ReadFromJsonAsync<RatelimitedErrorResponse>();
-							throw new ApiRatelimitedException(ratelimitedError.ErrorMessage, ratelimitedError.ErrorCode,
-								TimeSpan.FromMilliseconds(ratelimitedError.RetryAfterMs), response.StatusCode);
-						}
-					default:
-						{
-							var standardError = await response.Content.ReadFromJsonAsync<StandardErrorResponse>();
-							throw new ApiException(standardError.ErrorMessage, standardError.ErrorCode,
-								response.StatusCode);
-						}
-				}
+			response.Dispose();
 
-			throw new UnexpectedApiException("The server returned an unrecognizable error response. That was unexpected.", response);
+			if (asJson == null)
+				throw new UnexpectedApiException(
+					"The server returned an unrecognizable error response. That was unexpected.", response);
+			
+			switch (asJson.ErrorCode)
+			{
+				case ErrorCode.M_LIMIT_EXCEEDED:
+				{
+					var ratelimitedError = await response.Content.ReadFromJsonAsync<RatelimitedErrorResponse>();
+					throw new ApiRatelimitedException(ratelimitedError.ErrorMessage, ratelimitedError.ErrorCode,
+						TimeSpan.FromMilliseconds(ratelimitedError.RetryAfterMs), response.StatusCode);
+				}
+				default:
+				{
+					var standardError = await response.Content.ReadFromJsonAsync<StandardErrorResponse>();
+					throw new ApiException(standardError.ErrorMessage, standardError.ErrorCode,
+						response.StatusCode);
+				}
+			}
+		}
+
+		public void Dispose()
+		{
+			HttpClient.Dispose();
 		}
 	}
 }

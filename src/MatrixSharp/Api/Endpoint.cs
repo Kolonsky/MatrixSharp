@@ -1,4 +1,4 @@
-﻿namespace MatrixSharp.Net.Api
+﻿namespace MatrixSharp.Api
 {
 	internal static class Endpoint
 	{

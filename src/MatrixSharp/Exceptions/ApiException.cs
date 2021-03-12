@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Net;
 using System.Runtime.Serialization;
-using MatrixSharp.Net.Entities;
+using MatrixSharp.Entities;
 
-namespace MatrixSharp.Net.Api.Exceptions
+namespace MatrixSharp.Exceptions
 {
 	[Serializable]
 	public class ApiException : Exception
 	{
-		public ApiException(string message, StandardErrorResponse errorResponse, HttpStatusCode httpStatusCode) : base(message)
+		public ApiException(string message, StandardErrorResponse errorResponse, HttpStatusCode httpStatusCode) :
+			base(message)
 		{
 			ErrorResponse = errorResponse;
 			HttpStatusCode = httpStatusCode;
 		}
 
-		public ApiException(string message, StandardErrorResponse errorResponse, HttpStatusCode httpStatusCode, Exception inner) : base(
+		public ApiException(string message, StandardErrorResponse errorResponse, HttpStatusCode httpStatusCode,
+			Exception inner) : base(
 			message, inner)
 		{
 			ErrorResponse = errorResponse;
@@ -26,7 +28,7 @@ namespace MatrixSharp.Net.Api.Exceptions
 			StreamingContext context) : base(info, context)
 		{
 			ErrorResponse = (StandardErrorResponse) info.GetValue(nameof(ErrorResponse), typeof(StandardErrorResponse));
-			HttpStatusCode = (HttpStatusCode)info.GetValue(nameof(HttpStatusCode), typeof(HttpStatusCode));
+			HttpStatusCode = (HttpStatusCode) info.GetValue(nameof(HttpStatusCode), typeof(HttpStatusCode));
 		}
 
 		public HttpStatusCode HttpStatusCode { get; init; }

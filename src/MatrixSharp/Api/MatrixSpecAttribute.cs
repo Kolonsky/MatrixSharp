@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MatrixSharp.Net.Api
+namespace MatrixSharp.Api
 {
 	public class MatrixSpecAttribute : Attribute
 	{

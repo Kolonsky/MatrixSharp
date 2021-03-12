@@ -1,12 +1,12 @@
-﻿using MatrixSharp.Net.Api;
-using MatrixSharp.Net.Api.Exceptions;
-using MatrixSharp.Net.Entities;
-using System;
+﻿using System;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
+using MatrixSharp.Api;
+using MatrixSharp.Entities;
+using MatrixSharp.Exceptions;
 
-namespace MatrixSharp.Net
+namespace MatrixSharp.Client
 {
 	internal sealed class RestClient : IDisposable
 	{
@@ -17,8 +17,13 @@ namespace MatrixSharp.Net
 
 		private HttpClient HttpClient { get; }
 
+		public void Dispose()
+		{
+			HttpClient.Dispose();
+		}
+
 		/// <summary>
-		/// Sends request to Matrix API
+		///     Sends request to Matrix API
 		/// </summary>
 		/// <param name="request">API request object</param>
 		/// <returns>Http response</returns>
@@ -33,17 +38,20 @@ namespace MatrixSharp.Net
 			return response;
 		}
 
-		private static async void ThrowIfApiError(HttpResponseMessage response)
+		private static void ThrowIfApiError(HttpResponseMessage response)
 		{
 			if (response.IsSuccessStatusCode)
 				return;
 
 			var content = response.Content;
-			System.Diagnostics.Debug.WriteLine(content.ReadAsStringAsync().Result);
+
 			StandardErrorResponse contentJson;
 			try
 			{
-				contentJson = await content.ReadFromJsonAsync<StandardErrorResponse>();
+				contentJson = content.ReadFromJsonAsync<StandardErrorResponse>().Result;
+				if (contentJson == null)
+					throw new UnexpectedApiException(
+						"The server returned an unrecognizable error response. That was unexpected.", response);
 			}
 			catch
 			{
@@ -51,23 +59,14 @@ namespace MatrixSharp.Net
 				throw;
 			}
 
-			if (contentJson == null)
-				throw new UnexpectedApiException(
-					"The server returned an unrecognizable error response. That was unexpected.", response);
-
 			throw new ApiException(
 				contentJson.ErrorMessage,
 				contentJson.ErrorCode switch
 				{
-					ErrorCode.M_LIMIT_EXCEEDED => await content.ReadFromJsonAsync<RatelimitedErrorResponse>(),
+					ErrorCode.M_LIMIT_EXCEEDED => content.ReadFromJsonAsync<RatelimitedErrorResponse>().Result,
 					_ => contentJson
 				},
 				response.StatusCode);
-		}
-
-		public void Dispose()
-		{
-			HttpClient.Dispose();
 		}
 	}
 }

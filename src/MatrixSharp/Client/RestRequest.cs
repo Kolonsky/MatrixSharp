@@ -3,16 +3,13 @@ using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 
-namespace MatrixSharp.Net
+namespace MatrixSharp.Client
 {
 	internal class RestRequest : HttpRequestMessage
 	{
 		public RestRequest(HttpMethod method, Uri route, string accessToken = null) : base(method, route)
 		{
-			if (accessToken != null)
-			{
-				Headers.Authorization = AuthenticationHeaderValue.Parse(accessToken);
-			}
+			if (accessToken != null) Headers.Authorization = AuthenticationHeaderValue.Parse(accessToken);
 		}
 
 		public RestRequest(HttpMethod method, Uri route, string payload, string accessToken = null) : this(method,

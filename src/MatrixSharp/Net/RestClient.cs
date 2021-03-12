@@ -39,7 +39,17 @@ namespace MatrixSharp.Net
 				return;
 
 			var content = response.Content;
-			var contentJson = await content.ReadFromJsonAsync<StandardErrorResponse>();
+			System.Diagnostics.Debug.WriteLine(content.ReadAsStringAsync().Result);
+			StandardErrorResponse contentJson;
+			try
+			{
+				contentJson = await content.ReadFromJsonAsync<StandardErrorResponse>();
+			}
+			catch
+			{
+				response.EnsureSuccessStatusCode();
+				throw;
+			}
 
 			if (contentJson == null)
 				throw new UnexpectedApiException(

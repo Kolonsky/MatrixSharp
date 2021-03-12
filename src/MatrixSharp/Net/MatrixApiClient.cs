@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Json;
-using System.Text;
-using System.Threading.Tasks;
-using MatrixSharp.Net.Api;
+﻿using MatrixSharp.Net.Api;
 using MatrixSharp.Net.Api.Exceptions;
 using MatrixSharp.Net.Entities;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Json;
+using System.Threading.Tasks;
 
 namespace MatrixSharp.Net
 {
@@ -15,8 +13,20 @@ namespace MatrixSharp.Net
 	{
 		private RestClient RestClient { get; init; }
 
-		public MatrixApiClient()
+		/// <summary>
+		/// Homeserver url
+		/// </summary>
+		public Uri Homeserver { get; init; }
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="homeserver">Homeserver url</param>
+		public MatrixApiClient(Uri homeserver)
 		{
+			// TODO: check for valid url
+			Homeserver = homeserver;
+
 			RestClient = new RestClient();
 		}
 
@@ -31,10 +41,21 @@ namespace MatrixSharp.Net
 		/// <exception cref="UnexpectedApiException"></exception>
 		public async Task<ClientVersions> GetClientVersionsAsync()
 		{
-			var request = new RestRequest(HttpMethod.Get, Endpoint.VERSIONS);
+			var request = new RestRequest(HttpMethod.Get, new Uri(Homeserver, Endpoint.VERSIONS));
+			System.Diagnostics.Debug.WriteLine(request.RequestUri);
 			var response = await RestClient.SendRequestAsync(request);
 			var asReturnType = await response.Content.ReadFromJsonAsync<ClientVersions>();
-			
+
+			return asReturnType;
+		}
+
+		public async Task<ClientVersions> GetMatrixError()
+		{
+			var request = new RestRequest(HttpMethod.Get, new Uri(Homeserver, "1234"));
+			System.Diagnostics.Debug.WriteLine(request.RequestUri);
+			var response = await RestClient.SendRequestAsync(request);
+			var asReturnType = await response.Content.ReadFromJsonAsync<ClientVersions>();
+
 			return asReturnType;
 		}
 

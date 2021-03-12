@@ -21,10 +21,9 @@ namespace MatrixSharp.Client.Authentication
 
 		internal override async Task<string> GetToken()
 		{
-			// TODO: Implement getting token
+
+
 			throw new NotImplementedException();
-			var result = await Task.Run(() => "Hash is hui");
-			return result;
 		}
 	}
 }

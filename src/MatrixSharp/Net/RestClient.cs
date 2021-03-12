@@ -24,7 +24,6 @@ namespace MatrixSharp.Net
 		/// <returns>Http response</returns>
 		/// <exception cref="HttpRequestException"></exception>
 		/// <exception cref="ApiException"></exception>
-		/// <exception cref="ApiRatelimitedException"></exception>
 		/// <exception cref="UnexpectedApiException"></exception>
 		public async Task<HttpResponseMessage> SendRequestAsync(RestRequest request)
 		{
@@ -39,28 +38,21 @@ namespace MatrixSharp.Net
 			if (response.IsSuccessStatusCode)
 				return;
 
-			var asJson = await response.Content.ReadFromJsonAsync<StandardErrorResponse>();
-			response.Dispose();
+			var content = response.Content;
+			var contentJson = await content.ReadFromJsonAsync<StandardErrorResponse>();
 
-			if (asJson == null)
+			if (contentJson == null)
 				throw new UnexpectedApiException(
 					"The server returned an unrecognizable error response. That was unexpected.", response);
-			
-			switch (asJson.ErrorCode)
-			{
-				case ErrorCode.M_LIMIT_EXCEEDED:
+
+			throw new ApiException(
+				contentJson.ErrorMessage,
+				contentJson.ErrorCode switch
 				{
-					var ratelimitedError = await response.Content.ReadFromJsonAsync<RatelimitedErrorResponse>();
-					throw new ApiRatelimitedException(ratelimitedError.ErrorMessage, ratelimitedError.ErrorCode,
-						TimeSpan.FromMilliseconds(ratelimitedError.RetryAfterMs), response.StatusCode);
-				}
-				default:
-				{
-					var standardError = await response.Content.ReadFromJsonAsync<StandardErrorResponse>();
-					throw new ApiException(standardError.ErrorMessage, standardError.ErrorCode,
-						response.StatusCode);
-				}
-			}
+					ErrorCode.M_LIMIT_EXCEEDED => await content.ReadFromJsonAsync<RatelimitedErrorResponse>(),
+					_ => contentJson
+				},
+				response.StatusCode);
 		}
 
 		public void Dispose()

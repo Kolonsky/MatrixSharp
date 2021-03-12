@@ -5,9 +5,9 @@ using System.Net.Http.Headers;
 
 namespace MatrixSharp.Net
 {
-	public class RestRequest : HttpRequestMessage
+	internal class RestRequest : HttpRequestMessage
 	{
-		private RestRequest(HttpMethod method, string route, string accessToken = null) : base(method, route)
+		public RestRequest(HttpMethod method, string route, string accessToken = null) : base(method, route)
 		{
 			Headers.Authorization = AuthenticationHeaderValue.Parse(accessToken);
 		}

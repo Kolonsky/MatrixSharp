@@ -6,7 +6,7 @@ namespace MatrixSharp.Entities
 	/// <summary>
 	///	Versions of the specification supported by the server.
 	/// </summary>
-	public struct ClientVersions
+	public struct ClientVersionsResponse
 	{
 		/// <summary>
 		///     The supported versions.

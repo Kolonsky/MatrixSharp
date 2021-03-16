@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Runtime.CompilerServices;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Xml;
 using MatrixSharp.Api;
 using MatrixSharp.Entities;
 using MatrixSharp.Exceptions;
 
+#nullable disable
 namespace MatrixSharp.Client
 {
 	internal class RestClient : IDisposable
@@ -47,25 +51,27 @@ namespace MatrixSharp.Client
 			var content = response.Content;
 
 			StandardErrorResponse contentJson;
-			// TODO: Incorrect exception handling and thowing
+			var options = new JsonSerializerOptions
+			{
+				// Using Enum member name instead of value
+				Converters = {new JsonStringEnumConverter(JsonNamingPolicy.CamelCase)}
+			};
+
 			try
 			{
-				contentJson = content.ReadFromJsonAsync<StandardErrorResponse>().Result;
-				if (contentJson == null)
-					throw new UnexpectedApiException(
-						"The server returned an unrecognizable error response. That was unexpected.", response);
+				contentJson = content.ReadFromJsonAsync<StandardErrorResponse>(options).Result;
 			}
 			catch
 			{
-				response.EnsureSuccessStatusCode();
-				throw;
+				throw new UnexpectedApiException(
+					"The server returned an unrecognizable error response.", response);
 			}
 
 			throw new ApiException(
 				contentJson.ErrorMessage,
 				contentJson.ErrorCode switch
 				{
-					ErrorCode.M_LIMIT_EXCEEDED => content.ReadFromJsonAsync<RatelimitedErrorResponse>().Result,
+					ErrorCode.M_LIMIT_EXCEEDED => content.ReadFromJsonAsync<StandardErrorResponse>().Result,
 					_ => contentJson
 				},
 				response.StatusCode);

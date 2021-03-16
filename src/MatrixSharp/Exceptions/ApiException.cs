@@ -31,7 +31,7 @@ namespace MatrixSharp.Exceptions
 			HttpStatusCode = (HttpStatusCode) info.GetValue(nameof(HttpStatusCode), typeof(HttpStatusCode));
 		}
 
-		public HttpStatusCode HttpStatusCode { get; init; }
+		public HttpStatusCode HttpStatusCode { get; set; }
 		public StandardErrorResponse ErrorResponse { get; set; }
 
 		public override void GetObjectData(SerializationInfo info, StreamingContext context)

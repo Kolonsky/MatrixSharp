@@ -4,13 +4,14 @@ using MatrixSharp.Exceptions;
 using System;
 using System.Net.Http;
 using System.Net.Http.Json;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace MatrixSharp.Client
 {
 	public class MatrixApiClient
 	{
+		#region Constructor and fields
+
 		/// <summary>
 		/// </summary>
 		/// <param name="homeserver">Homeserver url</param>
@@ -27,7 +28,9 @@ namespace MatrixSharp.Client
 		/// <summary>
 		///     Homeserver url
 		/// </summary>
-		public Uri Homeserver { get; init; }
+		private Uri Homeserver { get; }
+
+		#endregion
 
 		#region API Standards
 
@@ -35,17 +38,10 @@ namespace MatrixSharp.Client
 		///     Gets the versions of the specification supported by the server.
 		/// </summary>
 		/// <returns>The versions supported by the server.</returns>
-		/// <exception cref="HttpRequestException"></exception>
-		/// <exception cref="ApiException"></exception>
-		/// <exception cref="UnexpectedApiException"></exception>
-		public async Task<ClientVersions> GetClientVersionsAsync()
-		{
-			var request = new RestRequest(HttpMethod.Get, new Uri(Homeserver, Endpoint.VERSIONS));
-			var response = await RestClient.SendRequestAsync(request);
-			var asReturnType = await response.Content.ReadFromJsonAsync<ClientVersions>();
-
-			return asReturnType;
-		}
+		/// <inheritdoc cref="DoRequestAsync{T}"/>
+		public async Task<ClientVersionsResponse> GetClientVersionsAsync() =>
+			await DoRequestAsync<ClientVersionsResponse>(new RestRequest(HttpMethod.Get,
+				new Uri(Homeserver, Endpoint.VERSIONS)));
 
 		#endregion
 
@@ -55,9 +51,7 @@ namespace MatrixSharp.Client
 		///     Gets discovery information about the domain.
 		/// </summary>
 		/// <returns>Server discovery information.</returns>
-		/// <exception cref="HttpRequestException"></exception>
-		/// <exception cref="ApiException"></exception>
-		/// <exception cref="UnexpectedApiException"></exception>
+		/// <inheritdoc cref="DoRequestAsync{T}"/>
 		public async Task<WellKnownResponse> GetWellKnownAsync() =>
 			await DoRequestAsync<WellKnownResponse>(new RestRequest(HttpMethod.Get,
 				new Uri(Homeserver, Endpoint.WELLKNOWN)));
@@ -69,20 +63,22 @@ namespace MatrixSharp.Client
 		#region Login
 
 		/// <summary>
-		///     Gets the homeserver's supported login types to authenticate users. Clients should pick one of these and supply it as the <see cref="LoginFlow"/> when logging in.
+		///     Gets the homeserver's supported login types to authenticate users. Clients should pick one of these and supply it as the `type` when logging in.
 		/// </summary>
 		/// <returns>The login types the homeserver supports.</returns>
-		/// <exception cref="HttpRequestException"></exception>
-		/// <exception cref="ApiException"></exception>
-		/// <exception cref="UnexpectedApiException"></exception>
+		/// <inheritdoc cref="DoRequestAsync{T}"/>
 		public async Task<LoginTypes> GetLoginTypes() =>
-			await DoRequestAsync<LoginTypes>(new RestRequest(HttpMethod.Get, 
+			await DoRequestAsync<LoginTypes>(new RestRequest(HttpMethod.Get,
 				new Uri(Homeserver, Endpoint.LOGIN)));
 
-		public async Task<LoginResponse> Login(LoginBody body)
+		/// <summary>
+		/// Authenticates the user, and issues an access token they can use to authorize themself in subsequent requests.
+		/// </summary>
+		/// <returns></returns>
+		public async Task<LoginResponse> Login(LoginRequestBody requestBody)
 		{
 			return await DoRequestAsync<LoginResponse>(new RestRequest(HttpMethod.Post,
-				new Uri(Homeserver, Endpoint.LOGIN), JsonDocument.Parse(body.ToString())));
+				new Uri(Homeserver, Endpoint.LOGIN), requestBody));
 		}
 
 		#endregion
@@ -95,6 +91,9 @@ namespace MatrixSharp.Client
 
 		#endregion
 
+		/// <exception cref="HttpRequestException"></exception>
+		/// <exception cref="ApiException"></exception>
+		/// <exception cref="UnexpectedApiException"></exception>
 		private async Task<T> DoRequestAsync<T>(RestRequest request)
 		{
 			var response = await RestClient.SendRequestAsync(request);

@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
 
+#nullable disable
 namespace MatrixSharp.Client
 {
 	internal class RestRequest : HttpRequestMessage
@@ -13,10 +14,10 @@ namespace MatrixSharp.Client
 			if (accessToken != null) Headers.Authorization = AuthenticationHeaderValue.Parse(accessToken);
 		}
 
-		public RestRequest(HttpMethod method, Uri route, JsonDocument payload, string accessToken = null) : this(method,
+		public RestRequest(HttpMethod method, Uri route, object payload, string accessToken = null) : this(method,
 			route, accessToken)
 		{
-			Content = new StringContent(payload.ToString() ?? string.Empty);
+			Content = new StringContent(JsonSerializer.Serialize(payload));
 		}
 
 		public RestRequest(HttpMethod method, Uri route, Stream payload, string accessToken = null) : this(method,

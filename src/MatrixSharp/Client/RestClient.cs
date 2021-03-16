@@ -2,13 +2,14 @@
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
+using System.Xml;
 using MatrixSharp.Api;
 using MatrixSharp.Entities;
 using MatrixSharp.Exceptions;
 
 namespace MatrixSharp.Client
 {
-	internal sealed class RestClient : IDisposable
+	internal class RestClient : IDisposable
 	{
 		public RestClient()
 		{
@@ -46,6 +47,7 @@ namespace MatrixSharp.Client
 			var content = response.Content;
 
 			StandardErrorResponse contentJson;
+			// TODO: Incorrect exception handling and thowing
 			try
 			{
 				contentJson = content.ReadFromJsonAsync<StandardErrorResponse>().Result;

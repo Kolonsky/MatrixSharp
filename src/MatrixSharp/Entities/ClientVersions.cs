@@ -3,7 +3,10 @@ using System.Text.Json.Serialization;
 
 namespace MatrixSharp.Entities
 {
-	public class ClientVersions
+	/// <summary>
+	///	Versions of the specification supported by the server.
+	/// </summary>
+	public struct ClientVersions
 	{
 		/// <summary>
 		///     The supported versions.
@@ -16,6 +19,6 @@ namespace MatrixSharp.Entities
 		///     indicate that a feature is not supported.
 		/// </summary>
 		[JsonPropertyName("unstable_features")]
-		public Dictionary<string, bool> UnstableFeatures { get; set; }
+		public Dictionary<string, bool>? UnstableFeatures { get; set; }
 	}
 }

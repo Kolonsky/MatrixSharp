@@ -1,12 +1,11 @@
-﻿using System;
+﻿using MatrixSharp.Entities;
+using MatrixSharp.Exceptions;
+using System;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using MatrixSharp.Api;
-using MatrixSharp.Entities;
-using MatrixSharp.Exceptions;
 
 #nullable disable
 namespace MatrixSharp.Client
@@ -52,7 +51,7 @@ namespace MatrixSharp.Client
 			var options = new JsonSerializerOptions
 			{
 				// Using Enum member name instead of value
-				Converters = {new JsonStringEnumConverter(JsonNamingPolicy.CamelCase)}
+				Converters = { new JsonStringEnumConverter(JsonNamingPolicy.CamelCase) }
 			};
 
 			try
@@ -65,14 +64,7 @@ namespace MatrixSharp.Client
 					"The server returned an unrecognizable error response.", response);
 			}
 
-			throw new ApiException(
-				contentJson.ErrorMessage,
-				contentJson.ErrorCode switch
-				{
-					ErrorCode.M_LIMIT_EXCEEDED => content.ReadFromJsonAsync<StandardErrorResponse>().Result,
-					_ => contentJson
-				},
-				response.StatusCode);
+			throw new ApiException(contentJson.ErrorMessage, contentJson, response.StatusCode);
 		}
 	}
 }

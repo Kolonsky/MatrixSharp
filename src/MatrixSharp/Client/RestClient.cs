@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Net.Http;
 using System.Net.Http.Json;
-using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using System.Xml;
 using MatrixSharp.Api;
 using MatrixSharp.Entities;
 using MatrixSharp.Exceptions;

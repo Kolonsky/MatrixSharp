@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 namespace MatrixSharp.Entities
 {
 	/// <summary>
-	///	Versions of the specification supported by the server.
+	///     Versions of the specification supported by the server.
 	/// </summary>
 	public struct ClientVersionsResponse
 	{

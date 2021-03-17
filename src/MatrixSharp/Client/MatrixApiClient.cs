@@ -1,13 +1,16 @@
-﻿using MatrixSharp.Api;
-using MatrixSharp.Entities;
-using MatrixSharp.Exceptions;
-using System;
+﻿using System;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
+using MatrixSharp.Api;
+using MatrixSharp.Entities;
+using MatrixSharp.Exceptions;
 
 namespace MatrixSharp.Client
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	public class MatrixApiClient
 	{
 		#region Constructor and fields
@@ -38,10 +41,12 @@ namespace MatrixSharp.Client
 		///     Gets the versions of the specification supported by the server.
 		/// </summary>
 		/// <returns>The versions supported by the server.</returns>
-		/// <inheritdoc cref="DoRequestAsync{T}"/>
-		public async Task<ClientVersionsResponse> GetClientVersionsAsync() =>
-			await DoRequestAsync<ClientVersionsResponse>(new RestRequest(HttpMethod.Get,
+		/// <inheritdoc cref="DoRequestAsync{T}" />
+		public async Task<ClientVersionsResponse> GetClientVersionsAsync()
+		{
+			return await DoRequestAsync<ClientVersionsResponse>(new RestRequest(HttpMethod.Get,
 				new Uri(Homeserver, Endpoint.VERSIONS)));
+		}
 
 		#endregion
 
@@ -51,10 +56,12 @@ namespace MatrixSharp.Client
 		///     Gets discovery information about the domain.
 		/// </summary>
 		/// <returns>Server discovery information.</returns>
-		/// <inheritdoc cref="DoRequestAsync{T}"/>
-		public async Task<WellKnownResponse> GetWellKnownAsync() =>
-			await DoRequestAsync<WellKnownResponse>(new RestRequest(HttpMethod.Get,
+		/// <inheritdoc cref="DoRequestAsync{T}" />
+		public async Task<WellKnownResponse> GetWellKnownAsync()
+		{
+			return await DoRequestAsync<WellKnownResponse>(new RestRequest(HttpMethod.Get,
 				new Uri(Homeserver, Endpoint.WELLKNOWN)));
+		}
 
 		#endregion
 
@@ -63,16 +70,19 @@ namespace MatrixSharp.Client
 		#region Login
 
 		/// <summary>
-		///     Gets the homeserver's supported login types to authenticate users. Clients should pick one of these and supply it as the `type` when logging in.
+		///     Gets the homeserver's supported login types to authenticate users. Clients should pick one of these and supply it
+		///     as the `type` when logging in.
 		/// </summary>
 		/// <returns>The login types the homeserver supports.</returns>
-		/// <inheritdoc cref="DoRequestAsync{T}"/>
-		public async Task<LoginTypes> GetLoginTypes() =>
-			await DoRequestAsync<LoginTypes>(new RestRequest(HttpMethod.Get,
+		/// <inheritdoc cref="DoRequestAsync{T}" />
+		public async Task<LoginTypes> GetLoginTypes()
+		{
+			return await DoRequestAsync<LoginTypes>(new RestRequest(HttpMethod.Get,
 				new Uri(Homeserver, Endpoint.LOGIN)));
+		}
 
 		/// <summary>
-		/// Authenticates the user, and issues an access token they can use to authorize themself in subsequent requests.
+		///     Authenticates the user, and issues an access token they can use to authorize themself in subsequent requests.
 		/// </summary>
 		/// <returns></returns>
 		public async Task<LoginResponse> Login(LoginRequestBody requestBody)
@@ -101,6 +111,5 @@ namespace MatrixSharp.Client
 
 			return asReturnType;
 		}
-
 	}
 }

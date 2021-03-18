@@ -3,7 +3,7 @@
 namespace MatrixSharp.Types
 {
 	/// <summary>
-	/// Used by clients to discover identity server information.
+	///     Used by clients to discover identity server information.
 	/// </summary>
 	public struct IdentityServerInformation
 	{

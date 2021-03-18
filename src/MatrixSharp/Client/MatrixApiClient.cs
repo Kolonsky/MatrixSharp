@@ -1,16 +1,15 @@
-﻿using System;
-using System.Net.Http;
-using System.Net.Http.Json;
-using System.Threading.Tasks;
-using MatrixSharp.Api;
+﻿using MatrixSharp.Api;
 using MatrixSharp.Entities;
 using MatrixSharp.Exceptions;
+using System;
+using System.Net.Http;
+using System.Net.Http.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 
 namespace MatrixSharp.Client
 {
-	/// <summary>
-	/// 
-	/// </summary>
 	public class MatrixApiClient
 	{
 		#region Constructor and fields
@@ -106,8 +105,13 @@ namespace MatrixSharp.Client
 		/// <exception cref="UnexpectedApiException"></exception>
 		private async Task<T> DoRequestAsync<T>(RestRequest request)
 		{
+			// Use EnumMemberAttribute to parse enum member value
+			var options = new JsonSerializerOptions
+			{
+				Converters = {new JsonStringEnumMemberConverter()}
+			};
 			var response = await RestClient.SendRequestAsync(request);
-			var asReturnType = await response.Content.ReadFromJsonAsync<T>();
+			var asReturnType = await response.Content.ReadFromJsonAsync<T>(options);
 
 			return asReturnType;
 		}

@@ -1,11 +1,11 @@
-﻿using MatrixSharp.Entities;
-using MatrixSharp.Exceptions;
-using System;
+﻿using System;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using MatrixSharp.Entities;
+using MatrixSharp.Exceptions;
 
 #nullable disable
 namespace MatrixSharp.Client
@@ -48,10 +48,10 @@ namespace MatrixSharp.Client
 			var content = response.Content;
 
 			StandardErrorResponse contentJson;
+			// Use EnumMemberAttribute to parse enum member value
 			var options = new JsonSerializerOptions
 			{
-				// Using Enum member name instead of value
-				Converters = { new JsonStringEnumConverter(JsonNamingPolicy.CamelCase) }
+				Converters = {new JsonStringEnumMemberConverter()}
 			};
 
 			try

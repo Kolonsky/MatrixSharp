@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace MatrixSharp.Entities
 {
@@ -7,6 +8,13 @@ namespace MatrixSharp.Entities
 	/// </summary>
 	public class LoginRequestBody
 	{
+		public enum LoginTypeEnum
+		{
+			[EnumMember(Value = "m.login.password")]
+			Password,
+			[EnumMember(Value = "m.login.token")] Token
+		}
+
 		// TODO: `type` as enum. Different constructors.
 		/// <param name="type"> The login type being used. One of: ["m.login.password", "m.login.token"]</param>
 		/// <param name="identifier">Identification information for the user.</param>
@@ -29,7 +37,8 @@ namespace MatrixSharp.Entities
 		///     A display name to assign to the newly-created device. Ignored if `device_id`
 		///     corresponds to a known device.
 		/// </param>
-		public LoginRequestBody(string type, IIdentifier? identifier = null, string? user = null, string? medium = null,
+		public LoginRequestBody(LoginTypeEnum type, IIdentifier? identifier = null, string? user = null,
+			string? medium = null,
 			string? address = null, string? passwrod = null, string? token = null, string? deviceId = null,
 			string? initialDeviceDisplayName = null)
 		{
@@ -48,7 +57,7 @@ namespace MatrixSharp.Entities
 		///     The login type being used.
 		/// </summary>
 		[JsonPropertyName("type")]
-		public string Type { get; }
+		public LoginTypeEnum Type { get; }
 
 		/// <inheritdoc cref="IIdentifier" />
 		[JsonPropertyName("identifier")]

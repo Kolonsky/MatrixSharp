@@ -3,6 +3,8 @@ using System.Text.Json.Serialization;
 
 namespace MatrixSharp.Entities
 {
+	/// <summary>
+	/// </summary>
 	public class DeactivateAccountResponse
 	{
 		/// <summary>

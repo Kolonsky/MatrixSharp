@@ -57,7 +57,7 @@ namespace MatrixSharp.Client
 
 			try
 			{
-				contentJson = content.ReadFromJsonAsync<StandardErrorResponse>(options).Result;
+				contentJson = content.ReadFromJsonAsync<StandardErrorResponse>(options).Result!;
 			}
 			catch
 			{

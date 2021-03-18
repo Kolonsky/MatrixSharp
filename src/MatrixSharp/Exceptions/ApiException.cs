@@ -41,7 +41,7 @@ namespace MatrixSharp.Exceptions
 		}
 
 
-		/// <inheritdoc cref="System.Net.HttpStatusCode"/>
+		/// <inheritdoc cref="System.Net.HttpStatusCode" />
 		public HttpStatusCode HttpStatusCode { get; set; }
 
 		/// <inheritdoc cref="StandardErrorResponse" />

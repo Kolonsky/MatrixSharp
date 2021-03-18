@@ -11,13 +11,13 @@ namespace MatrixSharp.Exceptions
 	[Serializable]
 	public class UnexpectedApiException : Exception
 	{
-		/// <inheritdoc cref="UnexpectedApiException"/>
+		/// <inheritdoc cref="UnexpectedApiException" />
 		public UnexpectedApiException(string message, HttpResponseMessage response) : base(message)
 		{
 			Response = response;
 		}
 
-		/// <inheritdoc cref="UnexpectedApiException"/>
+		/// <inheritdoc cref="UnexpectedApiException" />
 		public UnexpectedApiException(string message, HttpResponseMessage response, Exception inner) : base(message,
 			inner)
 		{
@@ -35,7 +35,7 @@ namespace MatrixSharp.Exceptions
 			Response = (HttpResponseMessage) info.GetValue(nameof(Response), typeof(HttpResponseMessage));
 		}
 
-		/// <inheritdoc cref="HttpResponseMessage"/>
+		/// <inheritdoc cref="HttpResponseMessage" />
 		public HttpResponseMessage Response { get; set; }
 
 		/// <summary>

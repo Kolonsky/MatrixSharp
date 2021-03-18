@@ -1,5 +1,8 @@
 ﻿namespace MatrixSharp.Api
 {
+	/// <summary>
+	/// Unique constants that can be used to handle the error message.
+	/// </summary>
 	public enum ErrorCode
 	{
 		/// <summary>

@@ -2,10 +2,13 @@
 
 namespace MatrixSharp.Entities
 {
+	/// <summary>
+	///     Request body used to authenticate the user.
+	/// </summary>
 	public class LoginRequestBody
 	{
 		// TODO: `type` as enum. Different constructors.
-		/// <param name="type">The login type being used. One of: ["m.login.password", "m.login.token"]</param>
+		/// <param name="type"> The login type being used. One of: ["m.login.password", "m.login.token"]</param>
 		/// <param name="identifier">Identification information for the user.</param>
 		/// <param name="user">
 		///     The fully qualified user ID or just local part of the user ID, to log in. Deprecated in favour of
@@ -41,29 +44,68 @@ namespace MatrixSharp.Entities
 			InitialDeviceDisplayName = initialDeviceDisplayName;
 		}
 
-		[JsonPropertyName("type")] public string Type { get; }
+		/// <summary>
+		///     The login type being used.
+		/// </summary>
+		[JsonPropertyName("type")]
+		public string Type { get; }
 
-		[JsonPropertyName("identifier")] public object? Identifier { get; }
+		/// <inheritdoc cref="IIdentifier" />
+		[JsonPropertyName("identifier")]
+		public object? Identifier { get; }
 
-		[JsonPropertyName("user")] public string? User { get; }
+		/// <summary>
+		///     The fully qualified user ID or just local part of the user ID, to log in.
+		/// </summary>
+		[JsonPropertyName("user")]
+		public string? User { get; }
 
-		[JsonPropertyName("medium")] public string? Medium { get; }
+		/// <summary>
+		///     When logging in using a third party identifier, the medium of the identifier. Must be 'email'.
+		/// </summary>
+		[JsonPropertyName("medium")]
+		public string? Medium { get; }
 
-		[JsonPropertyName("address")] public string? Address { get; }
+		/// <summary>
+		///     Third party identifier for the user.
+		/// </summary>
+		[JsonPropertyName("address")]
+		public string? Address { get; }
 
-		[JsonPropertyName("password")] public string? Passwrod { get; }
+		/// <summary>
+		///     The user's password.
+		/// </summary>
+		[JsonPropertyName("password")]
+		public string? Passwrod { get; }
 
-		[JsonPropertyName("token")] public string? Token { get; }
+		/// <summary>
+		///     Part of Token-based login.
+		/// </summary>
+		[JsonPropertyName("token")]
+		public string? Token { get; }
 
-		[JsonPropertyName("device_id")] public string? DeviceId { get; }
+		/// <summary>
+		///     ID of the client device.
+		/// </summary>
+		[JsonPropertyName("device_id")]
+		public string? DeviceId { get; }
 
+		/// <summary>
+		///     A display name to assign to the newly-created device.
+		/// </summary>
 		[JsonPropertyName("initial_device_display_name")]
 		public string? InitialDeviceDisplayName { get; }
 
 		#region Identifiers
 
+		/// <summary>
+		///     Identification information for the user.
+		/// </summary>
 		public interface IIdentifier
 		{
+			/// <summary>
+			///     The type of identification.
+			/// </summary>
 			public string Type { get; }
 		}
 
@@ -82,9 +124,15 @@ namespace MatrixSharp.Entities
 				User = user;
 			}
 
-			[JsonPropertyName("user")] public string User { get; }
+			/// <summary>
+			///     user_id or user localpart.
+			/// </summary>
+			[JsonPropertyName("user")]
+			public string User { get; }
 
-			[JsonPropertyName("type")] public string Type => "m.id.user";
+			/// <inheritdoc cref="IIdentifier.Type" />
+			[JsonPropertyName("type")]
+			public string Type => "m.id.user";
 		}
 
 		/// <summary>
@@ -103,11 +151,21 @@ namespace MatrixSharp.Entities
 				Address = address;
 			}
 
-			[JsonPropertyName("medium")] public string Medium { get; }
+			/// <summary>
+			///     The medium of the third party identifier.
+			/// </summary>
+			[JsonPropertyName("medium")]
+			public string Medium { get; }
 
-			[JsonPropertyName("address")] public string Address { get; }
+			/// <summary>
+			///     The canonicalised third party address of the user.
+			/// </summary>
+			[JsonPropertyName("address")]
+			public string Address { get; }
 
-			[JsonPropertyName("type")] public string Type => "m.id.thirdparty";
+			/// <inheritdoc cref="IIdentifier.Type" />
+			[JsonPropertyName("type")]
+			public string Type => "m.id.thirdparty";
 		}
 
 		/// <summary>
@@ -126,11 +184,21 @@ namespace MatrixSharp.Entities
 				PhoneNumber = phoneNumber;
 			}
 
-			[JsonPropertyName("country")] public string Country { get; }
+			/// <summary>
+			///     The country that the phone number is from.
+			/// </summary>
+			[JsonPropertyName("country")]
+			public string Country { get; }
 
-			[JsonPropertyName("phone")] public string PhoneNumber { get; }
+			/// <summary>
+			///     The phone number.
+			/// </summary>
+			[JsonPropertyName("phone")]
+			public string PhoneNumber { get; }
 
-			[JsonPropertyName("type")] public string Type => "m.id.phone";
+			/// <inheritdoc cref="IIdentifier.Type" />
+			[JsonPropertyName("type")]
+			public string Type => "m.id.phone";
 		}
 
 		#endregion

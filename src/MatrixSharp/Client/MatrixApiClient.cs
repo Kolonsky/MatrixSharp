@@ -88,9 +88,9 @@ namespace MatrixSharp.Client
 		/// </summary>
 		/// <returns>The login types the homeserver supports.</returns>
 		/// <inheritdoc cref="DoRequestAsync{T}" />
-		public async Task<LoginTypes> GetLoginTypes()
+		public async Task<LoginTypesResponse> GetLoginTypes()
 		{
-			return await DoRequestAsync<LoginTypes>(new RestRequest(HttpMethod.Get,
+			return await DoRequestAsync<LoginTypesResponse>(new RestRequest(HttpMethod.Get,
 				new Uri(Homeserver, Endpoint.LOGIN)));
 		}
 
@@ -98,10 +98,10 @@ namespace MatrixSharp.Client
 		///     Authenticates the user, and issues an access token they can use to authorize themself in subsequent requests.
 		/// </summary>
 		/// <returns></returns>
-		public async Task<LoginResponse> Login(LoginRequestBody requestBody)
+		public async Task<LoginResponse> Login(LoginRequest request)
 		{
 			return await DoRequestAsync<LoginResponse>(new RestRequest(HttpMethod.Post,
-				new Uri(Homeserver, Endpoint.LOGIN), requestBody));
+				new Uri(Homeserver, Endpoint.LOGIN), request));
 		}
 
 		#endregion

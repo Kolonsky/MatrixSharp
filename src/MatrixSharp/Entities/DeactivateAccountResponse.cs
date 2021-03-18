@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace MatrixSharp.Entities
 {
-	public struct DeactivateAccountResponse
+	public class DeactivateAccountResponse
 	{
 		/// <summary>
 		///     An indicator as to whether or not the homeserver was able to unbind the user's 3PIDs from the identity server(s).

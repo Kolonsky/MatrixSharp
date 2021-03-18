@@ -6,12 +6,12 @@ namespace MatrixSharp.Entities
 	/// <summary>
 	///     Request body used to authenticate the user.
 	/// </summary>
-	public class LoginRequestBody
+	public class LoginRequest
 	{
 		#region Constructor and fields
 
 		// TODO: `type` as enum. Different constructors.
-		/// <inheritdoc cref="LoginRequestBody" />
+		/// <inheritdoc cref="LoginRequest" />
 		/// <param name="type"> The login type being used. One of: ["m.login.password", "m.login.token"]</param>
 		/// <param name="identifier">Identification information for the user.</param>
 		/// <param name="user">
@@ -33,7 +33,7 @@ namespace MatrixSharp.Entities
 		///     A display name to assign to the newly-created device. Ignored if `device_id`
 		///     corresponds to a known device.
 		/// </param>
-		public LoginRequestBody(LoginTypeEnum type, IIdentifier? identifier = null, string? user = null,
+		public LoginRequest(LoginTypeEnum type, IIdentifier? identifier = null, string? user = null,
 			string? medium = null,
 			string? address = null, string? passwrod = null, string? token = null, string? deviceId = null,
 			string? initialDeviceDisplayName = null)

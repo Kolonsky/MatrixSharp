@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using MatrixSharp.Entities;
 using MatrixSharp.Exceptions;
 
-#nullable disable
 namespace MatrixSharp.Client
 {
 	internal class RestClient : IDisposable
@@ -47,6 +46,8 @@ namespace MatrixSharp.Client
 
 			var content = response.Content;
 
+			if (content.Headers.ContentLength == 0) response.EnsureSuccessStatusCode();
+
 			StandardErrorResponse contentJson;
 			// Use EnumMemberAttribute to parse enum member value
 			var options = new JsonSerializerOptions
@@ -60,6 +61,8 @@ namespace MatrixSharp.Client
 			}
 			catch
 			{
+				System.Diagnostics.Debug.WriteLine(
+					$"Got unrecognizable response. Response: {response.Content.ReadAsStringAsync().Result}");
 				throw new UnexpectedApiException(
 					"The server returned an unrecognizable error response.", response);
 			}

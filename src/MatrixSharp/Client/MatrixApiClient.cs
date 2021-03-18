@@ -1,20 +1,25 @@
-﻿using MatrixSharp.Api;
-using MatrixSharp.Entities;
-using MatrixSharp.Exceptions;
-using System;
+﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using MatrixSharp.Api;
+using MatrixSharp.Entities;
+using MatrixSharp.Exceptions;
 
 namespace MatrixSharp.Client
 {
+	/// <summary>
+	///     Client for accessing Matrix endpoints.
+	/// </summary>
 	public class MatrixApiClient
 	{
 		#region Constructor and fields
 
 		/// <summary>
+		///     Creates an instance of MatrixApiClient.
 		/// </summary>
 		/// <param name="homeserver">Homeserver url</param>
 		public MatrixApiClient(Uri homeserver)
@@ -56,10 +61,19 @@ namespace MatrixSharp.Client
 		/// </summary>
 		/// <returns>Server discovery information.</returns>
 		/// <inheritdoc cref="DoRequestAsync{T}" />
-		public async Task<WellKnownResponse> GetWellKnownAsync()
+		public async Task<WellKnownResponse?> GetWellKnownAsync()
 		{
-			return await DoRequestAsync<WellKnownResponse>(new RestRequest(HttpMethod.Get,
-				new Uri(Homeserver, Endpoint.WELLKNOWN)));
+			try
+			{
+				return await DoRequestAsync<WellKnownResponse>(new RestRequest(HttpMethod.Get,
+					new Uri(Homeserver, Endpoint.WELLKNOWN)));
+			}
+			catch (HttpRequestException e)
+			{
+				if (e.StatusCode == HttpStatusCode.NotFound)
+					return null;
+				throw;
+			}
 		}
 
 		#endregion
@@ -100,20 +114,27 @@ namespace MatrixSharp.Client
 
 		#endregion
 
+		#region Tools
+
+#nullable disable
 		/// <exception cref="HttpRequestException"></exception>
 		/// <exception cref="ApiException"></exception>
 		/// <exception cref="UnexpectedApiException"></exception>
 		private async Task<T> DoRequestAsync<T>(RestRequest request)
 		{
+			var response = await RestClient.SendRequestAsync(request);
+
 			// Use EnumMemberAttribute to parse enum member value
 			var options = new JsonSerializerOptions
 			{
 				Converters = {new JsonStringEnumMemberConverter()}
 			};
-			var response = await RestClient.SendRequestAsync(request);
 			var asReturnType = await response.Content.ReadFromJsonAsync<T>(options);
 
 			return asReturnType;
 		}
+#nullable restore
+
+		#endregion
 	}
 }

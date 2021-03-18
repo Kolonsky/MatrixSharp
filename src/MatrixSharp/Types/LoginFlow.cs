@@ -11,6 +11,6 @@ namespace MatrixSharp.Types
 		///     The login type. This is supplied as the `type` when logging in.
 		/// </summary>
 		[JsonPropertyName("type")]
-		public string? Type { get; set; }
+		public string Type { get; set; }
 	}
 }

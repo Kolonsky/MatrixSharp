@@ -11,7 +11,7 @@ namespace MatrixSharp.Entities
 		#region Constructor and fields
 
 		// TODO: `type` as enum. Different constructors.
-		/// <inheritdoc cref="LoginRequestBody"/>
+		/// <inheritdoc cref="LoginRequestBody" />
 		/// <param name="type"> The login type being used. One of: ["m.login.password", "m.login.token"]</param>
 		/// <param name="identifier">Identification information for the user.</param>
 		/// <param name="user">
@@ -49,7 +49,7 @@ namespace MatrixSharp.Entities
 			InitialDeviceDisplayName = initialDeviceDisplayName;
 		}
 
-		/// <inheritdoc cref="LoginTypeEnum"/>
+		/// <inheritdoc cref="LoginTypeEnum" />
 		[JsonPropertyName("type")]
 		public LoginTypeEnum Type { get; }
 
@@ -211,18 +211,18 @@ namespace MatrixSharp.Entities
 		#region Enums
 
 		/// <summary>
-		/// The login type being used. One of: ["m.login.password", "m.login.token"]
+		///     The login type being used. One of: ["m.login.password", "m.login.token"]
 		/// </summary>
 		public enum LoginTypeEnum
 		{
 			/// <summary>
-			/// Password login type.
+			///     Password login type.
 			/// </summary>
 			[EnumMember(Value = "m.login.password")]
 			Password,
 
 			/// <summary>
-			/// Token login type.
+			///     Token login type.
 			/// </summary>
 			[EnumMember(Value = "m.login.token")] Token
 		}

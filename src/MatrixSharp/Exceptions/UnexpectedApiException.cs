@@ -11,17 +11,23 @@ namespace MatrixSharp.Exceptions
 	[Serializable]
 	public class UnexpectedApiException : Exception
 	{
+		/// <inheritdoc cref="UnexpectedApiException"/>
 		public UnexpectedApiException(string message, HttpResponseMessage response) : base(message)
 		{
 			Response = response;
 		}
 
+		/// <inheritdoc cref="UnexpectedApiException"/>
 		public UnexpectedApiException(string message, HttpResponseMessage response, Exception inner) : base(message,
 			inner)
 		{
 			Response = response;
 		}
 
+#nullable disable
+		/// <summary>
+		///     Used to serialize exception.
+		/// </summary>
 		protected UnexpectedApiException(
 			SerializationInfo info,
 			StreamingContext context) : base(info, context)
@@ -29,8 +35,12 @@ namespace MatrixSharp.Exceptions
 			Response = (HttpResponseMessage) info.GetValue(nameof(Response), typeof(HttpResponseMessage));
 		}
 
+		/// <inheritdoc cref="HttpResponseMessage"/>
 		public HttpResponseMessage Response { get; set; }
 
+		/// <summary>
+		///     Used to deserialize exception.
+		/// </summary>
 		public override void GetObjectData(SerializationInfo info, StreamingContext context)
 		{
 			base.GetObjectData(info, context);

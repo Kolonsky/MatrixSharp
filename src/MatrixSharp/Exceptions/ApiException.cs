@@ -41,9 +41,7 @@ namespace MatrixSharp.Exceptions
 		}
 
 
-		/// <summary>
-		///     Represents the HTTP response code received from the server.
-		/// </summary>
+		/// <inheritdoc cref="System.Net.HttpStatusCode"/>
 		public HttpStatusCode HttpStatusCode { get; set; }
 
 		/// <inheritdoc cref="StandardErrorResponse" />

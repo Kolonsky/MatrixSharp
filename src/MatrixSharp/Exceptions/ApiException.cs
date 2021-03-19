@@ -2,6 +2,7 @@
 using System.Net;
 using System.Runtime.Serialization;
 using MatrixSharp.Entities;
+using MatrixSharp.Entities.Responses;
 
 namespace MatrixSharp.Exceptions
 {

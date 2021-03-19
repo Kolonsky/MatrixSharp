@@ -21,6 +21,11 @@
 		M_UNKNOWN_TOKEN,
 
 		/// <summary>
+		/// No access token was specified for the request.
+		/// </summary>
+		M_MISSING_TOKEN,
+
+		/// <summary>
 		///     Request contained valid JSON, but it was malformed.
 		/// </summary>
 		M_BAD_JSON,

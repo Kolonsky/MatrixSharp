@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace MatrixSharp.Entities
+namespace MatrixSharp.Entities.Responses
 {
 	/// <summary>
 	///     The login types the homeserver supports
@@ -8,18 +8,10 @@ namespace MatrixSharp.Entities
 	public class LoginTypesResponse
 	{
 		/// <summary>
-		///     LoginTypesResponse constructor.
-		/// </summary>
-		public LoginTypesResponse(LoginFlow[]? flows)
-		{
-			Flows = flows;
-		}
-
-		/// <summary>
 		///     The homeserver's supported login types
 		/// </summary>
 		[JsonPropertyName("flows")]
-		public LoginFlow[]? Flows { get; }
+		public LoginFlow[]? Flows { get; set; }
 
 		/// <summary>
 		///     The homeserver's supported login type
@@ -27,18 +19,10 @@ namespace MatrixSharp.Entities
 		public class LoginFlow
 		{
 			/// <summary>
-			///     LoginFlow constructor.
-			/// </summary>
-			public LoginFlow(string type)
-			{
-				Type = type;
-			}
-
-			/// <summary>
 			///     The login type. This is supplied as the `type` when logging in.
 			/// </summary>
 			[JsonPropertyName("type")]
-			public string Type { get; }
+			public string? Type { get; set; }
 		}
 	}
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.Json.Serialization;
 
-namespace MatrixSharp.Entities
+namespace MatrixSharp.Entities.Responses
 {
 	/// <summary>
 	/// </summary>

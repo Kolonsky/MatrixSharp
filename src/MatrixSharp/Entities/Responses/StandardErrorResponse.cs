@@ -3,7 +3,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using MatrixSharp.Api;
 
-namespace MatrixSharp.Entities
+namespace MatrixSharp.Entities.Responses
 {
 	/// <summary>
 	///     Represents any errors that occur at the Matrix API level.
@@ -13,12 +13,10 @@ namespace MatrixSharp.Entities
 		/// <summary>
 		///     StandardErrorResponse constructor.
 		/// </summary>
-		public StandardErrorResponse(ErrorCode errorCode, string errorMessage,
-			IDictionary<string, JsonElement>? extensionData)
+		public StandardErrorResponse(ErrorCode errorCode, string errorMessage)
 		{
 			ErrorCode = errorCode;
 			ErrorMessage = errorMessage;
-			ExtensionData = extensionData;
 		}
 
 		/// <summary>

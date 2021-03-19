@@ -12,7 +12,7 @@ namespace MatrixSharp.Client
 	{
 		public RestRequest(HttpMethod method, Uri route, string accessToken = null) : base(method, route)
 		{
-			if (accessToken != null) Headers.Authorization = AuthenticationHeaderValue.Parse(accessToken);
+			if (accessToken != null) Headers.Authorization = AuthenticationHeaderValue.Parse("Bearer " + accessToken);
 		}
 
 		public RestRequest(HttpMethod method, Uri route, object payload, string accessToken = null) : this(method,

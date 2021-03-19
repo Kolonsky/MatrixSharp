@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace MatrixSharp.Entities
+namespace MatrixSharp.Entities.Responses
 {
 	/// <summary>
 	///     Versions of the specification supported by the server.
@@ -11,10 +11,9 @@ namespace MatrixSharp.Entities
 		/// <summary>
 		///     ClientVersionsResponse constructor.
 		/// </summary>
-		public ClientVersionsResponse(string[] versions, Dictionary<string, bool>? unstableFeatures)
+		public ClientVersionsResponse(string[] versions)
 		{
 			Versions = versions;
-			UnstableFeatures = unstableFeatures;
 		}
 
 		/// <summary>
@@ -28,6 +27,6 @@ namespace MatrixSharp.Entities
 		///     indicate that a feature is not supported.
 		/// </summary>
 		[JsonPropertyName("unstable_features")]
-		public Dictionary<string, bool>? UnstableFeatures { get; }
+		public Dictionary<string, bool>? UnstableFeatures { get; set; }
 	}
 }

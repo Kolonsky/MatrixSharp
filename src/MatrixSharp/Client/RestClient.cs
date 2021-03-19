@@ -1,28 +1,16 @@
-﻿using System;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using MatrixSharp.Entities;
+using MatrixSharp.Entities.Responses;
 using MatrixSharp.Exceptions;
 
 namespace MatrixSharp.Client
 {
-	internal class RestClient : IDisposable
+	internal static class RestClient
 	{
-		public RestClient()
-		{
-			HttpClient = new HttpClient();
-		}
-
-		private HttpClient HttpClient { get; }
-
-		public void Dispose()
-		{
-			HttpClient.Dispose();
-		}
-
 		/// <summary>
 		///     Sends request to Matrix API
 		/// </summary>
@@ -31,9 +19,10 @@ namespace MatrixSharp.Client
 		/// <exception cref="HttpRequestException"></exception>
 		/// <exception cref="ApiException"></exception>
 		/// <exception cref="UnexpectedApiException"></exception>
-		public async Task<HttpResponseMessage> SendRequestAsync(RestRequest request)
+		public static async Task<HttpResponseMessage> SendRequestAsync(RestRequest request)
 		{
-			var response = await HttpClient.SendAsync(request);
+			using HttpClient httpClient = new();
+			var response = await httpClient.SendAsync(request);
 			ThrowIfApiError(response);
 
 			return response;

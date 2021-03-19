@@ -1,13 +1,14 @@
-﻿using System;
+﻿using MatrixSharp.Api;
+using MatrixSharp.Entities;
+using MatrixSharp.Entities.Responses;
+using MatrixSharp.Exceptions;
+using System;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using MatrixSharp.Api;
-using MatrixSharp.Entities;
-using MatrixSharp.Exceptions;
 
 namespace MatrixSharp.Client
 {
@@ -26,11 +27,7 @@ namespace MatrixSharp.Client
 		{
 			// TODO: check for valid url
 			Homeserver = homeserver;
-
-			RestClient = new RestClient();
 		}
-
-		private RestClient RestClient { get; }
 
 		/// <summary>
 		///     Homeserver url
@@ -97,7 +94,8 @@ namespace MatrixSharp.Client
 		/// <summary>
 		///     Authenticates the user, and issues an access token they can use to authorize themself in subsequent requests.
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>Login information.</returns>
+		/// <inheritdoc cref="DoRequestAsync{T}" />
 		public async Task<LoginResponse> Login(LoginRequest request)
 		{
 			return await DoRequestAsync<LoginResponse>(new RestRequest(HttpMethod.Post,
@@ -114,20 +112,58 @@ namespace MatrixSharp.Client
 
 		#endregion
 
+		#region Capabilities negotiation
+
+		// TODO: implement endpoints
+
+		#endregion
+
+		#region Filtering
+
+		// TODO: implement endpoints
+
+		#endregion
+
+		#region Events
+
+		#region Syncing
+
+		/// <summary>
+		///     Synchronise the client's state with the latest state on the server.
+		/// </summary>
+		/// <returns>The initial snapshot or delta for the client to use to update their state.</returns>
+		/// <inheritdoc cref="DoRequestAsync{T}" />
+		public async Task<SyncResponse> Sync(SyncRequest request, string accessToken)
+		{
+			return await DoRequestAsync<SyncResponse>(new RestRequest(HttpMethod.Get,
+				new Uri(Homeserver, Endpoint.SYNC), request, accessToken));
+		}
+
+		#endregion
+
+		#endregion
+
 		#region Tools
 
 #nullable disable
 		/// <exception cref="HttpRequestException"></exception>
 		/// <exception cref="ApiException"></exception>
 		/// <exception cref="UnexpectedApiException"></exception>
-		private async Task<T> DoRequestAsync<T>(RestRequest request)
+		private static async Task<T> DoRequestAsync<T>(RestRequest request)
 		{
 			var response = await RestClient.SendRequestAsync(request);
 
+			var pretty = JsonSerializer.Deserialize<object>(response.Content.ReadAsStringAsync().Result, new JsonSerializerOptions {WriteIndented = true}).ToString();
+
+			Console.WriteLine();
+			Console.WriteLine($"\tGot response:");
+			Console.WriteLine(pretty);
+			Console.WriteLine();
+			
 			// Use EnumMemberAttribute to parse enum member value
 			var options = new JsonSerializerOptions
 			{
-				Converters = {new JsonStringEnumMemberConverter()}
+				Converters = { new JsonStringEnumMemberConverter() }
 			};
 			var asReturnType = await response.Content.ReadFromJsonAsync<T>(options);
 

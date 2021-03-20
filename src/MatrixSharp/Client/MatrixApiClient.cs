@@ -153,13 +153,6 @@ namespace MatrixSharp.Client
 		{
 			var response = await RestClient.SendRequestAsync(request);
 
-			var pretty = JsonSerializer.Deserialize<object>(response.Content.ReadAsStringAsync().Result, new JsonSerializerOptions {WriteIndented = true}).ToString();
-
-			Console.WriteLine();
-			Console.WriteLine($"\tGot response:");
-			Console.WriteLine(pretty);
-			Console.WriteLine();
-			
 			// Use EnumMemberAttribute to parse enum member value
 			var options = new JsonSerializerOptions
 			{

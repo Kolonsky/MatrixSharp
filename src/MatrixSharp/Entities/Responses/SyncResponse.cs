@@ -261,7 +261,7 @@ namespace MatrixSharp.Entities.Responses
 		///  	List of events.
 		/// </summary>
 		[JsonPropertyName("events")]
-		public Event? Events { get; set; }
+		public Event[]? Events { get; set; }
 	}
 
 

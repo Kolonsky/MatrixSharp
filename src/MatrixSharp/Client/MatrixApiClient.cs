@@ -1,14 +1,15 @@
-﻿using MatrixSharp.Api;
-using MatrixSharp.Entities;
-using MatrixSharp.Entities.Responses;
-using MatrixSharp.Exceptions;
-using System;
+﻿using System;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using MatrixSharp.Api;
+using MatrixSharp.Entities;
+using MatrixSharp.Entities.Events;
+using MatrixSharp.Entities.Responses;
+using MatrixSharp.Exceptions;
 
 namespace MatrixSharp.Client
 {
@@ -141,6 +142,28 @@ namespace MatrixSharp.Client
 
 		#endregion
 
+		#region Getting events for a room
+
+		#endregion
+
+		#region Sending events to a room
+
+		public async Task<EventResponse> SendStateEvent(object eventBody, string roomId, string eventType, string accessToken)
+		{
+			return await DoRequestAsync<EventResponse>(new RestRequest(HttpMethod.Put,
+				new Uri(Homeserver,
+					Endpoint.ROOMS + roomId + Endpoint.ROOMS_STATE + '/' + eventType), eventBody, accessToken));
+		}
+
+		public async Task<EventResponse> SendEvent(object eventBody, string roomId, string eventType, string accessToken)
+		{
+			return await DoRequestAsync<EventResponse>(new RestRequest(HttpMethod.Put,
+				new Uri(Homeserver,
+					Endpoint.ROOMS + roomId + Endpoint.ROOMS_SEND + '/' + eventType + '/' + "42"), eventBody, accessToken));
+		}
+
+		#endregion
+
 		#endregion
 
 		#region Tools
@@ -156,7 +179,7 @@ namespace MatrixSharp.Client
 			// Use EnumMemberAttribute to parse enum member value
 			var options = new JsonSerializerOptions
 			{
-				Converters = { new JsonStringEnumMemberConverter() }
+				Converters = {new JsonStringEnumMemberConverter()}
 			};
 			var asReturnType = await response.Content.ReadFromJsonAsync<T>(options);
 

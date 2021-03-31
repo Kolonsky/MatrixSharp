@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System.Diagnostics;
+using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -49,7 +50,7 @@ namespace MatrixSharp.Client
 			}
 			catch
 			{
-				System.Diagnostics.Debug.WriteLine(
+				Debug.WriteLine(
 					$"Got unrecognizable response. Response: {response.Content.ReadAsStringAsync().Result}");
 				throw new UnexpectedApiException(
 					"The server returned an unrecognizable error response.", response);

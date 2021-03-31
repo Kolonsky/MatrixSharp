@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MatrixSharp.Entities.Events
+﻿namespace MatrixSharp.Entities.Events
 {
 	public class EventContent
 	{
@@ -14,50 +8,48 @@ namespace MatrixSharp.Entities.Events
 		}
 
 		/// <summary>
-		/// The avatar URL for this user, if any.
+		///     The avatar URL for this user, if any.
 		/// </summary>
 		public string? AvatarUrl { get; set; }
 
 		/// <summary>
-		/// The display name for this user, if any.
+		///     The display name for this user, if any.
 		/// </summary>
 		public string? Displayname { get; set; }
 
 		/// <summary>
-		/// The membership state of the user. One of: ["invite", "join", "knock", "leave", "ban"]
+		///     The membership state of the user. One of: ["invite", "join", "knock", "leave", "ban"]
 		/// </summary>
-		public MembershipEnum Membership { get;}
-		
-		
+		public MembershipEnum Membership { get; }
 	}
 
 	/// <summary>
-	/// The membership state of the user.
+	///     The membership state of the user.
 	/// </summary>
 	public enum MembershipEnum
 	{
 		/// <summary>
-		/// User invited.
+		///     User invited.
 		/// </summary>
 		Invite,
-		
+
 		/// <summary>
-		/// User joined.
+		///     User joined.
 		/// </summary>
 		Join,
-		
+
 		/// <summary>
-		/// Knock-knock. Who's there?
+		///     Knock-knock. Who's there?
 		/// </summary>
 		Knock,
-		
+
 		/// <summary>
-		/// User leaved.
+		///     User leaved.
 		/// </summary>
 		Leave,
-		
+
 		/// <summary>
-		/// User banned.
+		///     User banned.
 		/// </summary>
 		Ban
 	}

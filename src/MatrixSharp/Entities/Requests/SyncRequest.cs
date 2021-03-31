@@ -1,7 +1,7 @@
 ﻿namespace MatrixSharp.Entities
 {
 	/// <summary>
-	/// Request body used to synchronise the client's state with the latest state on the server.
+	///     Request body used to synchronise the client's state with the latest state on the server.
 	/// </summary>
 	public class SyncRequest
 	{
@@ -47,22 +47,22 @@
 		public int? Timeout { get; set; }
 
 		/// <summary>
-		/// Client status.
+		///     Client status.
 		/// </summary>
 		public enum SetPresenceEnum
 		{
 			/// <summary>
-			/// Client is offline.
+			///     Client is offline.
 			/// </summary>
 			Offline,
 
 			/// <summary>
-			/// Client is online.
+			///     Client is online.
 			/// </summary>
 			Online,
 
 			/// <summary>
-			/// Client is unavailable.
+			///     Client is unavailable.
 			/// </summary>
 			Unavailable
 		}

@@ -21,7 +21,7 @@
 		M_UNKNOWN_TOKEN,
 
 		/// <summary>
-		/// No access token was specified for the request.
+		///     No access token was specified for the request.
 		/// </summary>
 		M_MISSING_TOKEN,
 

@@ -1,8 +1,9 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace MatrixSharp.Entities.EventContentTypes.Modules
+namespace MatrixSharp.Entities.Events.EventContentTypes.Modules
 {
-	public class MRoomMessage
+	[MatrixEvent("m.room.message")]
+	public class MRoomMessage : BaseEventContentType
 	{
 		public MRoomMessage(string body, string messageType)
 		{

@@ -1,15 +1,16 @@
-﻿using System.Text.Json;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace MatrixSharp.Entities.Events
 {
 	/// <summary>
 	///     State event.
 	/// </summary>
+	// [JsonConverter(typeof(EventConverter))]
 	public class StateEvent : RoomEvent
 	{
 		/// <inheritdoc cref="StateEvent" />
-		public StateEvent(object content, string type, string eventId, string sender, ulong originServerTs,
+		public StateEvent(BaseEventContentType content, string type, string eventId, string sender,
+			ulong originServerTs,
 			string roomId,
 			string stateKey) : base(content, type, eventId, sender, originServerTs, roomId)
 		{

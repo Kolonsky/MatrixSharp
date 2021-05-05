@@ -23,7 +23,7 @@ namespace MatrixSharp.Entities
 		///     Deprecated in favour of <see cref="IIdentifier" />.
 		/// </param>
 		/// <param name="address">Third party identifier for the user. Deprecated in favour of <see cref="IIdentifier" />.</param>
-		/// <param name="passwrod">Required when `type` is `m.login.password`. The user's password.</param>
+		/// <param name="password">Required when `type` is `m.login.password`. The user's password.</param>
 		/// <param name="token">Required when `type` is `m.login.token`. Part of Token-based login.</param>
 		/// <param name="deviceId">
 		///     ID of the client device. If this does not correspond to a known client device, a new device will
@@ -35,7 +35,7 @@ namespace MatrixSharp.Entities
 		/// </param>
 		public LoginRequest(LoginTypeEnum type, IIdentifier? identifier = null, string? user = null,
 			string? medium = null,
-			string? address = null, string? passwrod = null, string? token = null, string? deviceId = null,
+			string? address = null, string? password = null, string? token = null, string? deviceId = null,
 			string? initialDeviceDisplayName = null)
 		{
 			Type = type;
@@ -43,7 +43,7 @@ namespace MatrixSharp.Entities
 			User = user;
 			Medium = medium;
 			Address = address;
-			Passwrod = passwrod;
+			Password = password;
 			Token = token;
 			DeviceId = deviceId;
 			InitialDeviceDisplayName = initialDeviceDisplayName;
@@ -79,7 +79,7 @@ namespace MatrixSharp.Entities
 		///     The user's password.
 		/// </summary>
 		[JsonPropertyName("password")]
-		public string? Passwrod { get; }
+		public string? Password { get; }
 
 		/// <summary>
 		///     Part of Token-based login.

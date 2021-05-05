@@ -7,7 +7,6 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using MatrixSharp.Api;
 using MatrixSharp.Entities;
-using MatrixSharp.Entities.Events;
 using MatrixSharp.Entities.Responses;
 using MatrixSharp.Exceptions;
 
@@ -148,18 +147,21 @@ namespace MatrixSharp.Client
 
 		#region Sending events to a room
 
-		public async Task<EventResponse> SendStateEvent(object eventBody, string roomId, string eventType, string accessToken)
+		public async Task<EventResponse> SendStateEvent(object eventBody, string roomId, string eventType,
+			string accessToken)
 		{
 			return await DoRequestAsync<EventResponse>(new RestRequest(HttpMethod.Put,
 				new Uri(Homeserver,
 					Endpoint.ROOMS + roomId + Endpoint.ROOMS_STATE + '/' + eventType), eventBody, accessToken));
 		}
 
-		public async Task<EventResponse> SendEvent(object eventBody, string roomId, string eventType, string accessToken)
+		public async Task<EventResponse> SendEvent(object eventBody, string roomId, string eventType,
+			string accessToken)
 		{
 			return await DoRequestAsync<EventResponse>(new RestRequest(HttpMethod.Put,
 				new Uri(Homeserver,
-					Endpoint.ROOMS + roomId + Endpoint.ROOMS_SEND + '/' + eventType + '/' + "42"), eventBody, accessToken));
+					Endpoint.ROOMS + roomId + Endpoint.ROOMS_SEND + '/' + eventType + '/' + "42"), eventBody,
+				accessToken));
 		}
 
 		#endregion
@@ -177,6 +179,8 @@ namespace MatrixSharp.Client
 			var response = await RestClient.SendRequestAsync(request);
 
 			// Use EnumMemberAttribute to parse enum member value
+
+
 			var options = new JsonSerializerOptions
 			{
 				Converters = {new JsonStringEnumMemberConverter()}

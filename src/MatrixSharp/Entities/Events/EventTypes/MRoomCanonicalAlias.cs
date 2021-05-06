@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace MatrixSharp.Entities.Events.EventContentTypes
+namespace MatrixSharp.Entities.Events.EventTypes
 {
 	/// <summary>
 	///     This event is used to inform the room about which alias should be considered the canonical one, and which other
@@ -8,7 +8,7 @@ namespace MatrixSharp.Entities.Events.EventContentTypes
 	///     advertise and access the room.
 	/// </summary>
 	[MatrixEvent("m.room.canonical_alias")]
-	public class MRoomCanonicalAlias : BaseEventContentType
+	public class MRoomCanonicalAlias : BaseEventType
 	{
 		/// <summary>
 		///     The canonical alias for the room. If not present, null, or empty the room should be considered to have no canonical

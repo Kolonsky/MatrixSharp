@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Text.Json;
@@ -7,72 +6,152 @@ using System.Text.Json.Serialization;
 
 namespace MatrixSharp.Entities.Events
 {
-	internal class EventConverter : JsonConverter<Event>
+	internal class EventConverter<T> : JsonConverter<T> where T : Event
 	{
-		public override Event Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+		public override T? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
 		{
-			if (reader.TokenType != JsonTokenType.StartObject) throw new JsonException();
+			if (reader.TokenType != JsonTokenType.StartObject)
+				throw new JsonException("Expected StartObject token.");
 
-			string type = "";
+			// Parameters
+			BaseEventType content = null;
+			string type = null;
+			string eventId = null;
+			string sender = null;
+			ulong originServerTs = default;
+			string roomId = null;
+			string stateKey = null;
+
+			// Properties
+			RoomEvent.UnsignedData? unsigned = null;
+			StateEvent.EventContent? previousContent = null;
+
 			Type? contentType = null;
-			Event mEvent = null!;
 
 			while (reader.Read())
 			{
 				if (reader.TokenType == JsonTokenType.EndObject)
 				{
-					return mEvent ?? throw new JsonException();
+					if (stateKey != null)
+						return new StateEvent(content, type, eventId, sender, originServerTs, roomId, stateKey) as T;
+					if (eventId != null)
+						return new RoomEvent(content, type, eventId, sender, originServerTs, roomId) as T;
+					if (type != null) return new Event(content, type) as T;
+
+					throw new JsonException("Return statement expected.");
 				}
 
-				if (reader.TokenType != JsonTokenType.PropertyName) throw new JsonException();
+				if (reader.TokenType != JsonTokenType.PropertyName)
+					throw new JsonException("Expected PropertyName token.");
 
-				var propertyName = reader.GetString();
+				var propName = reader.GetString();
+				reader.Read();
 
-				switch (propertyName)
+				switch (propName)
 				{
 					case "type":
 					{
-						reader.Read();
-						type = reader.GetString() ?? "";
-
-						contentType = Assembly
-							.GetExecutingAssembly()
-							.GetTypes()
-							.FirstOrDefault(t => (
-								                     t.BaseType != typeof(BaseEventContentType)
-								                     || t.GetCustomAttribute<MatrixEventAttribute>() != null)
-							                     && t.GetCustomAttribute<MatrixEventAttribute>()?.EventType == type);
-						if (contentType == null) contentType = typeof(BaseEventContentType);
+						type = reader.GetString()!;
+						contentType = GetContentTypeFromString(type);
 					}
 						break;
 					case "content":
 					{
+						if (type == null)
+						{
+							type = FindContentTypeString(reader);
+							contentType = GetContentTypeFromString(type);
+						}
+
 						if (contentType == null)
-							// TODO: Handling situations where the type parameter does not come first
-							throw new JsonException("Wrong parameters positioning in json. Type should be first.");
+							throw new JsonException("Content type not defined.");
 
-						reader.Read();
-						var content =
-							JsonSerializer.Deserialize(ref reader, contentType, options) as BaseEventContentType;
-
-						mEvent = new Event(content, type);
+						content =
+							(JsonSerializer.Deserialize(ref reader, contentType, options) as BaseEventType)!;
 					}
 						break;
-
-					default:
+					case "event_id":
 					{
-						reader.TrySkip();
+						eventId = reader.GetString()!;
+					}
+						break;
+					case "sender":
+					{
+						sender = reader.GetString()!;
+					}
+						break;
+					case "origin_server_ts":
+					{
+						originServerTs = reader.GetUInt64();
+					}
+						break;
+					case "unsigned":
+					{
+						unsigned =
+							JsonSerializer.Deserialize(ref reader, typeof(RoomEvent.UnsignedData), options) as
+								RoomEvent.UnsignedData;
+					}
+						break;
+					case "room_id":
+					{
+						roomId = reader.GetString()!;
+					}
+						break;
+					case "state_key":
+					{
+						stateKey = reader.GetString()!;
+					}
+						break;
+					case "prev_content":
+					{
+						previousContent =
+							JsonSerializer.Deserialize(ref reader, typeof(StateEvent.EventContent), options) as
+								StateEvent.EventContent;
 					}
 						break;
 				}
 			}
 
-			throw new JsonException();
+			throw new JsonException("Expected EndObject token.");
 		}
 
-		public override void Write(Utf8JsonWriter writer, Event value, JsonSerializerOptions options)
+		public override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
 		{
 			throw new NotImplementedException();
+		}
+
+		internal static Type GetContentTypeFromString(string type)
+		{
+			return Assembly
+				       .GetExecutingAssembly()
+				       .GetTypes()
+				       .FirstOrDefault
+				       (t =>
+					       (t.BaseType != typeof(BaseEventType) ||
+					        t.GetCustomAttribute<MatrixEventAttribute>() != null)
+					       && t.GetCustomAttribute<MatrixEventAttribute>()?.EventType == type)
+			       ?? typeof(BaseEventType);
+		}
+
+		internal static string FindContentTypeString(Utf8JsonReader reader)
+		{
+			reader.TrySkip();
+
+			var result = string.Empty;
+			while (reader.Read())
+			{
+				if (reader.TokenType == JsonTokenType.EndObject) return result;
+
+				if (reader.TokenType != JsonTokenType.PropertyName)
+					throw new JsonException("Expected PropertyName token");
+
+				var propName = reader.GetString();
+				reader.Read();
+
+				if (propName == "type") return reader.GetString()!;
+			}
+
+			throw new JsonException("Return statement expected");
 		}
 	}
 }

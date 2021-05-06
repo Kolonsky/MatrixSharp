@@ -170,7 +170,7 @@ namespace MatrixSharp.Entities.Responses
 	public class StrippedState
 	{
 		///
-		public StrippedState(EventContent content, string stateKey, string type, string sender)
+		public StrippedState(StateEvent.EventContent content, string stateKey, string type, string sender)
 		{
 			Content = content;
 			StateKey = stateKey;
@@ -182,7 +182,7 @@ namespace MatrixSharp.Entities.Responses
 		///     The <see cref="Content" /> for the event.
 		/// </summary>
 		[JsonPropertyName("content")]
-		public EventContent Content { get; }
+		public StateEvent.EventContent Content { get; }
 
 		/// <summary>
 		///     The <see cref="Sender" /> for the event.

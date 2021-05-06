@@ -5,11 +5,11 @@ namespace MatrixSharp.Entities.Events
 	/// <summary>
 	///     State event.
 	/// </summary>
-	// [JsonConverter(typeof(EventConverter))]
+	[JsonConverter(typeof(EventConverter<StateEvent>))]
 	public class StateEvent : RoomEvent
 	{
 		/// <inheritdoc cref="StateEvent" />
-		public StateEvent(BaseEventContentType content, string type, string eventId, string sender,
+		public StateEvent(BaseEventType content, string type, string eventId, string sender,
 			ulong originServerTs,
 			string roomId,
 			string stateKey) : base(content, type, eventId, sender, originServerTs, roomId)
@@ -31,5 +31,59 @@ namespace MatrixSharp.Entities.Events
 		/// </summary>
 		[JsonPropertyName("prev_content")]
 		public EventContent? PreviousContent { get; set; }
+
+		public class EventContent
+		{
+			public EventContent(MembershipEnum membership)
+			{
+				Membership = membership;
+			}
+
+			/// <summary>
+			///     The avatar URL for this user, if any.
+			/// </summary>
+			public string? AvatarUrl { get; set; }
+
+			/// <summary>
+			///     The display name for this user, if any.
+			/// </summary>
+			public string? Displayname { get; set; }
+
+			/// <summary>
+			///     The membership state of the user. One of: ["invite", "join", "knock", "leave", "ban"]
+			/// </summary>
+			public MembershipEnum Membership { get; }
+		}
+
+		/// <summary>
+		///     The membership state of the user.
+		/// </summary>
+		public enum MembershipEnum
+		{
+			/// <summary>
+			///     User invited.
+			/// </summary>
+			Invite,
+
+			/// <summary>
+			///     User joined.
+			/// </summary>
+			Join,
+
+			/// <summary>
+			///     Knock-knock. Who's there?
+			/// </summary>
+			Knock,
+
+			/// <summary>
+			///     User leaved.
+			/// </summary>
+			Leave,
+
+			/// <summary>
+			///     User banned.
+			/// </summary>
+			Ban
+		}
 	}
 }

@@ -5,11 +5,11 @@ namespace MatrixSharp.Entities.Events
 	/// <summary>
 	///     Room event.
 	/// </summary>
-	// [JsonConverter(typeof(EventConverter))]
+	[JsonConverter(typeof(EventConverter<RoomEvent>))]
 	public class RoomEvent : Event
 	{
 		/// <inheritdoc cref="RoomEvent" />
-		public RoomEvent(BaseEventContentType content, string type, string eventId, string sender, ulong originServerTs,
+		public RoomEvent(BaseEventType content, string type, string eventId, string sender, ulong originServerTs,
 			string roomId)
 			: base(content, type)
 		{

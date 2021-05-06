@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace MatrixSharp.Entities.Events
 {
-	public class BaseEventContentType
+	public class BaseEventType
 	{
 		[JsonExtensionData] public IDictionary<string, JsonElement> ExtensionData { get; set; }
 	}

@@ -7,6 +7,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using MatrixSharp.Api;
 using MatrixSharp.Entities;
+using MatrixSharp.Entities.Events.MatrixEventContent;
 using MatrixSharp.Entities.Responses;
 using MatrixSharp.Exceptions;
 
@@ -147,20 +148,20 @@ namespace MatrixSharp.Client
 
 		#region Sending events to a room
 
-		public async Task<EventResponse> SendStateEvent(object eventBody, string roomId, string eventType,
+		public async Task<EventResponse> SendStateEvent(BaseMatrixEventContent eventContent, string roomId, string eventType,
 			string accessToken)
 		{
 			return await DoRequestAsync<EventResponse>(new RestRequest(HttpMethod.Put,
 				new Uri(Homeserver,
-					Endpoint.ROOMS + roomId + Endpoint.ROOMS_STATE + '/' + eventType), eventBody, accessToken));
+					Endpoint.ROOMS + roomId + Endpoint.ROOMS_STATE + '/' + eventType), eventContent, accessToken));
 		}
 
-		public async Task<EventResponse> SendEvent(object eventBody, string roomId, string eventType,
+		public async Task<EventResponse> SendEvent(BaseMatrixEventContent eventContent, string roomId, string eventType,
 			string accessToken)
 		{
 			return await DoRequestAsync<EventResponse>(new RestRequest(HttpMethod.Put,
 				new Uri(Homeserver,
-					Endpoint.ROOMS + roomId + Endpoint.ROOMS_SEND + '/' + eventType + '/' + "42"), eventBody,
+					Endpoint.ROOMS + roomId + Endpoint.ROOMS_SEND + '/' + eventType + '/' + "42"), eventContent,
 				accessToken));
 		}
 

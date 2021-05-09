@@ -1,12 +1,12 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace MatrixSharp.Entities.Events.EventTypes
+namespace MatrixSharp.Entities.Events.MatrixEventContent
 {
 	/// <summary>
 	///     This is the first event in a room and cannot be changed. It acts as the root of all other events.
 	/// </summary>
 	[MatrixEvent("m.room.create")]
-	public class MRoomCreate : BaseEventType
+	public class MRoomCreate : BaseMatrixEventContent
 	{
 		/// <inheritdoc cref="MRoomCreate" />
 		public MRoomCreate(string creator)

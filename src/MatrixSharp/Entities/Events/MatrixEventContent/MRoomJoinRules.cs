@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace MatrixSharp.Entities.Events.EventTypes
+namespace MatrixSharp.Entities.Events.MatrixEventContent
 {
 	/// <summary>
 	///     A room may be public meaning anyone can join the room without any prior action. Alternatively, it can be invite
@@ -8,7 +8,7 @@ namespace MatrixSharp.Entities.Events.EventTypes
 	///     inside of the room. Currently, knock and private are reserved keywords which are not implemented.
 	/// </summary>
 	[MatrixEvent("m.room.join_rules")]
-	public class MRoomJoinRules : BaseEventType
+	public class MRoomJoinRules : BaseMatrixEventContent
 	{
 		/// <inheritdoc cref="MRoomJoinRules" />
 		public MRoomJoinRules(JoinRuleEnum joinRule)

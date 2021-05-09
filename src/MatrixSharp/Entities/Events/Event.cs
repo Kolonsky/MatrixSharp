@@ -1,15 +1,17 @@
 ﻿using System.Text.Json.Serialization;
+using MatrixSharp.Entities.Events.MatrixEventContent;
+using MatrixSharp.Tools;
 
 namespace MatrixSharp.Entities.Events
 {
 	/// <summary>
 	///     Base event. The basic set of fields all events must have.
 	/// </summary>
-	[JsonConverter(typeof(EventConverter<Event>))]
+	[JsonConverter(typeof(ConverterTools.EventConverter<Event>))]
 	public class Event
 	{
 		/// <inheritdoc cref="Event" />
-		public Event(BaseEventType content, string type)
+		public Event(BaseMatrixEventContent content, string type)
 		{
 			Type = type;
 			Content = content;
@@ -20,7 +22,7 @@ namespace MatrixSharp.Entities.Events
 		///     HTTP body.
 		/// </summary>
 		[JsonPropertyName("content")]
-		public BaseEventType Content { get; }
+		public BaseMatrixEventContent Content { get; }
 
 		/// <summary>
 		///     The type of event. This SHOULD be namespaced similar to Java package naming conventions e.g.

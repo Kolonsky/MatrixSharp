@@ -1,15 +1,18 @@
 ﻿using System.Text.Json.Serialization;
+using MatrixSharp.Entities.Events.MatrixEventContent;
+using MatrixSharp.Tools;
 
 namespace MatrixSharp.Entities.Events
 {
 	/// <summary>
 	///     Room event.
 	/// </summary>
-	[JsonConverter(typeof(EventConverter<RoomEvent>))]
+	[JsonConverter(typeof(ConverterTools.EventConverter<RoomEvent>))]
 	public class RoomEvent : Event
 	{
 		/// <inheritdoc cref="RoomEvent" />
-		public RoomEvent(BaseEventType content, string type, string eventId, string sender, ulong originServerTs,
+		public RoomEvent(BaseMatrixEventContent content, string type, string eventId, string sender,
+			ulong originServerTs,
 			string roomId)
 			: base(content, type)
 		{

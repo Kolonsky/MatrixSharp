@@ -1,11 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using MatrixSharp.Entities.Events;
+using MatrixSharp.Entities.Requests;
 
 namespace MatrixSharp.Entities.Responses
 {
+	/// <summary>
+	///     Latest state on the server.
+	/// </summary>
 	public class SyncResponse
 	{
+		/// <inheritdoc cref="SyncResponse" />
 		public SyncResponse(string nextBatch)
 		{
 			NextBatch = nextBatch;
@@ -16,9 +21,7 @@ namespace MatrixSharp.Entities.Responses
 		/// </summary>
 		public string NextBatch { get; }
 
-		/// <summary>
-		///     Updates to rooms.
-		/// </summary>
+		/// <inheritdoc cref="Rooms" />
 		[JsonPropertyName("rooms")]
 		public Rooms? Rooms { get; set; }
 
@@ -89,7 +92,7 @@ namespace MatrixSharp.Entities.Responses
 		[JsonPropertyName("timeline")]
 		public Timeline? Timeline { get; set; }
 
-		// Unread Notification Counts
+		// TODO: Unread Notification Counts
 	}
 
 	/// <summary>
@@ -109,7 +112,7 @@ namespace MatrixSharp.Entities.Responses
 	/// </summary>
 	public class Timeline
 	{
-		/// <inheritdoc cref="Responses.Timeline" />
+		/// <inheritdoc cref="Timeline" />
 		public Timeline(bool limited)
 		{
 			Limited = limited;
@@ -166,10 +169,12 @@ namespace MatrixSharp.Entities.Responses
 		public StrippedState[]? StrippedStateEvents { get; set; }
 	}
 
-	///
+	/// <summary>
+	///     Additional event data.
+	/// </summary>
 	public class StrippedState
 	{
-		///
+		/// <inheritdoc cref="StrippedState" />
 		public StrippedState(StateEvent.EventContent content, string stateKey, string type, string sender)
 		{
 			Content = content;
@@ -179,25 +184,25 @@ namespace MatrixSharp.Entities.Responses
 		}
 
 		/// <summary>
-		///     The <see cref="Content" /> for the event.
+		///     The content for the event.
 		/// </summary>
 		[JsonPropertyName("content")]
 		public StateEvent.EventContent Content { get; }
 
 		/// <summary>
-		///     The <see cref="Sender" /> for the event.
+		///     The sender for the event.
 		/// </summary>
 		[JsonPropertyName("sender")]
 		public string Sender { get; }
 
 		/// <summary>
-		///     The <see cref="StateKey" /> for the event.
+		///     The state_key for the event.
 		/// </summary>
 		[JsonPropertyName("state_key")]
 		public string StateKey { get; }
 
 		/// <summary>
-		///     The <see cref="Type" /> for the event.
+		///     The type for the event.
 		/// </summary>
 		[JsonPropertyName("type")]
 		public string Type { get; }
@@ -208,21 +213,15 @@ namespace MatrixSharp.Entities.Responses
 	/// </summary>
 	public class LeftRoom
 	{
-		/// <summary>
-		///     The state updates for the room up to the start of the timeline.
-		/// </summary>
+		/// <inheritdoc cref="State" />
 		[JsonPropertyName("state")]
 		public State? State { get; set; }
 
-		/// <summary>
-		///     The timeline of messages and state changes in the room up to the point when the user left.
-		/// </summary>
+		/// <inheritdoc cref="Timeline" />
 		[JsonPropertyName("timeline")]
 		public Timeline? Timeline { get; set; }
 
-		/// <summary>
-		///     The private data that this user has attached to this room.
-		/// </summary>
+		/// <inheritdoc cref="AccountData" />
 		[JsonPropertyName("account_data")]
 		public AccountData? AccountData { get; set; }
 	}
@@ -263,6 +262,9 @@ namespace MatrixSharp.Entities.Responses
 		public int? JoinedMemberCount { get; set; }
 	}
 
+	/// <summary>
+	///     The state updates for the room up to the start of the timeline.
+	/// </summary>
 	public class State
 	{
 		/// <summary>

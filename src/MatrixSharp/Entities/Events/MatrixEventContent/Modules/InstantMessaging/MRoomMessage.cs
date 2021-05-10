@@ -1,15 +1,22 @@
-﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
-using System.Text.Json;
+﻿using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
-using MatrixSharp.Tools;
 
 namespace MatrixSharp.Entities.Events.MatrixEventContent.Modules.InstantMessaging
 {
+	// TODO: Converter for MRoomMessage types.
+	/// <summary>
+	///     This event is used when sending messages in a room. Messages are not limited to be text. The
+	///     <see cref="MessageType" /> key outlines
+	///     the type of message, e.g. text, audio, image, video, etc. The <see cref="Body" /> key is text and MUST be used with
+	///     every kind of
+	///     <see cref="MessageType" /> as a fallback mechanism for when a client cannot render a message. This allows clients
+	///     to display something
+	///     even if it is just plain text.
+	/// </summary>
 	[MatrixEvent("m.room.message")]
-	// TODO: Converter for MRoomMessage.
 	public class MRoomMessage : BaseMatrixEventContent
 	{
+		/// <inheritdoc cref="MRoomMessage" />
 		public MRoomMessage(string body, MessageTypeEnum messageType)
 		{
 			Body = body;
@@ -25,11 +32,6 @@ namespace MatrixSharp.Entities.Events.MatrixEventContent.Modules.InstantMessagin
 		/// <inheritdoc cref="MessageTypeEnum" />
 		[JsonPropertyName("msgtype")]
 		public MessageTypeEnum MessageType { get; }
-
-		public override string ToString()
-		{
-			return Body;
-		}
 	}
 
 	/// <summary>
@@ -83,9 +85,14 @@ namespace MatrixSharp.Entities.Events.MatrixEventContent.Modules.InstantMessagin
 		[EnumMember(Value = "m.video")] Video
 	}
 
+
+	/// <summary>
+	///     This message is the most basic message and is used to represent text.
+	/// </summary>
 	[MatrixEvent("m.room.message", "m.text")]
 	public class MRoomMessageText : MRoomMessage
 	{
+		/// <inheritdoc cref="MRoomMessageText" />
 		public MRoomMessageText(string body, MessageTypeEnum messageType) : base(body, messageType)
 		{
 		}
@@ -103,9 +110,15 @@ namespace MatrixSharp.Entities.Events.MatrixEventContent.Modules.InstantMessagin
 		public string? FormattedBody { get; set; }
 	}
 
+	/// <summary>
+	///     This message is similar to `m.text` except that the sender is ‘performing’ the action contained in the `body` key,
+	///     similar to */me* in IRC. This message should be prefixed by the name of the sender. This message could also be
+	///     represented in a different color to distinguish it from regular `m.text` messages.
+	/// </summary>
 	[MatrixEvent("m.room.message", "m.emote")]
 	public class MRoomMessageEmote : MRoomMessage
 	{
+		/// <inheritdoc cref="MRoomMessageEmote" />
 		public MRoomMessageEmote(string body, MessageTypeEnum messageType) : base(body, messageType)
 		{
 		}
@@ -123,9 +136,19 @@ namespace MatrixSharp.Entities.Events.MatrixEventContent.Modules.InstantMessagin
 		public string? FormattedBody { get; set; }
 	}
 
+	/// <summary>
+	///     The `m.notice` type is primarily intended for responses from automated clients. An `m.notice` message must be
+	///     treated
+	///     the same way as a regular `m.text` message with two exceptions. Firstly, clients should present `m.notice` messages
+	///     to
+	///     users in a distinct manner, and secondly, `m.notice` messages must never be automatically responded to. This helps
+	///     to
+	///     prevent infinite-loop situations where two automated clients continuously exchange messages.
+	/// </summary>
 	[MatrixEvent("m.room.message", "m.notice")]
 	public class MRoomMessageNotice : MRoomMessage
 	{
+		/// <inheritdoc cref="MRoomMessageNotice" />
 		public MRoomMessageNotice(string body, MessageTypeEnum messageType) : base(body, messageType)
 		{
 		}
@@ -143,16 +166,18 @@ namespace MatrixSharp.Entities.Events.MatrixEventContent.Modules.InstantMessagin
 		public string? FormattedBody { get; set; }
 	}
 
+	/// <summary>
+	///     This message represents a single image and an optional thumbnail.
+	/// </summary>
 	[MatrixEvent("m.room.message", "m.image")]
 	public class MRoomMessageImage : MRoomMessage
 	{
+		/// <inheritdoc cref="MRoomMessageImage" />
 		public MRoomMessageImage(string body, MessageTypeEnum messageType) : base(body, messageType)
 		{
 		}
 
-		/// <summary>
-		///     Metadata about the image referred to in url.
-		/// </summary>
+		/// <inheritdoc cref="ImageInfo" />
 		public ImageInfo? Info { get; set; }
 
 		/// <summary>
@@ -165,9 +190,13 @@ namespace MatrixSharp.Entities.Events.MatrixEventContent.Modules.InstantMessagin
 		// public EncryptedFile? File{ get; set; }
 	}
 
+	/// <summary>
+	///     This message represents a generic file.
+	/// </summary>
 	[MatrixEvent("m.room.message", "m.file")]
 	public class MRoomMessageFile : MRoomMessage
 	{
+		/// <inheritdoc cref="MRoomMessageFile" />
 		public MRoomMessageFile(string body, MessageTypeEnum messageType) : base(body, messageType)
 		{
 		}
@@ -178,9 +207,7 @@ namespace MatrixSharp.Entities.Events.MatrixEventContent.Modules.InstantMessagin
 		[JsonPropertyName("filename")]
 		public string? Filename { get; set; }
 
-		/// <summary>
-		///     Information about the file referred to in url.
-		/// </summary>
+		/// <inheritdoc cref="FileInfo" />
 		[JsonPropertyName("info")]
 		public FileInfo? FileInfo { get; set; }
 
@@ -196,6 +223,10 @@ namespace MatrixSharp.Entities.Events.MatrixEventContent.Modules.InstantMessagin
 
 	// TODO: implement the remaining types
 
+
+	/// <summary>
+	///     Metadata about the image referred to in `url`.
+	/// </summary>
 	public class ImageInfo
 	{
 		/// <summary>
@@ -232,13 +263,14 @@ namespace MatrixSharp.Entities.Events.MatrixEventContent.Modules.InstantMessagin
 		// [JsonPropertyName("thumbnail_file")]
 		// public EncryptedFile? ThumbnailFile { get; set; }
 
-		/// <summary>
-		///     Metadata about the image referred to in thumbnail_url.
-		/// </summary>
+		/// <inheritdoc cref="ThumbnailInfo" />
 		[JsonPropertyName("thumbnail_info")]
 		public ThumbnailInfo? ThumbnailInfo { get; set; }
 	}
 
+	/// <summary>
+	///     Information about the file referred to in `url`.
+	/// </summary>
 	public class FileInfo
 	{
 		/// <summary>
@@ -262,13 +294,14 @@ namespace MatrixSharp.Entities.Events.MatrixEventContent.Modules.InstantMessagin
 		// [JsonPropertyName("thumbnail_file")]
 		// public EncryptedFile? ThumbnailFile { get; set; }
 
-		/// <summary>
-		///     Metadata about the image referred to in thumbnail_url.
-		/// </summary>
+		/// <inheritdoc cref="ThumbnailInfo" />
 		[JsonPropertyName("thumbnail_info")]
 		public ThumbnailInfo? ThumbnailInfo { get; set; }
 	}
 
+	/// <summary>
+	///     Metadata about the image referred to in `thumbnail_url`.
+	/// </summary>
 	public class ThumbnailInfo
 	{
 		/// <summary>

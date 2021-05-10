@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 using MatrixSharp.Entities.Events.MatrixEventContent;
 using MatrixSharp.Tools;
 
@@ -28,14 +29,19 @@ namespace MatrixSharp.Entities.Events
 		[JsonPropertyName("state_key")]
 		public string StateKey { get; }
 
-		/// <summary>
+		/// <inheritdoc cref="EventContent" />
+		/// <remarks>
 		///     Optional. The previous content for this event. If there is no previous content, this key will be missing.
-		/// </summary>
+		/// </remarks>
 		[JsonPropertyName("prev_content")]
 		public EventContent? PreviousContent { get; set; }
 
+		/// <summary>
+		///     Content of event.
+		/// </summary>
 		public class EventContent
 		{
+			/// <inheritdoc cref="EventContent" />
 			public EventContent(MembershipEnum membership)
 			{
 				Membership = membership;
@@ -59,9 +65,7 @@ namespace MatrixSharp.Entities.Events
 			[JsonPropertyName("is_direct")]
 			public bool? IsDirect { get; set; }
 
-			/// <summary>
-			///     The membership state of the user. One of: ["invite", "join", "knock", "leave", "ban"]
-			/// </summary>
+			/// <inheritdoc cref="MembershipEnum" />
 			public MembershipEnum Membership { get; }
 
 			/// <summary>
@@ -86,27 +90,27 @@ namespace MatrixSharp.Entities.Events
 			/// <summary>
 			///     User invited.
 			/// </summary>
-			Invite,
+			[EnumMember(Value = "invite")] Invite,
 
 			/// <summary>
 			///     User joined.
 			/// </summary>
-			Join,
+			[EnumMember(Value = "join")] Join,
 
 			/// <summary>
 			///     Knock-knock. Who's there?
 			/// </summary>
-			Knock,
+			[EnumMember(Value = "knock")] Knock,
 
 			/// <summary>
 			///     User leaved.
 			/// </summary>
-			Leave,
+			[EnumMember(Value = "leave")] Leave,
 
 			/// <summary>
 			///     User banned.
 			/// </summary>
-			Ban
+			[EnumMember(Value = "ban")] Ban
 		}
 	}
 }

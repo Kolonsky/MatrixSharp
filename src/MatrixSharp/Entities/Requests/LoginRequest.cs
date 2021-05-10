@@ -1,11 +1,12 @@
 ﻿using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
-namespace MatrixSharp.Entities
+namespace MatrixSharp.Entities.Requests
 {
 	/// <summary>
 	///     Request body used to authenticate the user.
 	/// </summary>
+	// TODO: Rewrite completely.
 	public class LoginRequest
 	{
 		#region Constructor and fields

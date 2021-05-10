@@ -3,7 +3,7 @@
 namespace MatrixSharp.Entities.Responses
 {
 	/// <summary>
-	///     Event response
+	///     Event response.
 	/// </summary>
 	public class EventResponse
 	{

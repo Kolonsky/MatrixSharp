@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Building docfx documentation and deploying to Github Pages 
     steps:
     - uses: actions/checkout@v1
     - uses: nikeee/docfx-action@v1.0.0

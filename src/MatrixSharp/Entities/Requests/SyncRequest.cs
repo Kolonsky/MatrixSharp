@@ -1,21 +1,29 @@
-﻿namespace MatrixSharp.Entities
+﻿using System;
+using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
+
+namespace MatrixSharp.Entities.Requests
 {
 	/// <summary>
 	///     Request body used to synchronise the client's state with the latest state on the server.
 	/// </summary>
 	public class SyncRequest
 	{
+		// TODO: Implement filtering.
 		/// <summary>
 		///     The ID of a filter created using the filter API or a filter JSON object encoded as a string. The server will detect
 		///     whether it is an ID or a JSON object by whether the first character is a "{" open brace. Passing the JSON inline is
 		///     best suited to one off requests. Creating a filter using the filter API is recommended for clients that reuse the
 		///     same filter multiple times, for example in long poll requests.
 		/// </summary>
+		[JsonPropertyName("filter")]
+		[Obsolete]
 		public string? Filter { get; set; }
 
 		/// <summary>
 		///     A point in time to continue a sync from.
 		/// </summary>
+		[JsonPropertyName("since")]
 		public string? Since { get; set; }
 
 		/// <summary>
@@ -29,14 +37,18 @@
 		///     <see cref="Since" /> will be returned.
 		///     By default, this is <c>false</c>.
 		/// </remarks>
+		[JsonPropertyName("full_state")]
 		public bool? FullState { get; set; }
 
 		/// <summary>
 		///     Controls whether the client is automatically marked as online by polling this API. If this parameter is omitted
-		///     then the client is automatically marked as online when it uses this API. Otherwise if the parameter is set to
-		///     "offline" then the client is not marked as being online when it uses this API. When set to "unavailable", the
-		///     client is marked as being idle. One of: ["offline", "online", "unavailable"]
+		///     then the client is automatically marked as <see cref="SetPresenceEnum.Online" /> when it uses this API. Otherwise
+		///     if the parameter is set to
+		///     <see cref="SetPresenceEnum.Offline" /> then the client is not marked as being online when it uses this API. When
+		///     set to <see cref="SetPresenceEnum.Unavailable" />, the
+		///     client is marked as being idle.
 		/// </summary>
+		[JsonPropertyName("set_presence")]
 		public SetPresenceEnum? Presence { get; set; }
 
 		/// <summary>
@@ -44,6 +56,7 @@
 		///     available before this time elapses, the server will return a response with empty fields.
 		/// </summary>
 		/// <remarks>By default, this is `0`, so the server will return immediately even if the response is empty.</remarks>
+		[JsonPropertyName("timeout")]
 		public int? Timeout { get; set; }
 
 		/// <summary>
@@ -52,19 +65,19 @@
 		public enum SetPresenceEnum
 		{
 			/// <summary>
-			///     Client is offline.
-			/// </summary>
-			Offline,
-
-			/// <summary>
 			///     Client is online.
 			/// </summary>
-			Online,
+			[EnumMember(Value = "online")] Online,
+
+			/// <summary>
+			///     Client is offline.
+			/// </summary>
+			[EnumMember(Value = "offline")] Offline,
 
 			/// <summary>
 			///     Client is unavailable.
 			/// </summary>
-			Unavailable
+			[EnumMember(Value = "unavailable")] Unavailable
 		}
 	}
 }

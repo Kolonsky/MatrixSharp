@@ -36,11 +36,12 @@ namespace MatrixSharp.Entities.Responses
 		[JsonPropertyName("device_id")]
 		public string? DeviceId { get; set; }
 
-		/// <summary>
+		/// <inheritdoc cref="WellKnownResponse" />
+		/// <remarks>
 		///     Optional client configuration provided by the server. If present, clients SHOULD use the provided object to
 		///     reconfigure themselves, optionally validating the URLs within. This object takes the same form as the one returned
 		///     from .well-known autodiscovery.
-		/// </summary>
+		/// </remarks>
 		[JsonPropertyName("well_known")]
 		public WellKnownResponse? WellKnown { get; set; }
 	}

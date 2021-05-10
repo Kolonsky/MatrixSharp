@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.Serialization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using MatrixSharp.Entities.Events;
@@ -123,7 +122,8 @@ namespace MatrixSharp.Tools
 								throw new JsonException("Content type not defined.");
 
 							content =
-								(JsonSerializer.Deserialize(ref reader, contentType, options) as BaseMatrixEventContent)!;
+								(JsonSerializer.Deserialize(ref reader, contentType, options) as BaseMatrixEventContent)
+								!;
 						}
 							break;
 						case "event_id":
@@ -203,10 +203,7 @@ namespace MatrixSharp.Tools
 
 				while (reader.Read())
 				{
-					if (reader.TokenType == JsonTokenType.EndObject)
-					{
-						return new MRoomMessage(body, msgtype);
-					}
+					if (reader.TokenType == JsonTokenType.EndObject) return new MRoomMessage(body, msgtype);
 
 					if (reader.TokenType != JsonTokenType.PropertyName)
 						throw new JsonException("Expected PropertyName token.");

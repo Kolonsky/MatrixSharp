@@ -276,6 +276,9 @@ namespace MatrixSharp.Entities.Responses
 
 	#endregion
 
+	/// <summary>
+	/// The updates to the presence status of other users.
+	/// </summary>
 	public class Presence
 	{
 		/// <summary>

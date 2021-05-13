@@ -7,9 +7,7 @@ namespace MatrixSharp.Entities.Responses
 	/// </summary>
 	public class WellKnownResponse
 	{
-		/// <summary>
-		///     WellKnownResponse constructor.
-		/// </summary>
+		/// <inheritdoc cref="WellKnownResponse" />
 		public WellKnownResponse(HomeserverInformation homeserver, IdentityServerInformation? identityServer)
 		{
 			Homeserver = homeserver;
@@ -31,9 +29,7 @@ namespace MatrixSharp.Entities.Responses
 		/// </summary>
 		public class HomeserverInformation
 		{
-			/// <summary>
-			///     HomeserverInformation constructor.
-			/// </summary>
+			/// <inheritdoc cref="HomeserverInformation" />
 			public HomeserverInformation(string baseUrl)
 			{
 				BaseUrl = baseUrl;
@@ -51,9 +47,7 @@ namespace MatrixSharp.Entities.Responses
 		/// </summary>
 		public class IdentityServerInformation
 		{
-			/// <summary>
-			///     IdentityServerInformation constructor.
-			/// </summary>
+			/// <inheritdoc cref="IdentityServerInformation" />
 			public IdentityServerInformation(string baseUrl)
 			{
 				BaseUrl = baseUrl;

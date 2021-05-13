@@ -17,10 +17,7 @@ namespace MatrixSharp.Entities.Events
 			Content = content;
 		}
 
-		/// <summary>
-		///     The fields in this object will vary depending on the type of event. When interacting with the REST API, this is the
-		///     HTTP body.
-		/// </summary>
+		/// <inheritdoc cref="BaseMatrixEventContent" />
 		[JsonPropertyName("content")]
 		public BaseMatrixEventContent Content { get; }
 

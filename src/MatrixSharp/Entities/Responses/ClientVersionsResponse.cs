@@ -8,9 +8,7 @@ namespace MatrixSharp.Entities.Responses
 	/// </summary>
 	public class ClientVersionsResponse
 	{
-		/// <summary>
-		///     ClientVersionsResponse constructor.
-		/// </summary>
+		/// <inheritdoc cref="ClientVersionsResponse" />
 		public ClientVersionsResponse(string[] versions)
 		{
 			Versions = versions;

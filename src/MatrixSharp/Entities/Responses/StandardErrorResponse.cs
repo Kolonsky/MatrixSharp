@@ -10,18 +10,14 @@ namespace MatrixSharp.Entities.Responses
 	/// </summary>
 	public class StandardErrorResponse
 	{
-		/// <summary>
-		///     StandardErrorResponse constructor.
-		/// </summary>
+		/// <inheritdoc cref="StandardErrorResponse" />
 		public StandardErrorResponse(ErrorCode errorCode, string errorMessage)
 		{
 			ErrorCode = errorCode;
 			ErrorMessage = errorMessage;
 		}
 
-		/// <summary>
-		///     Unique string which can be used to handle an error message.
-		/// </summary>
+		/// <inheritdoc cref="Api.ErrorCode" />
 		[JsonPropertyName("errcode")]
 		public ErrorCode ErrorCode { get; }
 

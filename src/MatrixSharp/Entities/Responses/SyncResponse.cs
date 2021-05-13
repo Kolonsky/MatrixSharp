@@ -21,7 +21,7 @@ namespace MatrixSharp.Entities.Responses
 		/// </summary>
 		public string NextBatch { get; }
 
-		/// <inheritdoc cref="Rooms" />
+		/// <inheritdoc cref="Responses.Rooms" />
 		[JsonPropertyName("rooms")]
 		public Rooms? Rooms { get; set; }
 
@@ -149,9 +149,9 @@ namespace MatrixSharp.Entities.Responses
 		///     events do not replace any state that the client already has for the room, for example if the client has archived
 		///     the room. Instead the client should keep two separate copies of the state: the one from the
 		///     <see cref="Responses.InviteState" /> and one
-		///     from the archived <see cref="State" />. If the client joins the room then the current state will be given as a
+		///     from the archived <see cref="Responses.State" />. If the client joins the room then the current state will be given as a
 		///     delta against the
-		///     archived <see cref="State" /> not the <see cref="Responses.InviteState" />.
+		///     archived <see cref="Responses.State" /> not the <see cref="Responses.InviteState" />.
 		/// </summary>
 		[JsonPropertyName("invite_state")]
 		public InviteState? InviteState { get; set; }
@@ -213,15 +213,15 @@ namespace MatrixSharp.Entities.Responses
 	/// </summary>
 	public class LeftRoom
 	{
-		/// <inheritdoc cref="State" />
+		/// <inheritdoc cref="Responses.State" />
 		[JsonPropertyName("state")]
 		public State? State { get; set; }
 
-		/// <inheritdoc cref="Timeline" />
+		/// <inheritdoc cref="Responses.Timeline" />
 		[JsonPropertyName("timeline")]
 		public Timeline? Timeline { get; set; }
 
-		/// <inheritdoc cref="AccountData" />
+		/// <inheritdoc cref="Responses.AccountData" />
 		[JsonPropertyName("account_data")]
 		public AccountData? AccountData { get; set; }
 	}

@@ -111,7 +111,7 @@ namespace MatrixSharp.Entities.Events.MatrixEventContent.Modules.InstantMessagin
 	}
 
 	/// <summary>
-	///     This message is similar to `m.text` except that the sender is performing the action contained in the `body` key,
+	///     This message is similar to `m.text` except that the sender is ‘performing’ the action contained in the `body` key,
 	///     similar to */me* in IRC. This message should be prefixed by the name of the sender. This message could also be
 	///     represented in a different color to distinguish it from regular `m.text` messages.
 	/// </summary>

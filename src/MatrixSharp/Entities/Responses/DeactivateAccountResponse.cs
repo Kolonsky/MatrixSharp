@@ -10,7 +10,7 @@ namespace MatrixSharp.Entities.Responses
 	{
 		/// <inheritdoc cref="IdServerUnbindResultEnum" />
 		/// <remarks>
-		///     This must be `success` if the homeserver has no identifiers to unbind
+		///     This must be <see cref="IdServerUnbindResultEnum.Success" /> if the homeserver has no identifiers to unbind
 		///     for the user.
 		/// </remarks>
 		[JsonPropertyName("id_server_unbind_result")]

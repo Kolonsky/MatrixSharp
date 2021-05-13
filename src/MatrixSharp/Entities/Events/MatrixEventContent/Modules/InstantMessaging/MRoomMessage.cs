@@ -6,10 +6,10 @@ namespace MatrixSharp.Entities.Events.MatrixEventContent.Modules.InstantMessagin
 	// TODO: Converter for MRoomMessage types.
 	/// <summary>
 	///     This event is used when sending messages in a room. Messages are not limited to be text. The
-	///     <see cref="MessageType" /> key outlines
-	///     the type of message, e.g. text, audio, image, video, etc. The <see cref="Body" /> key is text and MUST be used with
+	///     `msgtype` key outlines
+	///     the type of message, e.g. text, audio, image, video, etc. The `body` key is text and MUST be used with
 	///     every kind of
-	///     <see cref="MessageType" /> as a fallback mechanism for when a client cannot render a message. This allows clients
+	///     `msgtype` as a fallback mechanism for when a client cannot render a message. This allows clients
 	///     to display something
 	///     even if it is just plain text.
 	/// </summary>
@@ -207,7 +207,7 @@ namespace MatrixSharp.Entities.Events.MatrixEventContent.Modules.InstantMessagin
 		[JsonPropertyName("filename")]
 		public string? Filename { get; set; }
 
-		/// <inheritdoc cref="FileInfo" />
+		/// <inheritdoc cref="InstantMessaging.FileInfo" />
 		[JsonPropertyName("info")]
 		public FileInfo? FileInfo { get; set; }
 
@@ -263,7 +263,7 @@ namespace MatrixSharp.Entities.Events.MatrixEventContent.Modules.InstantMessagin
 		// [JsonPropertyName("thumbnail_file")]
 		// public EncryptedFile? ThumbnailFile { get; set; }
 
-		/// <inheritdoc cref="ThumbnailInfo" />
+		/// <inheritdoc cref="InstantMessaging.ThumbnailInfo" />
 		[JsonPropertyName("thumbnail_info")]
 		public ThumbnailInfo? ThumbnailInfo { get; set; }
 	}
@@ -294,7 +294,7 @@ namespace MatrixSharp.Entities.Events.MatrixEventContent.Modules.InstantMessagin
 		// [JsonPropertyName("thumbnail_file")]
 		// public EncryptedFile? ThumbnailFile { get; set; }
 
-		/// <inheritdoc cref="ThumbnailInfo" />
+		/// <inheritdoc cref="InstantMessaging.ThumbnailInfo" />
 		[JsonPropertyName("thumbnail_info")]
 		public ThumbnailInfo? ThumbnailInfo { get; set; }
 	}

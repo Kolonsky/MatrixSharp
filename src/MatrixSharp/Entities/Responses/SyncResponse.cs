@@ -17,7 +17,7 @@ namespace MatrixSharp.Entities.Responses
 		}
 
 		/// <summary>
-		///     The batch token to supply in the <see cref="SyncRequest.Since" /> param of the next sync request.
+		///     The batch token to supply in the `since` param of the next sync request.
 		/// </summary>
 		public string NextBatch { get; }
 

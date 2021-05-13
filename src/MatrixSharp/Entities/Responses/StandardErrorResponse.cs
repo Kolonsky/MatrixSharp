@@ -17,7 +17,7 @@ namespace MatrixSharp.Entities.Responses
 			ErrorMessage = errorMessage;
 		}
 
-		/// <inheritdoc cref="ErrorCode" />
+		/// <inheritdoc cref="Api.ErrorCode" />
 		[JsonPropertyName("errcode")]
 		public ErrorCode ErrorCode { get; }
 

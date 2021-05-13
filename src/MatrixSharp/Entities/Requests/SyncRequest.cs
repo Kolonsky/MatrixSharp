@@ -30,11 +30,11 @@ namespace MatrixSharp.Entities.Requests
 		///     Controls whether to include the full state for all rooms the user is a member of.
 		/// </summary>
 		/// <remarks>
-		///     If this is set to <c>true</c>, then all state events will be returned, even if <see cref="Since" /> is non-empty.
-		///     The timeline will still be limited by the <see cref="Since" /> parameter. In this case, the <see cref="Timeout" />
+		///     If this is set to <c>true</c>, then all state events will be returned, even if `since` is non-empty.
+		///     The timeline will still be limited by the `since` parameter. In this case, the `timeout`
 		///     parameter will be ignored and the query will return immediately, possibly with an empty timeline.
-		///     If <c>false</c>, and <see cref="Since" /> is non-empty, only state which has changed since the point indicated by
-		///     <see cref="Since" /> will be returned.
+		///     If <c>false</c>, and `since` is non-empty, only state which has changed since the point indicated by
+		///     `since` will be returned.
 		///     By default, this is <c>false</c>.
 		/// </remarks>
 		[JsonPropertyName("full_state")]

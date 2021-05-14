@@ -1,2 +1,3 @@
 # API
-All xml going here.
+Use the list on the left to access entries.
+

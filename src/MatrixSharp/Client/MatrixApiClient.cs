@@ -6,10 +6,10 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using MatrixSharp.Api;
-using MatrixSharp.Entities.Events.MatrixEventContent;
-using MatrixSharp.Entities.Requests;
-using MatrixSharp.Entities.Responses;
 using MatrixSharp.Exceptions;
+using MatrixSharp.Models.Events.MatrixEventContent;
+using MatrixSharp.Models.Requests;
+using MatrixSharp.Models.Responses;
 
 namespace MatrixSharp.Client
 {

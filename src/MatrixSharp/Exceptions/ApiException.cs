@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Runtime.Serialization;
-using MatrixSharp.Entities.Responses;
+using MatrixSharp.Models.Responses;
 
 namespace MatrixSharp.Exceptions
 {

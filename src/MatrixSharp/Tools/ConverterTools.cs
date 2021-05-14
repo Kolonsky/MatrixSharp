@@ -3,9 +3,9 @@ using System.Linq;
 using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using MatrixSharp.Entities.Events;
-using MatrixSharp.Entities.Events.MatrixEventContent;
-using MatrixSharp.Entities.Events.MatrixEventContent.Modules.InstantMessaging;
+using MatrixSharp.Models.Events;
+using MatrixSharp.Models.Events.MatrixEventContent;
+using MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging;
 
 namespace MatrixSharp.Tools
 {
@@ -19,8 +19,8 @@ namespace MatrixSharp.Tools
 				       .FirstOrDefault
 				       (t =>
 					       (t.BaseType != fallbackType ||
-					        t.GetCustomAttribute<MatrixEventAttribute>() != null)
-					       && t.GetCustomAttribute<MatrixEventAttribute>()?.EventType == type)
+					        t.GetCustomAttribute<BaseMatrixEventContent.MatrixEventAttribute>() != null)
+					       && t.GetCustomAttribute<BaseMatrixEventContent.MatrixEventAttribute>()?.EventType == type)
 			       ?? fallbackType;
 		}
 
@@ -32,10 +32,11 @@ namespace MatrixSharp.Tools
 				       .FirstOrDefault
 				       (t =>
 					       t.BaseType != fallbackType
-					       && t.GetCustomAttribute<MatrixEventAttribute>() != null
-					       && t.GetCustomAttribute<MatrixEventAttribute>()!.EventSubtype != null
-					       && t.GetCustomAttribute<MatrixEventAttribute>()!.EventType == type
-					       && t.GetCustomAttribute<MatrixEventAttribute>()!.EventSubtype == subtype)
+					       && t.GetCustomAttribute<BaseMatrixEventContent.MatrixEventAttribute>() != null
+					       && t.GetCustomAttribute<BaseMatrixEventContent.MatrixEventAttribute>()!.EventSubtype != null
+					       && t.GetCustomAttribute<BaseMatrixEventContent.MatrixEventAttribute>()!.EventType == type
+					       && t.GetCustomAttribute<BaseMatrixEventContent.MatrixEventAttribute>()!.EventSubtype ==
+					       subtype)
 			       ?? fallbackType;
 		}
 
@@ -187,7 +188,8 @@ namespace MatrixSharp.Tools
 				if (reader.TokenType != JsonTokenType.StartObject)
 					throw new JsonException("Expected StartObject token.");
 
-				var type = typeof(MRoomMessage).GetCustomAttribute<MatrixEventAttribute>()!.EventType;
+				var type = typeof(MRoomMessage).GetCustomAttribute<BaseMatrixEventContent.MatrixEventAttribute>()!
+					.EventType;
 
 				var snapshot = reader;
 				var subtype = FindTypeString(snapshot, "msgtype");
@@ -199,7 +201,7 @@ namespace MatrixSharp.Tools
 
 
 				string body = null;
-				MessageTypeEnum msgtype = default;
+				MRoomMessage.MessageTypeEnum msgtype = default;
 
 				while (reader.Read())
 				{

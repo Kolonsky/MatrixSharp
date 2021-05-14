@@ -5,7 +5,7 @@
 		public const string USER = "/_matrix/client/r0/user";
 
 		// API Standards
-		[MatrixSpec(MatrixSpecAttribute.ApiVersion.R01)]
+		[MatrixSpec(MatrixSpecAttribute.ApiVersionEnum.R01)]
 		public const string VERSIONS = "/_matrix/client/versions";
 
 		// Server Discovery

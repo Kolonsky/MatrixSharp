@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace MatrixSharp.Entities.Events.MatrixEventContent
+namespace MatrixSharp.Models.Events.MatrixEventContent
 {
 	/// <summary>
 	///     This event is used to inform the room about which alias should be considered the canonical one, and which other

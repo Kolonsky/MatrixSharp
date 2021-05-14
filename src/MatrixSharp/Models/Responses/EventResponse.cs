@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace MatrixSharp.Entities.Responses
+namespace MatrixSharp.Models.Responses
 {
 	/// <summary>
 	///     Event response.

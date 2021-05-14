@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
-namespace MatrixSharp.Entities.Events.MatrixEventContent.InstantMessaging
+namespace MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging
 {
 	// TODO: Converter for MRoomMessage types.
 	/// <summary>

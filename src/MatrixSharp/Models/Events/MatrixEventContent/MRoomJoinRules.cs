@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
-namespace MatrixSharp.Entities.Events.MatrixEventContent
+namespace MatrixSharp.Models.Events.MatrixEventContent
 {
 	/// <summary>
 	///     A room may be public meaning anyone can join the room without any prior action. Alternatively, it can be invite

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace MatrixSharp.Entities.Events.MatrixEventContent
+namespace MatrixSharp.Models.Events.MatrixEventContent
 {
 	/// <summary>
 	///     The fields in this object will vary depending on the type of event.

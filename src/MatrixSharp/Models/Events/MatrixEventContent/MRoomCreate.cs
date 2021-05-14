@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace MatrixSharp.Entities.Events.MatrixEventContent
+namespace MatrixSharp.Models.Events.MatrixEventContent
 {
 	/// <summary>
 	///     This is the first event in a room and cannot be changed. It acts as the root of all other events.

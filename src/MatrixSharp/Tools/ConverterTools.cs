@@ -3,9 +3,9 @@ using System.Linq;
 using System.Reflection;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using MatrixSharp.Entities.Events;
-using MatrixSharp.Entities.Events.MatrixEventContent;
-using MatrixSharp.Entities.Events.MatrixEventContent.InstantMessaging;
+using MatrixSharp.Models.Events;
+using MatrixSharp.Models.Events.MatrixEventContent;
+using MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging;
 
 namespace MatrixSharp.Tools
 {

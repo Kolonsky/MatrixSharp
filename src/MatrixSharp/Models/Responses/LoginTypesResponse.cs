@@ -13,6 +13,8 @@ namespace MatrixSharp.Models.Responses
 		[JsonPropertyName("flows")]
 		public LoginFlow[]? Flows { get; set; }
 
+		#region Models
+
 		/// <summary>
 		///     The homeserver's supported login type
 		/// </summary>
@@ -24,5 +26,8 @@ namespace MatrixSharp.Models.Responses
 			[JsonPropertyName("type")]
 			public string? Type { get; set; }
 		}
+
+		#endregion
+
 	}
 }

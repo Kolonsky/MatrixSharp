@@ -36,6 +36,8 @@ namespace MatrixSharp.Models.Events.MatrixEventContent
 		[JsonPropertyName("room_version")]
 		public string? RoomVersion { get; set; }
 
+		#region Models
+
 		/// <summary>
 		///     A reference to the room this room replaces, if the previous room was upgraded.
 		/// </summary>
@@ -60,5 +62,7 @@ namespace MatrixSharp.Models.Events.MatrixEventContent
 			[JsonPropertyName("room_id")]
 			public string RoomId { get; set; }
 		}
+
+		#endregion
 	}
 }

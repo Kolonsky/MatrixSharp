@@ -36,6 +36,8 @@ namespace MatrixSharp.Models.Events
 		[JsonPropertyName("prev_content")]
 		public EventContent? PreviousContent { get; set; }
 
+		#region Models
+
 		/// <summary>
 		///     Content of event.
 		/// </summary>
@@ -80,39 +82,41 @@ namespace MatrixSharp.Models.Events
 			public string? Reason { get; set; }
 
 			// TODO: Invite field
-		}
 
-		#region Enums
-
-		/// <summary>
-		///     The membership state of the user.
-		/// </summary>
-		public enum MembershipEnum
-		{
-			/// <summary>
-			///     User invited.
-			/// </summary>
-			[EnumMember(Value = "invite")] Invite,
+			#region Enums
 
 			/// <summary>
-			///     User joined.
+			///     The membership state of the user.
 			/// </summary>
-			[EnumMember(Value = "join")] Join,
+			public enum MembershipEnum
+			{
+				/// <summary>
+				///     User invited.
+				/// </summary>
+				[EnumMember(Value = "invite")] Invite,
 
-			/// <summary>
-			///     Knock-knock. Who's there?
-			/// </summary>
-			[EnumMember(Value = "knock")] Knock,
+				/// <summary>
+				///     User joined.
+				/// </summary>
+				[EnumMember(Value = "join")] Join,
 
-			/// <summary>
-			///     User leaved.
-			/// </summary>
-			[EnumMember(Value = "leave")] Leave,
+				/// <summary>
+				///     Knock-knock. Who's there?
+				/// </summary>
+				[EnumMember(Value = "knock")] Knock,
 
-			/// <summary>
-			///     User banned.
-			/// </summary>
-			[EnumMember(Value = "ban")] Ban
+				/// <summary>
+				///     User leaved.
+				/// </summary>
+				[EnumMember(Value = "leave")] Leave,
+
+				/// <summary>
+				///     User banned.
+				/// </summary>
+				[EnumMember(Value = "ban")] Ban
+			}
+
+			#endregion
 		}
 
 		#endregion

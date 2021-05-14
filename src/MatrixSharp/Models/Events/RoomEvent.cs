@@ -51,6 +51,8 @@ namespace MatrixSharp.Models.Events
 		[JsonPropertyName("room_id")]
 		public string RoomId { get; }
 
+		#region Models
+
 		/// <summary>
 		///     Contains optional extra information about the event.
 		/// </summary>
@@ -76,5 +78,7 @@ namespace MatrixSharp.Models.Events
 			[JsonPropertyName("transaction_id")]
 			public string? TransactionId { get; set; }
 		}
+
+		#endregion
 	}
 }

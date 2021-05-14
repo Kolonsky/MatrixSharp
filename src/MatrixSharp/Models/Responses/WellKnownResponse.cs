@@ -22,7 +22,7 @@ namespace MatrixSharp.Models.Responses
 		[JsonPropertyName("m.identity_server")]
 		public IdentityServerInformation? IdentityServer { get; }
 
-		#region Types
+		#region Models
 
 		/// <summary>
 		///     Used by clients to discover homeserver information.

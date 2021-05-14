@@ -4,7 +4,16 @@ namespace MatrixSharp.Api
 {
 	public class MatrixSpecAttribute : Attribute
 	{
-		public enum ApiVersion
+		public readonly ApiVersionEnum ApiVersion;
+
+		public MatrixSpecAttribute(ApiVersionEnum apiVersion)
+		{
+			ApiVersion = apiVersion;
+		}
+
+		#region Enums
+
+		public enum ApiVersionEnum
 		{
 			Unknown,
 			Unstable,
@@ -16,11 +25,6 @@ namespace MatrixSharp.Api
 			R06
 		}
 
-		public readonly ApiVersion Version;
-
-		public MatrixSpecAttribute(ApiVersion version)
-		{
-			Version = version;
-		}
+		#endregion
 	}
 }

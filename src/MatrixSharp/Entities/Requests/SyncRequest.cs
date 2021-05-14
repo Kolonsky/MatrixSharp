@@ -59,6 +59,8 @@ namespace MatrixSharp.Entities.Requests
 		[JsonPropertyName("timeout")]
 		public int? Timeout { get; set; }
 
+		#region Enums
+
 		/// <summary>
 		///     Client status.
 		/// </summary>
@@ -79,5 +81,7 @@ namespace MatrixSharp.Entities.Requests
 			/// </summary>
 			[EnumMember(Value = "unavailable")] Unavailable
 		}
+		
+		#endregion
 	}
 }

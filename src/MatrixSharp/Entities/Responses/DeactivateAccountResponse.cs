@@ -15,22 +15,26 @@ namespace MatrixSharp.Entities.Responses
 		/// </remarks>
 		[JsonPropertyName("id_server_unbind_result")]
 		public IdServerUnbindResultEnum IdServerUnbindResult { get; set; }
-	}
 
-	/// <summary>
-	///     An indicator as to whether or not the homeserver was able to unbind the user's 3PIDs from the identity server(s).
-	/// </summary>
-	public enum IdServerUnbindResultEnum
-	{
-		/// <summary>
-		///     Indicates that all identifiers have been unbound from the identity server.
-		/// </summary>
-		[EnumMember(Value = "success")] Success,
+		#region Enums
 
 		/// <summary>
-		///     Indicates that one or more identifiers failed to unbind due to the identity server refusing the request or the
-		///     homeserver being unable to determine an identity server to unbind from.
+		///     An indicator as to whether or not the homeserver was able to unbind the user's 3PIDs from the identity server(s).
 		/// </summary>
-		[EnumMember(Value = "no-support")] NoSupport
+		public enum IdServerUnbindResultEnum
+		{
+			/// <summary>
+			///     Indicates that all identifiers have been unbound from the identity server.
+			/// </summary>
+			[EnumMember(Value = "success")] Success,
+
+			/// <summary>
+			///     Indicates that one or more identifiers failed to unbind due to the identity server refusing the request or the
+			///     homeserver being unable to determine an identity server to unbind from.
+			/// </summary>
+			[EnumMember(Value = "no-support")] NoSupport
+		}
+
+		#endregion
 	}
 }

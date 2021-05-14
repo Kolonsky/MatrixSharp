@@ -32,7 +32,8 @@ namespace MatrixSharp.Entities.Events.MatrixEventContent.Modules.InstantMessagin
 		/// <inheritdoc cref="MessageTypeEnum" />
 		[JsonPropertyName("msgtype")]
 		public MessageTypeEnum MessageType { get; }
-	}
+
+		#region Enums
 
 	/// <summary>
 	///     The type of message
@@ -85,6 +86,8 @@ namespace MatrixSharp.Entities.Events.MatrixEventContent.Modules.InstantMessagin
 		[EnumMember(Value = "m.video")] Video
 	}
 
+		#endregion
+	}
 
 	/// <summary>
 	///     This message is the most basic message and is used to represent text.

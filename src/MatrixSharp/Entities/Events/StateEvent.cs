@@ -82,6 +82,8 @@ namespace MatrixSharp.Entities.Events
 			// TODO: Invite field
 		}
 
+		#region Enums
+
 		/// <summary>
 		///     The membership state of the user.
 		/// </summary>
@@ -112,5 +114,7 @@ namespace MatrixSharp.Entities.Events
 			/// </summary>
 			[EnumMember(Value = "ban")] Ban
 		}
+
+		#endregion
 	}
 }

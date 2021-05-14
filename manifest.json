@@ -1,0 +1,956 @@
+{
+  "homepages": [],
+  "source_base_path": "/github/workspace/docs/docfx",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Api.ErrorCode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Api.ErrorCode.html",
+          "hash": "dAP90UPlyKhbDUf7o97ZHw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Api.MatrixSpecAttribute.ApiVersionEnum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Api.MatrixSpecAttribute.ApiVersionEnum.html",
+          "hash": "ALqle4xMB3BPkKFlsUpbMQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Api.MatrixSpecAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Api.MatrixSpecAttribute.html",
+          "hash": "6TSerlaGTHN+bt/72BeQ7A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Api.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Api.html",
+          "hash": "UjcZEA5bDRKfhw/Kj7RQVA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Client.MatrixApiClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Client.MatrixApiClient.html",
+          "hash": "vTGTS3G96dQKSdcdRVppHg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Client.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Client.html",
+          "hash": "ojkKsdJzvVtn/xmDntBLLA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Exceptions.ApiException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Exceptions.ApiException.html",
+          "hash": "rb6KtW9pNgVTHD34ujSIhw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Exceptions.UnexpectedApiException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Exceptions.UnexpectedApiException.html",
+          "hash": "njX6hpgM2c1SsfIi4leu3A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Exceptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Exceptions.html",
+          "hash": "crf/EiGA3wUbHvuF8oSruw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.Event.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.Event.html",
+          "hash": "3xuW5VycTBDoYp7XCgKeEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.BaseMatrixEventContent.MatrixEventAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.BaseMatrixEventContent.MatrixEventAttribute.html",
+          "hash": "o+cz36suBn8uQ+0d9vImhA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.BaseMatrixEventContent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.BaseMatrixEventContent.html",
+          "hash": "YrkKwZkVoyl9Fu8bJYaCzA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.MRoomMessage.MessageTypeEnum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.MRoomMessage.MessageTypeEnum.html",
+          "hash": "CnBXWbJJ0i6dosRYnQcI9A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.MRoomMessage.ThumbnailInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.MRoomMessage.ThumbnailInfo.html",
+          "hash": "kpfu/gLZqVrAwqvg+9MoKQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.MRoomMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.MRoomMessage.html",
+          "hash": "TyCs2rMyLz3Fhw1o6cp50Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.MRoomMessageEmote.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.MRoomMessageEmote.html",
+          "hash": "hmUN37QmtI0aBbr7agwe0A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.MRoomMessageFile.FileInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.MRoomMessageFile.FileInfo.html",
+          "hash": "/aj+QWjw1cI137gV5grggw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.MRoomMessageFile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.MRoomMessageFile.html",
+          "hash": "ITs1CPLgVRHgjLv5J+5z1Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.MRoomMessageImage.ImageInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.MRoomMessageImage.ImageInfo.html",
+          "hash": "57KrPUaXYp/ttwmHLntZLA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.MRoomMessageImage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.MRoomMessageImage.html",
+          "hash": "oKiLVJpbAT9QPIM2MP52lA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.MRoomMessageNotice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.MRoomMessageNotice.html",
+          "hash": "14qOgl63Pap7Lv6eDSfFAg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.MRoomMessageText.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.MRoomMessageText.html",
+          "hash": "L/9QX0xj3geEdLvuYLw+Pg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.html",
+          "hash": "OBbJ8KtqaujrxsQj8lFfJg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.MRoomCanonicalAlias.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.MRoomCanonicalAlias.html",
+          "hash": "N20/nWAeGUbf+ABajFDkqQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.MRoomCreate.PreviousRoom.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.MRoomCreate.PreviousRoom.html",
+          "hash": "8qTCMmqVQ3L+Bbjmj3ON8A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.MRoomCreate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.MRoomCreate.html",
+          "hash": "ZgeR/3VVGJxFNogMXE0bAw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.MRoomJoinRules.JoinRuleEnum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.MRoomJoinRules.JoinRuleEnum.html",
+          "hash": "GX/0VbtM1V7j/QgwULuzEw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.MRoomJoinRules.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.MRoomJoinRules.html",
+          "hash": "QoiVorIWdXb4Qpwc8XIVYg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.MatrixEventContent.html",
+          "hash": "jmOyQKwTPoExhgCb8IJwag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.RoomEvent.UnsignedData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.RoomEvent.UnsignedData.html",
+          "hash": "qm9VhCtKHD6zSkW8iWU/sA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.RoomEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.RoomEvent.html",
+          "hash": "MOfVM/Yf6BOBx6c7ITyQ7g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.StateEvent.EventContent.MembershipEnum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.StateEvent.EventContent.MembershipEnum.html",
+          "hash": "UL5pJ7N54cKUTSIOApZLDQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.StateEvent.EventContent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.StateEvent.EventContent.html",
+          "hash": "RseJDGtOqtNkqz7ukkmB3w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.StateEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.StateEvent.html",
+          "hash": "qrSWTStkaNzH5Xo9xxhGuw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Events.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Events.html",
+          "hash": "JGWk7NDzHYR6QcchHDn5aw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Requests.LoginRequest.IIdentifier.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Requests.LoginRequest.IIdentifier.html",
+          "hash": "WhOEJDm1scibcXspM2E1zw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Requests.LoginRequest.LoginTypeEnum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Requests.LoginRequest.LoginTypeEnum.html",
+          "hash": "VFemrxd1QAYuXNULA2u1gA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Requests.LoginRequest.PhoneNumberIdentifier.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Requests.LoginRequest.PhoneNumberIdentifier.html",
+          "hash": "lLdkjEBkCrTzk0TdrhX+hg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Requests.LoginRequest.ThirdPartyIdentifier.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Requests.LoginRequest.ThirdPartyIdentifier.html",
+          "hash": "r9ZpLdJgM4t63/HJWDXPYA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Requests.LoginRequest.UserIdentifier.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Requests.LoginRequest.UserIdentifier.html",
+          "hash": "tcIxLDmzH3XxlzVkWA7FJw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Requests.LoginRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Requests.LoginRequest.html",
+          "hash": "FoMxO/iM3dP3bjWx76W5MA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Requests.SyncRequest.SetPresenceEnum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Requests.SyncRequest.SetPresenceEnum.html",
+          "hash": "4Xu7AteCGBJjEV85jevpiA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Requests.SyncRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Requests.SyncRequest.html",
+          "hash": "wUDs8Z/HeODWZ1QTYlcwBQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Requests.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Requests.html",
+          "hash": "r3o+zWmHBZxhjg93nMeglg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.ClientVersionsResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.ClientVersionsResponse.html",
+          "hash": "/GUheQjpVt3vfiyubXDTrA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.DeactivateAccountResponse.IdServerUnbindResultEnum.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.DeactivateAccountResponse.IdServerUnbindResultEnum.html",
+          "hash": "AvMD528lUj2gr7/MTCtI3w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.DeactivateAccountResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.DeactivateAccountResponse.html",
+          "hash": "qz0p0tfY3hWgazDP48vFSg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.EventResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.EventResponse.html",
+          "hash": "hxznPMA6ZLrQmKVFbDCc4g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.LoginResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.LoginResponse.html",
+          "hash": "FYg2sZyWZKFyTxBVpUG9oQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.LoginTypesResponse.LoginFlow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.LoginTypesResponse.LoginFlow.html",
+          "hash": "t40RkR5FHty3XLqPC8L2TA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.LoginTypesResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.LoginTypesResponse.html",
+          "hash": "0w5IB3HeJEyqPp30vbeJDg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.StandardErrorResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.StandardErrorResponse.html",
+          "hash": "BDQ5s1OBVNB0eh+To8Ecdw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.AccountData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.AccountData.html",
+          "hash": "D+s2EdzAzNWypf/4bZLEvQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Presence.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Presence.html",
+          "hash": "2MTY4JGSFQf7YSL/zlaeXA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.InviteState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.InviteState.html",
+          "hash": "O8d73+LfsbwVtvthg9Htfw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.InvitedRoom.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.InvitedRoom.html",
+          "hash": "6OubkTyxhnkbDmfRA1gHVw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.JoinedRoom.Ephemeral.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.JoinedRoom.Ephemeral.html",
+          "hash": "iNbJjCQZitow14+fsL/DVg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.JoinedRoom.RoomSummary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.JoinedRoom.RoomSummary.html",
+          "hash": "3S5xDe1OR7R2erTt4EmvfQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.JoinedRoom.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.JoinedRoom.html",
+          "hash": "Nz+PX98pxwjfIen+G53gnA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.KnockedRoom.KnockState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.KnockedRoom.KnockState.html",
+          "hash": "j3U/jjaSjlYtFX8fPq4cPA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.KnockedRoom.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.KnockedRoom.html",
+          "hash": "eznyn2kR6izhZ0h18S+KWA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.LeftRoom.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.LeftRoom.html",
+          "hash": "HtNJKWFSMqZXlE02UpyIvg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.State.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.State.html",
+          "hash": "p12C2dDPlj8SBUmeHtw3og=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.StrippedState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.StrippedState.html",
+          "hash": "DUWZFaKCFnlHDJyNj1uA3w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.Timeline.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.Timeline.html",
+          "hash": "+Vd9KzF2fKVr0oWotVpw+Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.Rooms.html",
+          "hash": "9Ic7s0F374OrL753uln+ag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.SyncResponse.html",
+          "hash": "W7ZripFfQfB/zftHM8TJ0w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.WellKnownResponse.HomeserverInformation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.WellKnownResponse.HomeserverInformation.html",
+          "hash": "Pce0+l5h19NY3FuTWtvQmA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.WellKnownResponse.IdentityServerInformation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.WellKnownResponse.IdentityServerInformation.html",
+          "hash": "vmHoP242uNcbyiGBMnPflQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.WellKnownResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.WellKnownResponse.html",
+          "hash": "iSZRS4FuikX+blKo9LJGSg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/MatrixSharp.Models.Responses.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MatrixSharp.Models.Responses.html",
+          "hash": "XkQCdCZqpPPpHXX24/cNIQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "5r2F+0ACOjQfuLR0aiAnPg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "Jtde3khGEb6sCHjvfbjZ6A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "ao/Nnk8iALEKi1hBFUi6Zw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "2xxm+vQuGP9Ju/ZaLQpYaA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 2,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 71,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: last post processor info is null.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

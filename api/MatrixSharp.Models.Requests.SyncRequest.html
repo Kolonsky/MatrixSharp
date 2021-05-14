@@ -1,0 +1,309 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class SyncRequest
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class SyncRequest
+   ">
+    <meta name="generator" content="docfx 2.56.7.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="MatrixSharp.Models.Requests.SyncRequest">
+  
+  
+  <h1 id="MatrixSharp_Models_Requests_SyncRequest" data-uid="MatrixSharp.Models.Requests.SyncRequest" class="text-break">Class SyncRequest
+  </h1>
+  <div class="markdown level0 summary"><p>Request body used to synchronise the client's state with the latest state on the server.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">SyncRequest</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="MatrixSharp.Models.Requests.html">MatrixSharp.Models.Requests</a></h6>
+  <h6><strong>Assembly</strong>: MatrixSharp.dll</h6>
+  <h5 id="MatrixSharp_Models_Requests_SyncRequest_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SyncRequest : object</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Kolonsky/MatrixSharp/new/4acb2dc3bb1f6fab59617c736aa7e4a47bb5b0be/apiSpec/new?filename=MatrixSharp_Models_Requests_SyncRequest_Filter.md&amp;value=---%0Auid%3A%20MatrixSharp.Models.Requests.SyncRequest.Filter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Kolonsky/MatrixSharp/blob/4acb2dc3bb1f6fab59617c736aa7e4a47bb5b0be/src/MatrixSharp/Models/Requests/SyncRequest.cs/#L19">View Source</a>
+  </span>
+  <a id="MatrixSharp_Models_Requests_SyncRequest_Filter_" data-uid="MatrixSharp.Models.Requests.SyncRequest.Filter*"></a>
+  <h4 id="MatrixSharp_Models_Requests_SyncRequest_Filter" data-uid="MatrixSharp.Models.Requests.SyncRequest.Filter">Filter</h4>
+  <div class="markdown level1 summary"><p>The ID of a filter created using the filter API or a filter JSON object encoded as a string. The server will detect
+whether it is an ID or a JSON object by whether the first character is a &quot;{&quot; open brace. Passing the JSON inline is
+best suited to one off requests. Creating a filter using the filter API is recommended for clients that reuse the
+same filter multiple times, for example in long poll requests.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Filter { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Kolonsky/MatrixSharp/new/4acb2dc3bb1f6fab59617c736aa7e4a47bb5b0be/apiSpec/new?filename=MatrixSharp_Models_Requests_SyncRequest_FullState.md&amp;value=---%0Auid%3A%20MatrixSharp.Models.Requests.SyncRequest.FullState%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Kolonsky/MatrixSharp/blob/4acb2dc3bb1f6fab59617c736aa7e4a47bb5b0be/src/MatrixSharp/Models/Requests/SyncRequest.cs/#L40">View Source</a>
+  </span>
+  <a id="MatrixSharp_Models_Requests_SyncRequest_FullState_" data-uid="MatrixSharp.Models.Requests.SyncRequest.FullState*"></a>
+  <h4 id="MatrixSharp_Models_Requests_SyncRequest_FullState" data-uid="MatrixSharp.Models.Requests.SyncRequest.FullState">FullState</h4>
+  <div class="markdown level1 summary"><p>Controls whether to include the full state for all rooms the user is a member of.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? FullState { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="MatrixSharp_Models_Requests_SyncRequest_FullState_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If this is set to <code>true</code>, then all state events will be returned, even if <code>since</code> is non-empty.
+The timeline will still be limited by the <code>since</code> parameter. In this case, the <code>timeout</code>
+parameter will be ignored and the query will return immediately, possibly with an empty timeline.
+If <code>false</code>, and <code>since</code> is non-empty, only state which has changed since the point indicated by
+<code>since</code> will be returned.
+By default, this is <code>false</code>.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Kolonsky/MatrixSharp/new/4acb2dc3bb1f6fab59617c736aa7e4a47bb5b0be/apiSpec/new?filename=MatrixSharp_Models_Requests_SyncRequest_Presence.md&amp;value=---%0Auid%3A%20MatrixSharp.Models.Requests.SyncRequest.Presence%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Kolonsky/MatrixSharp/blob/4acb2dc3bb1f6fab59617c736aa7e4a47bb5b0be/src/MatrixSharp/Models/Requests/SyncRequest.cs/#L51">View Source</a>
+  </span>
+  <a id="MatrixSharp_Models_Requests_SyncRequest_Presence_" data-uid="MatrixSharp.Models.Requests.SyncRequest.Presence*"></a>
+  <h4 id="MatrixSharp_Models_Requests_SyncRequest_Presence" data-uid="MatrixSharp.Models.Requests.SyncRequest.Presence">Presence</h4>
+  <div class="markdown level1 summary"><p>Controls whether the client is automatically marked as online by polling this API. If this parameter is omitted
+then the client is automatically marked as <a class="xref" href="MatrixSharp.Models.Requests.SyncRequest.SetPresenceEnum.html#MatrixSharp_Models_Requests_SyncRequest_SetPresenceEnum_Online">Online</a> when it uses this API. Otherwise
+if the parameter is set to
+<a class="xref" href="MatrixSharp.Models.Requests.SyncRequest.SetPresenceEnum.html#MatrixSharp_Models_Requests_SyncRequest_SetPresenceEnum_Offline">Offline</a> then the client is not marked as being online when it uses this API. When
+set to <a class="xref" href="MatrixSharp.Models.Requests.SyncRequest.SetPresenceEnum.html#MatrixSharp_Models_Requests_SyncRequest_SetPresenceEnum_Unavailable">Unavailable</a>, the
+client is marked as being idle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SyncRequest.SetPresenceEnum? Presence { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<a class="xref" href="MatrixSharp.Models.Requests.SyncRequest.SetPresenceEnum.html">SyncRequest.SetPresenceEnum</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Kolonsky/MatrixSharp/new/4acb2dc3bb1f6fab59617c736aa7e4a47bb5b0be/apiSpec/new?filename=MatrixSharp_Models_Requests_SyncRequest_Since.md&amp;value=---%0Auid%3A%20MatrixSharp.Models.Requests.SyncRequest.Since%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Kolonsky/MatrixSharp/blob/4acb2dc3bb1f6fab59617c736aa7e4a47bb5b0be/src/MatrixSharp/Models/Requests/SyncRequest.cs/#L26">View Source</a>
+  </span>
+  <a id="MatrixSharp_Models_Requests_SyncRequest_Since_" data-uid="MatrixSharp.Models.Requests.SyncRequest.Since*"></a>
+  <h4 id="MatrixSharp_Models_Requests_SyncRequest_Since" data-uid="MatrixSharp.Models.Requests.SyncRequest.Since">Since</h4>
+  <div class="markdown level1 summary"><p>A point in time to continue a sync from.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string? Since { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/Kolonsky/MatrixSharp/new/4acb2dc3bb1f6fab59617c736aa7e4a47bb5b0be/apiSpec/new?filename=MatrixSharp_Models_Requests_SyncRequest_Timeout.md&amp;value=---%0Auid%3A%20MatrixSharp.Models.Requests.SyncRequest.Timeout%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/Kolonsky/MatrixSharp/blob/4acb2dc3bb1f6fab59617c736aa7e4a47bb5b0be/src/MatrixSharp/Models/Requests/SyncRequest.cs/#L59">View Source</a>
+  </span>
+  <a id="MatrixSharp_Models_Requests_SyncRequest_Timeout_" data-uid="MatrixSharp.Models.Requests.SyncRequest.Timeout*"></a>
+  <h4 id="MatrixSharp_Models_Requests_SyncRequest_Timeout" data-uid="MatrixSharp.Models.Requests.SyncRequest.Timeout">Timeout</h4>
+  <div class="markdown level1 summary"><p>The maximum time to wait, in milliseconds, before returning this request. If no events (or other data) become
+available before this time elapses, the server will return a response with empty fields.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? Timeout { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="MatrixSharp_Models_Requests_SyncRequest_Timeout_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>By default, this is <code>0</code>, so the server will return immediately even if the response is empty.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/Kolonsky/MatrixSharp/new/4acb2dc3bb1f6fab59617c736aa7e4a47bb5b0be/apiSpec/new?filename=MatrixSharp_Models_Requests_SyncRequest.md&amp;value=---%0Auid%3A%20MatrixSharp.Models.Requests.SyncRequest%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/Kolonsky/MatrixSharp/blob/4acb2dc3bb1f6fab59617c736aa7e4a47bb5b0be/src/MatrixSharp/Models/Requests/SyncRequest.cs/#L10" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

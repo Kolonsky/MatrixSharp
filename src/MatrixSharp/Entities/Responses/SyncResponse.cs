@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using MatrixSharp.Entities.Events;
-using MatrixSharp.Entities.Requests;
 
 namespace MatrixSharp.Entities.Responses
 {
@@ -149,7 +148,8 @@ namespace MatrixSharp.Entities.Responses
 		///     events do not replace any state that the client already has for the room, for example if the client has archived
 		///     the room. Instead the client should keep two separate copies of the state: the one from the
 		///     <see cref="Responses.InviteState" /> and one
-		///     from the archived <see cref="Responses.State" />. If the client joins the room then the current state will be given as a
+		///     from the archived <see cref="Responses.State" />. If the client joins the room then the current state will be given
+		///     as a
 		///     delta against the
 		///     archived <see cref="Responses.State" /> not the <see cref="Responses.InviteState" />.
 		/// </summary>
@@ -277,7 +277,7 @@ namespace MatrixSharp.Entities.Responses
 	#endregion
 
 	/// <summary>
-	/// The updates to the presence status of other users.
+	///     The updates to the presence status of other users.
 	/// </summary>
 	public class Presence
 	{

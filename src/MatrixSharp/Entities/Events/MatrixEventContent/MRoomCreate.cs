@@ -35,30 +35,30 @@ namespace MatrixSharp.Entities.Events.MatrixEventContent
 		/// </summary>
 		[JsonPropertyName("room_version")]
 		public string? RoomVersion { get; set; }
-	}
 
-	/// <summary>
-	///     A reference to the room this room replaces, if the previous room was upgraded.
-	/// </summary>
-	public class PreviousRoom
-	{
-		/// <inheritdoc cref="PreviousRoom" />
-		public PreviousRoom(string eventId, string roomId)
+		/// <summary>
+		///     A reference to the room this room replaces, if the previous room was upgraded.
+		/// </summary>
+		public class PreviousRoom
 		{
-			EventId = eventId;
-			RoomId = roomId;
+			/// <inheritdoc cref="PreviousRoom" />
+			public PreviousRoom(string eventId, string roomId)
+			{
+				EventId = eventId;
+				RoomId = roomId;
+			}
+
+			/// <summary>
+			///     The event ID of the last known event in the old room.
+			/// </summary>
+			[JsonPropertyName("event_id")]
+			public string EventId { get; set; }
+
+			/// <summary>
+			///     The ID of the old room.
+			/// </summary>
+			[JsonPropertyName("room_id")]
+			public string RoomId { get; set; }
 		}
-
-		/// <summary>
-		///     The event ID of the last known event in the old room.
-		/// </summary>
-		[JsonPropertyName("event_id")]
-		public string EventId { get; set; }
-
-		/// <summary>
-		///     The ID of the old room.
-		/// </summary>
-		[JsonPropertyName("room_id")]
-		public string RoomId { get; set; }
 	}
 }

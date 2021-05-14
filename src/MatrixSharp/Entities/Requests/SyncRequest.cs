@@ -81,7 +81,7 @@ namespace MatrixSharp.Entities.Requests
 			/// </summary>
 			[EnumMember(Value = "unavailable")] Unavailable
 		}
-		
+
 		#endregion
 	}
 }

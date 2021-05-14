@@ -53,8 +53,7 @@ namespace MatrixSharp.Entities.Events.MatrixEventContent
 			/// <summary>
 			///     Not implemented
 			/// </summary>
-			[Obsolete]
-			[EnumMember(Value = "private")]
+			[Obsolete] [EnumMember(Value = "private")]
 			Private
 		}
 

@@ -28,6 +28,5 @@ namespace MatrixSharp.Models.Responses
 		}
 
 		#endregion
-
 	}
 }

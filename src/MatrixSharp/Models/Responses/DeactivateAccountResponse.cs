@@ -8,13 +8,18 @@ namespace MatrixSharp.Models.Responses
 	/// </summary>
 	public class DeactivateAccountResponse
 	{
+		public DeactivateAccountResponse(IdServerUnbindResultEnum idServerUnbindResult)
+		{
+			IdServerUnbindResult = idServerUnbindResult;
+		}
+
 		/// <inheritdoc cref="IdServerUnbindResultEnum" />
 		/// <remarks>
 		///     This must be `success` if the homeserver has no identifiers to unbind
 		///     for the user.
 		/// </remarks>
 		[JsonPropertyName("id_server_unbind_result")]
-		public IdServerUnbindResultEnum IdServerUnbindResult { get; set; }
+		public IdServerUnbindResultEnum IdServerUnbindResult { get; }
 
 		#region Enums
 

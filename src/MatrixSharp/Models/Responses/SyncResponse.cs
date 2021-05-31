@@ -27,6 +27,7 @@ namespace MatrixSharp.Models.Responses
 		/// <summary>
 		///     The batch token to supply in the `since` param of the next sync request.
 		/// </summary>
+		[JsonPropertyName("next_batch")]
 		public string NextBatch { get; }
 
 		/// <inheritdoc cref="Presence" />
@@ -106,10 +107,10 @@ namespace MatrixSharp.Models.Responses
 				///     events do not replace any state that the client already has for the room, for example if the client has archived
 				///     the room. Instead the client should keep two separate copies of the state: the one from the
 				///     <see cref="InviteState" /> and one
-				///     from the archived <see cref="State" />. If the client joins the room then the current state will be given
+				///     from the archived <see cref="LeftRoom.State" />. If the client joins the room then the current state will be given
 				///     as a
 				///     delta against the
-				///     archived <see cref="State" /> not the <see cref="InviteState" />.
+				///     archived <see cref="LeftRoom.State" /> not the <see cref="InviteState" />.
 				/// </summary>
 				[JsonPropertyName("invite_state")]
 				public InviteState? RoomInviteState { get; set; }
@@ -125,7 +126,7 @@ namespace MatrixSharp.Models.Responses
 				public AccountData? UserAccountData { get; set; }
 
 				/// <inheritdoc cref="Ephemeral" />
-				[JsonPropertyName("Ephemeral")]
+				[JsonPropertyName("ephemeral")]
 				public Ephemeral? EphemeralEvents { get; set; }
 
 				/// <inheritdoc cref="RoomSummary" />
@@ -223,29 +224,34 @@ namespace MatrixSharp.Models.Responses
 			/// </summary>
 			public class LeftRoom
 			{
-				/// <inheritdoc cref="Rooms.State" />
+				/// <inheritdoc cref="State" />
 				[JsonPropertyName("state")]
-				public State? State { get; set; }
+				public State? StateUpdates { get; set; }
 
 				/// <inheritdoc cref="Rooms.Timeline" />
 				[JsonPropertyName("timeline")]
+				// TODO: RoomTimeline?
 				public Timeline? Timeline { get; set; }
 
 				/// <inheritdoc cref="AccountData" />
 				[JsonPropertyName("account_data")]
 				public AccountData? UserAccountData { get; set; }
-			}
 
-			/// <summary>
-			///     The state updates for the room up to the start of the timeline.
-			/// </summary>
-			public class State
-			{
+				#region Models
+
 				/// <summary>
-				///     List of events.
+				///     The state updates for the room up to the start of the timeline.
 				/// </summary>
-				[JsonPropertyName("events")]
-				public StateEvent[]? SyncStateEvents { get; set; }
+				public class State
+				{
+					/// <summary>
+					///     List of events.
+					/// </summary>
+					[JsonPropertyName("events")]
+					public StateEvent[]? SyncStateEvents { get; set; }
+				}
+
+				#endregion
 			}
 
 			/// <summary>

@@ -54,13 +54,13 @@ namespace MatrixSharp.Models.Events.MatrixEventContent
 			///     The event ID of the last known event in the old room.
 			/// </summary>
 			[JsonPropertyName("event_id")]
-			public string EventId { get; set; }
+			public string EventId { get; }
 
 			/// <summary>
 			///     The ID of the old room.
 			/// </summary>
 			[JsonPropertyName("room_id")]
-			public string RoomId { get; set; }
+			public string RoomId { get; }
 		}
 
 		#endregion

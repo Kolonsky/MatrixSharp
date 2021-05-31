@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
 namespace MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging
 {
@@ -19,6 +14,7 @@ namespace MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging
 		}
 
 		/// <inheritdoc cref="ImageInfo" />
+		[JsonPropertyName("info")]
 		public ImageInfo? Info { get; set; }
 
 		/// <summary>

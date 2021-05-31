@@ -68,6 +68,7 @@ namespace MatrixSharp.Models.Events
 			public bool? IsDirect { get; set; }
 
 			/// <inheritdoc cref="MembershipEnum" />
+			[JsonPropertyName("membership")]
 			public MembershipEnum Membership { get; }
 
 			/// <summary>

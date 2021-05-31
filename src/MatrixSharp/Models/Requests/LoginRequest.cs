@@ -56,6 +56,7 @@ namespace MatrixSharp.Models.Requests
 
 		/// <inheritdoc cref="IIdentifier" />
 		[JsonPropertyName("identifier")]
+		// TODO: IIdentifier type
 		public object? Identifier { get; }
 
 		/// <summary>

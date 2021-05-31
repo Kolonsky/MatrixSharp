@@ -8,10 +8,9 @@ namespace MatrixSharp.Models.Responses
 	public class WellKnownResponse
 	{
 		/// <inheritdoc cref="WellKnownResponse" />
-		public WellKnownResponse(HomeserverInformation homeserver, IdentityServerInformation? identityServer)
+		public WellKnownResponse(HomeserverInformation homeserver)
 		{
 			Homeserver = homeserver;
-			IdentityServer = identityServer;
 		}
 
 		/// <inheritdoc cref="HomeserverInformation" />
@@ -20,7 +19,7 @@ namespace MatrixSharp.Models.Responses
 
 		/// <inheritdoc cref="IdentityServerInformation" />
 		[JsonPropertyName("m.identity_server")]
-		public IdentityServerInformation? IdentityServer { get; }
+		public IdentityServerInformation? IdentityServer { get; set; }
 
 		#region Models
 

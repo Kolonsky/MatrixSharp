@@ -4,22 +4,21 @@ using MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.Encryption;
 namespace MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging
 {
 	/// <summary>
-	///     This message represents a single image and an optional thumbnail.
+	///     This message represents a single video clip.
 	/// </summary>
-	[MatrixEvent("m.room.message", "m.image")]
-	public class MRoomMessageImage : MRoomMessage
+	public class MRoomMessageVideo : MRoomMessage
 	{
-		/// <inheritdoc cref="MRoomMessageImage" />
-		public MRoomMessageImage(string body, MessageTypeEnum messageType) : base(body, messageType)
+		/// <inheritdoc cref="MRoomMessageVideo" />
+		public MRoomMessageVideo(string body, MessageTypeEnum messageType) : base(body, messageType)
 		{
 		}
 
-		/// <inheritdoc cref="ImageInfo" />
+		/// <inheritdoc cref="VideoInfo" />
 		[JsonPropertyName("info")]
-		public ImageInfo? Info { get; set; }
+		public VideoInfo? Info { get; set; }
 
 		/// <summary>
-		///     Required if the file is unencrypted. The URL (typically MXC URI) to the image.
+		///     Required if the file is unencrypted.
 		/// </summary>
 		[JsonPropertyName("url")]
 		public string? Url { get; set; }
@@ -32,37 +31,42 @@ namespace MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging
 		#region Models
 
 		/// <summary>
-		///     Metadata about the image referred to in `url`.
+		///     Metadata about the video clip referred to in `url`.
 		/// </summary>
-		public class ImageInfo
+		public class VideoInfo
 		{
 			/// <summary>
-			///     The intended display height of the image in pixels. This may differ from the intrinsic dimensions of the image
-			///     file.
+			///     The duration of the video in milliseconds.
+			/// </summary>
+			[JsonPropertyName("duration")]
+			public ulong? Duration { get; set; }
+
+			/// <summary>
+			///     The height of the video in pixels.
 			/// </summary>
 			[JsonPropertyName("h")]
 			public int? Height { get; set; }
 
 			/// <summary>
-			///     The intended display width of the image in pixels. This may differ from the intrinsic dimensions of the image file.
+			///     The width of the video in pixels.
 			/// </summary>
 			[JsonPropertyName("w")]
 			public int? Width { get; set; }
 
 			/// <summary>
-			///     The mimetype of the image.
+			///     The mimetype of the video e.g.`video/mp4`.
 			/// </summary>
 			[JsonPropertyName("mimetype")]
 			public string? MimeType { get; set; }
 
 			/// <summary>
-			///     Size of the image in bytes.
+			///     The size of the video in bytes.
 			/// </summary>
 			[JsonPropertyName("size")]
 			public ulong? Size { get; set; }
 
 			/// <summary>
-			///     The URL (typically MXC URI) to a thumbnail of the image. Only present if the thumbnail is unencrypted.
+			///     The URL (typically MXC URI) to an image thumbnail of the video clip. Only present if the thumbnail is unencrypted.
 			/// </summary>
 			[JsonPropertyName("thumbnail_url")]
 			public string? ThumbnailUrl { get; set; }

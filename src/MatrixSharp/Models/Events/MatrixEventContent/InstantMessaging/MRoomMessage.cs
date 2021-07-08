@@ -123,6 +123,4 @@ namespace MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging
 
 		#endregion
 	}
-
-	// TODO: implement the remaining types
 }

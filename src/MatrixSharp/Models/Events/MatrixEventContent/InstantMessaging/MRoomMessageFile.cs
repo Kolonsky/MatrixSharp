@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging.Encryption;
 
 namespace MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging
 {
@@ -29,7 +30,10 @@ namespace MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging
 		[JsonPropertyName("url")]
 		public string? Url { get; set; }
 
-		// TODO: file
+		/// <inheritdoc cref="EncryptedFile" />
+		/// <remarks> 	Required if the file is encrypted.</remarks>
+		[JsonPropertyName("file")]
+		public EncryptedFile? File { get; set; }
 
 		#region Models
 
@@ -56,7 +60,10 @@ namespace MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging
 			[JsonPropertyName("thumbnail_url")]
 			public string? ThumbnailUrl { get; set; }
 
-			// TODO: thumbnail_file
+			/// <inheritdoc cref="EncryptedFile" />
+			/// <remarks> Only present if the thumbnail is encrypted.</remarks>
+			[JsonPropertyName("thumbnail_file")]
+			public EncryptedFile? ThumbnailFile { get; set; }
 
 			/// <inheritdoc cref="MRoomMessage.ThumbnailInfo" />
 			[JsonPropertyName("thumbnail_info")]

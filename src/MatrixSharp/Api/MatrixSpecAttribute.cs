@@ -2,7 +2,7 @@
 
 namespace MatrixSharp.Api
 {
-	public class MatrixSpecAttribute : Attribute
+	internal class MatrixSpecAttribute : Attribute
 	{
 		public readonly ApiVersionEnum ApiVersion;
 

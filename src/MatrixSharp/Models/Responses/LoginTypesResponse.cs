@@ -27,6 +27,8 @@ namespace MatrixSharp.Models.Responses
 			public string? Type { get; set; }
 		}
 
+		
+
 		#endregion
 	}
 }

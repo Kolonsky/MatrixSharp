@@ -7,6 +7,8 @@ using MatrixSharp.Models.Events;
 using MatrixSharp.Models.Events.MatrixEventContent;
 using MatrixSharp.Models.Events.MatrixEventContent.InstantMessaging;
 
+// Someday all this code will become unnecessary. https://github.com/dotnet/runtime/issues/30083
+
 namespace MatrixSharp.Tools
 {
 	internal static class ConverterTools
@@ -241,6 +243,28 @@ namespace MatrixSharp.Tools
 			{
 				throw new NotImplementedException();
 			}
+		}
+
+	}
+
+
+	/// https://github.com/dotnet/runtime/issues/782
+	/// https://stackoverflow.com/questions/58570189/is-there-a-built-in-way-of-using-snake-case-as-the-naming-policy-for-json-in-asp
+	internal static class StringUtils
+	{
+		public static string ToSnakeCase(this string str)
+		{
+			return string.Concat(str.Select((x, i) => i > 0 && char.IsUpper(x) ? "_" + x.ToString() : x.ToString())).ToLower();
+		}
+	}
+	public class SnakeCaseNamingPolicy : JsonNamingPolicy
+	{
+		public static SnakeCaseNamingPolicy Instance { get; } = new SnakeCaseNamingPolicy();
+
+		public override string ConvertName(string name)
+		{
+			// Conversion to other naming convention goes here. Like SnakeCase, KebabCase etc.
+			return name.ToSnakeCase();
 		}
 	}
 }

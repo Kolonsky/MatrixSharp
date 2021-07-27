@@ -157,12 +157,12 @@ namespace MatrixSharp.Client
 					Endpoint.ROOMS + roomId + Endpoint.ROOMS_STATE + '/' + eventType), eventContent, accessToken));
 		}
 
-		public async Task<EventResponse> SendEvent(BaseMatrixEventContent eventContent, string roomId, string eventType,
+		public async Task<EventResponse> SendEvent(BaseMatrixEventContent eventContent, string roomId, string eventType, ulong txnId,
 			string accessToken)
 		{
 			return await DoRequestAsync<EventResponse>(new RestRequest(HttpMethod.Put,
 				new Uri(Homeserver,
-					Endpoint.ROOMS + roomId + Endpoint.ROOMS_SEND + '/' + eventType + '/' + "42"), eventContent,
+					Endpoint.ROOMS + roomId + Endpoint.ROOMS_SEND + '/' + eventType + '/' + txnId), eventContent,
 				accessToken));
 		}
 

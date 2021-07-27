@@ -5,6 +5,13 @@
     <ApplicationIcon />
     <Win32Resource />
     <Nullable>enable</Nullable>
+    <PackageProjectUrl>https://github.com/Kolonsky/MatrixSharp</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/Kolonsky/MatrixSharp</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageTags>matrix, chat, sdk</PackageTags>
+    <Description>A C# library containing the Matrix APIs.</Description>
+    <PackageReleaseNotes>This version corresponds to the r0.6.1 release of the client-server Matrix API.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -13,6 +20,13 @@
 
   <ItemGroup>
     <Folder Include="Identity\Definitions\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace MatrixSharp.Api.EventSchemas.Schema
 {
@@ -8,6 +9,7 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	/// </summary>
 	public record EventContentPlaceholder : IEventContent
 	{
+		[JsonExtensionData]
 		public IDictionary<string, JsonElement>? ExtensionData { get; init; }
 	}
 

@@ -15,5 +15,5 @@
 		string Sender,
 		long OriginServerTs,
 		string RoomId
-	) : SyncRoomEvent<T>(Content, Type, EventId, Sender, OriginServerTs) where T : EventContentProperty;
+	) : SyncRoomEvent<T>(Content, Type, EventId, Sender, OriginServerTs) where T : IEventContent;
 }

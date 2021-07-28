@@ -5,10 +5,10 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 {
 	/// <inheritdoc cref="RoomCreateEventContent" />
 	[MatrixEventType("m.room.create")]
-	public record RoomCreate : StateEvent<RoomCreateEventContent>
+	public record RoomCreateEvent : StateEvent<RoomCreateEventContent>
 	{
-		/// <inheritdoc cref="RoomCreate" />
-		public RoomCreate(RoomCreateEventContent content, string type, string eventId, string sender,
+		/// <inheritdoc cref="RoomCreateEvent" />
+		public RoomCreateEvent(RoomCreateEventContent content, string type, string eventId, string sender,
 			long originServerTs, string stateKey, string roomId) : base(content, type, eventId, sender, originServerTs,
 			stateKey, roomId)
 		{
@@ -22,7 +22,7 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	/// <param name="Creator"> The ``user_id`` of the room creator. This is set by the homeserver.</param>
 	public record RoomCreateEventContent(
 		string Creator
-	) : EventContentProperty
+	) : IEventContent
 	{
 		/// <summary>
 		///     Whether users on other servers can join this room. Defaults to ``true`` if key does not exist.

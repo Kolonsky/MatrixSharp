@@ -16,7 +16,7 @@ namespace MatrixSharp.Api.EventSchemas.Schema.CoreEventSchema
 	public record Event<T>(
 		T Content,
 		string Type
-	) where T : EventContentProperty;
+	) where T : IEventContent;
 
 	/// <summary>
 	///     Used to determine the type of event content.

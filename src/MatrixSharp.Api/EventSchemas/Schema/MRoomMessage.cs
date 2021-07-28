@@ -4,10 +4,11 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 {
 	/// <inheritdoc cref="MessageEventContent" />
 	[MatrixEventType("m.room.message")]
-	public record Message : RoomEvent<MessageEventContent>
+	public record MessageEvent : RoomEvent<MessageEventContent>
 	{
-		/// <inheritdoc cref="Message" />
-		public Message(MessageEventContent content, string type, string eventId, string sender, long originServerTs,
+		/// <inheritdoc cref="MessageEvent" />
+		public MessageEvent(MessageEventContent content, string type, string eventId, string sender,
+			long originServerTs,
 			string roomId) : base(content, type, eventId, sender, originServerTs, roomId)
 		{
 		}
@@ -25,5 +26,5 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	public record MessageEventContent(
 		string Body,
 		string Msgtype
-	) : EventContentProperty;
+	) : IEventContent;
 }

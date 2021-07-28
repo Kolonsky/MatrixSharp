@@ -16,7 +16,7 @@
 		string EventId,
 		string Sender,
 		long OriginServerTs
-	) : Event<T>(Content, Type) where T : EventContentProperty
+	) : Event<T>(Content, Type) where T : IEventContent
 	{
 		/// <inheritdoc cref="UnsignedData" />
 		public UnsignedData? Unsigned { get; init; }
@@ -38,7 +38,7 @@
 		/// <summary>
 		///     Optional. The event that redacted this event, if any.
 		/// </summary>
-		public Event<EventContentProperty>? RedactedBecause { get; init; }
+		public Event<EventContentPlaceholder>? RedactedBecause { get; init; }
 
 		/// <summary>
 		///     The client-supplied transaction ID, if the client being given

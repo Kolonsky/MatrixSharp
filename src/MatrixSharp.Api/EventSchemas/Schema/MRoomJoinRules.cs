@@ -2,10 +2,6 @@
 
 namespace MatrixSharp.Api.EventSchemas.Schema
 {
-	internal class MRoomJoinRules
-	{
-	}
-
 	/// <inheritdoc cref="RoomJoinRulesEventContent" />
 	[MatrixEventType("m.room.join_rules")]
 	public record RoomJoinRulesEvent : StateEvent<RoomJoinRulesEventContent>

@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace MatrixSharp.Api.EventSchemas.Schema.CoreEventSchema
 {
@@ -16,7 +19,10 @@ namespace MatrixSharp.Api.EventSchemas.Schema.CoreEventSchema
 	public record Event<T>(
 		T Content,
 		string Type
-	) where T : IEventContent;
+	) where T : IEventContent
+	{
+		[JsonExtensionData] public IDictionary<string, JsonElement>? ExtensionData { get; init; }
+	}
 
 	/// <summary>
 	///     Used to determine the type of event content.

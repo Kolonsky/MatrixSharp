@@ -31,4 +31,7 @@
 		EncryptedFile ThumbnailFile,
 		ThumbnailInfo ThumbnailInfo
 	);
+
+	// Placeholder
+	public record EncryptedFile;
 }

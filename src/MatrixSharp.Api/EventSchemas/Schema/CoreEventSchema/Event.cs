@@ -27,12 +27,18 @@ namespace MatrixSharp.Api.EventSchemas.Schema.CoreEventSchema
 		/// <summary>
 		///     Event type.
 		/// </summary>
-		public string Value { get; }
+		public string Type { get; }
+
+		/// <summary>
+		///     Event subtype.
+		/// </summary>
+		public string Subtype { get; }
 
 		/// <inheritdoc cref="MatrixEventTypeAttribute" />
-		public MatrixEventTypeAttribute(string type)
+		public MatrixEventTypeAttribute(string type, string subtype = "")
 		{
-			Value = type;
+			Type = type;
+			Subtype = subtype;
 		}
 	}
 }

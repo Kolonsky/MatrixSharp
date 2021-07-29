@@ -9,8 +9,7 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	/// </summary>
 	public record EventContentPlaceholder : IEventContent
 	{
-		[JsonExtensionData]
-		public IDictionary<string, JsonElement>? ExtensionData { get; init; }
+		[JsonExtensionData] public IDictionary<string, JsonElement>? ExtensionData { get; init; }
 	}
 
 	public interface IEventContent

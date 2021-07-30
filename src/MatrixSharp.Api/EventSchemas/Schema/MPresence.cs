@@ -13,7 +13,7 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 		public string Sender { get; init; }
 
 		/// <inheritdoc cref="PresenceEvent" />
-		public PresenceEvent(ContentProperty content, string sender) : base(content, TYPE`)
+		public PresenceEvent(ContentProperty content, string sender) : base(content, TYPE)
 		{
 			Sender = sender;
 		}

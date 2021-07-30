@@ -7,7 +7,7 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	/// <summary>
 	///     Informs the client of new receipts.
 	/// </summary>
-	[MatrixEventType(TY)]
+	[MatrixEventType(TYPE)]
 	public record ReceiptEvent : Event<ReceiptEvent.ContentProperty>
 	{
 		private const string TYPE = "m.receipt";

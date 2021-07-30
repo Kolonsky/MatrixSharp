@@ -6,13 +6,15 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	/// <summary>
 	///     Defines how messages sent in this room should be encrypted.
 	/// </summary>
-	[MatrixEventType("m.room.encryption")]
+	[MatrixEventType(TYPE)]
 	public record RoomEncryptionEvent : StateEvent<RoomEncryptionEvent.ContentProperty>
 	{
+		private const string TYPE = "m.room.encryption";
+
 		/// <inheritdoc cref="RoomEncryptionEvent" />
 		/// <param name="stateKey"> A zero-length string.</param>
-		public RoomEncryptionEvent(ContentProperty content, string type, string eventId, string sender,
-			long originServerTs, string stateKey, string roomId) : base(content, type, eventId, sender, originServerTs,
+		public RoomEncryptionEvent(ContentProperty content, string eventId, string sender,
+			long originServerTs, string stateKey, string roomId) : base(content, TYPE, eventId, sender, originServerTs,
 			stateKey, roomId)
 		{
 		}

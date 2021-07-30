@@ -6,16 +6,18 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	///     The current location of the user's read marker in a room. This event appears in the user's room account data for
 	///     the room the marker is applicable for.
 	/// </summary>
-	[MatrixEventType("m.fully_read")]
+	[MatrixEventType(TYPE)]
 	public record FullyReadEvent : Event<FullyReadEvent.ContentProperty>
 	{
+		private const string TYPE = "m.fully_read";
+
 		/// <summary>
 		///     The room ID the read marker applies to.
 		/// </summary>
 		public string RoomId { get; init; }
 
 		/// <inheritdoc cref="FullyReadEvent" />
-		public FullyReadEvent(ContentProperty content, string type, string roomId) : base(content, type)
+		public FullyReadEvent(ContentProperty content, string roomId) : base(content, TYPE)
 		{
 			RoomId = roomId;
 		}

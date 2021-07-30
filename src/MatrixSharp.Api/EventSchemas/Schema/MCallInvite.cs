@@ -5,12 +5,14 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	/// <summary>
 	///     This event is sent by the caller when they wish to establish a call.
 	/// </summary>
-	[MatrixEventType("m.call.invite")]
+	[MatrixEventType(TYPE)]
 	public record CallInviteEvent : RoomEvent<CallInviteEvent.ContentProperty>
 	{
+		private const string TYPE = "m.call.invite";
+
 		/// <inheritdoc cref="CallInviteEvent" />
-		public CallInviteEvent(ContentProperty content, string type, string eventId, string sender,
-			long originServerTs, string roomId) : base(content, type, eventId, sender, originServerTs, roomId)
+		public CallInviteEvent(ContentProperty content, string eventId, string sender, long originServerTs,
+			string roomId) : base(content, TYPE, eventId, sender, originServerTs, roomId)
 		{
 		}
 

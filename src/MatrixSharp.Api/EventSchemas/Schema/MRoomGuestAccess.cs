@@ -6,14 +6,15 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	///     This event controls whether guest users are allowed to join rooms. If this event is absent, servers should act as
 	///     if it is present and has the guest_access value "forbidden".
 	/// </summary>
-	[MatrixEventType("m.room.guest_access")]
+	[MatrixEventType(TYPE)]
 	public record RoomGuestAccessEvent : StateEvent<RoomGuestAccessEvent.ContentProperty>
 	{
+		private const string TYPE = "m.room.guest_access";
+
 		/// <inheritdoc cref="RoomGuestAccessEvent" />
 		/// <param name="stateKey"> A zero-length string.</param>
-		public RoomGuestAccessEvent(ContentProperty content, string type, string eventId, string sender,
-			long originServerTs, string stateKey, string roomId) : base(content, type, eventId, sender, originServerTs,
-			stateKey, roomId)
+		public RoomGuestAccessEvent(ContentProperty content, string eventId, string sender, long originServerTs,
+			string stateKey, string roomId) : base(content, TYPE, eventId, sender, originServerTs, stateKey, roomId)
 		{
 		}
 

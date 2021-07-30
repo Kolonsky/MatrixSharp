@@ -6,12 +6,14 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	///     Sent by either party to signal their termination of the call. This can be sent either once the call has has been
 	///     established or before to abort the call.
 	/// </summary>
-	[MatrixEventType("m.call.hangup")]
+	[MatrixEventType(TYPE)]
 	public record CallHangupEvent : RoomEvent<CallHangupEvent.ContentProperty>
 	{
+		private const string TYPE = "m.call.hangup";
+
 		/// <inheritdoc cref="CallHangupEvent" />
-		public CallHangupEvent(ContentProperty content, string type, string eventId, string sender,
-			long originServerTs, string roomId) : base(content, type, eventId, sender, originServerTs, roomId)
+		public CallHangupEvent(ContentProperty content, string eventId, string sender, long originServerTs,
+			string roomId) : base(content, TYPE, eventId, sender, originServerTs, roomId)
 		{
 		}
 

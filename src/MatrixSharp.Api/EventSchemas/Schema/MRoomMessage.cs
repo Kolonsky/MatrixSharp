@@ -8,13 +8,15 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	///     every kind of ``msgtype`` as a fallback mechanism for when a client cannot render a message. This allows clients to
 	///     display *something* even if it is just plain text.
 	/// </summary>
-	[MatrixEventType("m.room.message")]
+	[MatrixEventType(TYPE)]
 	public record RoomMessageEvent : RoomEvent<RoomMessageEvent.ContentProperty>
 	{
+		protected const string TYPE = "m.room.message";
+
 		/// <inheritdoc cref="RoomMessageEvent" />
-		public RoomMessageEvent(ContentProperty content, string type, string eventId, string sender,
+		public RoomMessageEvent(ContentProperty content, string eventId, string sender,
 			long originServerTs,
-			string roomId) : base(content, type, eventId, sender, originServerTs, roomId)
+			string roomId) : base(content, TYPE, eventId, sender, originServerTs, roomId)
 		{
 		}
 

@@ -5,11 +5,13 @@ using MatrixSharp.Api.EventSchemas.Schema.CoreEventSchema;
 namespace MatrixSharp.Api.EventSchemas.Schema
 {
 	/// <summary> This event type is used when sending encrypted events.</summary>
-	[MatrixEventType("m.room.encrypted")]
+	[MatrixEventType(TYPE)]
 	public record RoomEncryptedEvent : Event<RoomEncryptedEvent.ContentProperty>
 	{
+		private const string TYPE = "m.room.encrypted";
+
 		/// <inheritdoc cref="RoomEncryptedEvent" />
-		public RoomEncryptedEvent(ContentProperty content, string type) : base(content, type)
+		public RoomEncryptedEvent(ContentProperty content) : base(content, TYPE)
 		{
 		}
 

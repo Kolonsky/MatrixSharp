@@ -12,11 +12,13 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	///     and values are lists of room ID strings of the 'direct' rooms for
 	///     that user ID.
 	/// </summary>
-	[MatrixEventType("m.direct")]
+	[MatrixEventType(TYPE)]
 	public record DirectEvent : Event<DirectEvent.ContentProperty>
 	{
+		private const string TYPE = "m.direct";
+
 		/// <inheritdoc cref="DirectEvent" />
-		public DirectEvent(ContentProperty content, string type) : base(content, type)
+		public DirectEvent(ContentProperty content) : base(content, TYPE)
 		{
 		}
 

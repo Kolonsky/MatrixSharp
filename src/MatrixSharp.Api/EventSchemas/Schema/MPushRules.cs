@@ -6,11 +6,13 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	/// <summary>
 	///     Describes all push rules for this user.
 	/// </summary>
-	[MatrixEventType("m.push_rules")]
+	[MatrixEventType(TYPE)]
 	public record PushRulesEvent : Event<PushRulesEvent.ContentProperty>
 	{
+		private const string TYPE = "m.push_rules";
+
 		/// <inheritdoc cref="PushRulesEvent" />
-		public PushRulesEvent(ContentProperty content, string type) : base(content, type)
+		public PushRulesEvent(ContentProperty content) : base(content, TYPE)
 		{
 		}
 

@@ -6,13 +6,14 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	/// <summary>
 	///     This is the first event in a room and cannot be changed. It acts as the root of all other events.
 	/// </summary>
-	[MatrixEventType("m.room.create")]
+	[MatrixEventType(TYPE)]
 	public record RoomCreateEvent : StateEvent<RoomCreateEvent.ContentProperty>
 	{
+		private const string TYPE = "m.room.create";
+
 		/// <inheritdoc cref="RoomCreateEvent" />
-		public RoomCreateEvent(ContentProperty content, string type, string eventId, string sender,
-			long originServerTs, string stateKey, string roomId) : base(content, type, eventId, sender, originServerTs,
-			stateKey, roomId)
+		public RoomCreateEvent(ContentProperty content, string eventId, string sender, long originServerTs,
+			string stateKey, string roomId) : base(content, TYPE, eventId, sender, originServerTs, stateKey, roomId)
 		{
 		}
 

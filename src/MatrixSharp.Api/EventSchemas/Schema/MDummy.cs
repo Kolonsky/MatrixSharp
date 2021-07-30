@@ -12,11 +12,13 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	///     to set up the session. The keyshare request and ``m.dummy`` combination should result
 	///     in the original sending client receiving keys over the newly established session.
 	/// </summary>
-	[MatrixEventType("m.dummy")]
+	[MatrixEventType(TYPE)]
 	public record DummyEvent : Event<ContentPropertyPlaceholder>
 	{
+		private const string TYPE = "m.dummy";
+
 		/// <inheritdoc cref="DummyEvent" />
-		public DummyEvent(ContentPropertyPlaceholder content, string type) : base(content, type)
+		public DummyEvent(ContentPropertyPlaceholder content) : base(content, TYPE)
 		{
 		}
 	}

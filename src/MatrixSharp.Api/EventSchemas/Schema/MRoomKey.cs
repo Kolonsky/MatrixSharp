@@ -7,11 +7,13 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	///     This event type is used to exchange keys for end-to-end encryption. Typically
 	///     it is encrypted as an ``m.room.encrypted`` event, then sent as a `to-device`_ event.
 	/// </summary>
-	[MatrixEventType("m.room_key")]
+	[MatrixEventType(TYPE)]
 	public record RoomKeyEvent : Event<RoomKeyEvent.ContentProperty>
 	{
+		private const string TYPE = "m.room_key";
+
 		/// <inheritdoc cref="RoomKeyEvent" />
-		public RoomKeyEvent(ContentProperty content, string type) : base(content, type)
+		public RoomKeyEvent(ContentProperty content) : base(content, TYPE)
 		{
 		}
 

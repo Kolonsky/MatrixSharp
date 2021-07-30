@@ -5,11 +5,13 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	/// <summary>
 	///     This event type is used to forward keys for end-to-end encryption.
 	/// </summary>
-	[MatrixEventType("m.forwarded_room_key")]
+	[MatrixEventType(TYPE)]
 	public record ForwardedRoomKeyEvent : Event<ForwardedRoomKeyEvent.ContentProperty>
 	{
+		private const string TYPE = "m.forwarded_room_key";
+
 		/// <inheritdoc cref="ForwardedRoomKeyEvent" />
-		public ForwardedRoomKeyEvent(ContentProperty content, string type) : base(content, type)
+		public ForwardedRoomKeyEvent(ContentProperty content) : base(content, TYPE)
 		{
 		}
 

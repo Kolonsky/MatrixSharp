@@ -5,11 +5,13 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	/// <summary>
 	///     Cancels a key verification process/request. Typically sent as a `to-device`_ event.
 	/// </summary>
-	[MatrixEventType("m.key.verification.cancel")]
+	[MatrixEventType(TYPE)]
 	public record KeyVerificationCancelEvent : Event<KeyVerificationCancelEvent.ContentProperty>
 	{
+		private const string TYPE = "m.key.verification.cancel";
+
 		/// <inheritdoc cref="KeyVerificationCancelEvent" />
-		public KeyVerificationCancelEvent(ContentProperty content, string type) : base(content, type)
+		public KeyVerificationCancelEvent(ContentProperty content) : base(content, TYPE)
 		{
 		}
 

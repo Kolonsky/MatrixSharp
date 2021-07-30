@@ -6,11 +6,13 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	///     Persists the user's preferred identity server, or preference to not use
 	///     an identity server at all, in the user's account data.
 	/// </summary>
-	[MatrixEventType("m.identity_server")]
+	[MatrixEventType(TYPE)]
 	public record IdentityServerEvent : Event<IdentityServerEvent.ContentProperty>
 	{
+		private const string TYPE = "m.identity_server";
+
 		/// <inheritdoc cref="IdentityServerEvent" />
-		public IdentityServerEvent(ContentProperty content, string type) : base(content, type)
+		public IdentityServerEvent(ContentProperty content) : base(content, TYPE)
 		{
 		}
 

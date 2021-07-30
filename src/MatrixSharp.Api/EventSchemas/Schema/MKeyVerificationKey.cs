@@ -6,11 +6,13 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	///     Sends the ephemeral public key for a device to the partner device. Typically sent as a
 	///     `to-device`_ event.
 	/// </summary>
-	[MatrixEventType("m.key.verification.key")]
+	[MatrixEventType(TYPE)]
 	public record KeyVerificationKeyEvent : Event<KeyVerificationKeyEvent.ContentProperty>
 	{
+		private const string TYPE = "m.key.verification.key";
+
 		/// <inheritdoc cref="KeyVerificationKeyEvent" />
-		public KeyVerificationKeyEvent(ContentProperty content, string type) : base(content, type)
+		public KeyVerificationKeyEvent(ContentProperty content) : base(content, TYPE)
 		{
 		}
 

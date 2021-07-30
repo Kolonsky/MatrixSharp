@@ -7,11 +7,13 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	///     Sends the MAC of a device's key to the partner device. Typically sent as a
 	///     `to-device`_ event.
 	/// </summary>
-	[MatrixEventType("m.key.verification.mac")]
+	[MatrixEventType(TYPE)]
 	public record KeyVerificationMacEvent : Event<KeyVerificationMacEvent.ContentProperty>
 	{
+		private const string TYPE = "m.key.verification.mac";
+
 		/// <inheritdoc cref="KeyVerificationMacEvent" />
-		public KeyVerificationMacEvent(ContentProperty content, string type) : base(content, type)
+		public KeyVerificationMacEvent(ContentProperty content) : base(content, TYPE)
 		{
 		}
 

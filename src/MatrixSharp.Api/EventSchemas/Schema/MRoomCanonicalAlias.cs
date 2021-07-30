@@ -8,14 +8,15 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	///     This could be for display purposes or as suggestion to users which alias
 	///     to use to advertise and access the room.
 	/// </summary>
-	[MatrixEventType("m.room.canonical_alias")]
+	[MatrixEventType(TYPE)]
 	public record RoomCanonicalAliasEvent : StateEvent<RoomCanonicalAliasEvent.ContentProperty>
 	{
+		private const string TYPE = "m.room.canonical_alias";
+
 		/// <inheritdoc cref="RoomCanonicalAliasEvent" />
 		/// <param name="stateKey"> A zero-length string.</param>
-		public RoomCanonicalAliasEvent(ContentProperty content, string type, string eventId, string sender,
-			long originServerTs, string stateKey, string roomId) : base(content, type, eventId, sender, originServerTs,
-			stateKey, roomId)
+		public RoomCanonicalAliasEvent(ContentProperty content, string eventId, string sender, long originServerTs,
+			string stateKey, string roomId) : base(content, TYPE, eventId, sender, originServerTs, stateKey, roomId)
 		{
 		}
 

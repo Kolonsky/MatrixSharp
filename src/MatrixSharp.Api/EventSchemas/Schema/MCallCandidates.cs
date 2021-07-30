@@ -7,12 +7,14 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	///     This event is sent by callers after sending an invite and by the callee after answering. Its purpose is to give the
 	///     other party additional ICE candidates to try using to communicate.
 	/// </summary>
-	[MatrixEventType("m.call.candidates")]
+	[MatrixEventType(TYPE)]
 	public record CallCandidatesEvent : RoomEvent<CallCandidatesEvent.ContentProperty>
 	{
+		private const string TYPE = "m.call.candidates";
+
 		/// <inheritdoc cref="CallCandidatesEvent" />
-		public CallCandidatesEvent(ContentProperty content, string type, string eventId, string sender,
-			long originServerTs, string roomId) : base(content, type, eventId, sender, originServerTs, roomId)
+		public CallCandidatesEvent(ContentProperty content, string eventId, string sender,
+			long originServerTs, string roomId) : base(content, TYPE, eventId, sender, originServerTs, roomId)
 		{
 		}
 

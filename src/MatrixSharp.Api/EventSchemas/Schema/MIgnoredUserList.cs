@@ -8,11 +8,13 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	///     A map of users which are considered ignored is kept in ``account_data``
 	///     in an event type of ``m.ignored_user_list``.
 	/// </summary>
-	[MatrixEventType("m.ignored_user_list")]
+	[MatrixEventType(TYPE)]
 	public record IgnoredUserListEvent : Event<IgnoredUserListEvent.ContentProperty>
 	{
+		private const string TYPE = "m.ignored_user_list";
+
 		/// <inheritdoc cref="IgnoredUserListEvent" />
-		public IgnoredUserListEvent(ContentProperty content, string type) : base(content, type)
+		public IgnoredUserListEvent(ContentProperty content) : base(content, TYPE)
 		{
 		}
 

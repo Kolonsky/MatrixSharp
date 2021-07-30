@@ -3,35 +3,45 @@
 	/// <summary>
 	///     Metadata about an image.
 	/// </summary>
-	/// <param name="H">
-	///     The intended display height of the image in pixels. This may
-	///     differ from the intrinsic dimensions of the image file.
-	/// </param>
-	/// <param name="W">
-	///     The intended display width of the image in pixels. This may
-	///     differ from the intrinsic dimensions of the image file.
-	/// </param>
-	/// <param name="Mimetype"> The mimetype of the image, e.g. ``image/jpeg``.</param>
-	/// <param name="Size"> Size of the image in bytes.</param>
-	/// <param name="ThumbnailUrl">
-	///     The URL to a thumbnail of the image.
-	///     Only present if the thumbnail is unencrypted.
-	/// </param>
-	/// <param name="ThumbnailFile">
-	///     Information on the encrypted thumbnail file.
-	///     Only present if the thumbnail is encrypted.
-	/// </param>
-	/// <param name="ThumbnailInfo"> Metadata about the image referred to in ``thumbnail_url``.</param>
-	public record ImageInfo(
-		int H,
-		int W,
-		string Mimetype,
-		int Size,
-		string ThumbnailUrl,
-		EncryptedFile ThumbnailFile,
-		ThumbnailInfo ThumbnailInfo
-	);
+	public record ImageInfo
+	{
+		/// <summary>
+		///     The intended display height of the image in pixels. This may
+		///     differ from the intrinsic dimensions of the image file.
+		/// </summary>
+		public int? H { get; init; }
 
-	// Placeholder
-	public record EncryptedFile;
+		/// <summary>
+		///     The intended display width of the image in pixels. This may
+		///     differ from the intrinsic dimensions of the image file.
+		/// </summary>
+		public int? W { get; init; }
+
+		/// <summary>
+		///     The mimetype of the image, e.g. ``image/jpeg``.
+		/// </summary>
+		public string? Mimetype { get; init; }
+
+		/// <summary>
+		///     Size of the image in bytes.
+		/// </summary>
+		public int? Size { get; init; }
+
+		/// <summary>
+		///     The URL to a thumbnail of the image.
+		///     Only present if the thumbnail is unencrypted.
+		/// </summary>
+		public string? ThumbnailUrl { get; init; }
+
+		/// <summary>
+		///     Information on the encrypted thumbnail file.
+		///     Only present if the thumbnail is encrypted.
+		/// </summary>
+		public EncryptedFile? ThumbnailFile { get; init; }
+
+		/// <summary>
+		///     Metadata about the image referred to in ``thumbnail_url``.
+		/// </summary>
+		public ThumbnailInfo? ThumbnailInfo { get; init; }
+	}
 }

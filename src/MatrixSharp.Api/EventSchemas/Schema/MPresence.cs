@@ -5,13 +5,15 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	/// <summary>
 	///     Informs the client of a user's presence state change.
 	/// </summary>
-	[MatrixEventType("m.presence")]
+	[MatrixEventType(TYPE)]
 	public record PresenceEvent : Event<PresenceEvent.ContentProperty>
 	{
+		private const string TYPE = "m.presence";
+
 		public string Sender { get; init; }
 
 		/// <inheritdoc cref="PresenceEvent" />
-		public PresenceEvent(ContentProperty content, string type, string sender) : base(content, type)
+		public PresenceEvent(ContentProperty content, string sender) : base(content, TYPE`)
 		{
 			Sender = sender;
 		}

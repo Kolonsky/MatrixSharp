@@ -5,12 +5,13 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	/// <summary>
 	///     Begins a SAS key verification process using the ``m.sas.v1`` method. Typically sent as a `to-device`_ event.
 	/// </summary>
-	[MatrixEventType("m.key.verification.start", "m.sas.v1")]
-	public record KeyVerificationStartMSasV1Event : Event<KeyVerificationStartMSasV1Event.ContentProperty>
+	[MatrixEventType(TYPE, METHOD)]
+	public sealed record KeyVerificationStartMSasV1Event : KeyVerificationStartEvent
 	{
+		private const string METHOD = "m.sas.v1";
+
 		/// <inheritdoc cref="KeyVerificationStartMSasV1Event" />
-		public KeyVerificationStartMSasV1Event(ContentProperty content, string type) : base(
-			content, type)
+		public KeyVerificationStartMSasV1Event(ContentProperty content) : base(content)
 		{
 		}
 
@@ -33,20 +34,15 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 		///     The message authentication codes that the sending device understands.
 		///     Must include at least ``hkdf-hmac-sha256``.
 		/// </param>
-		public record ContentProperty(
+		public new record ContentProperty(
 			string FromDevice,
 			string TransactionId,
 			string[] KeyAgreementProtocols,
 			string[] Hashes,
 			string[] MessageAuthenticationCodes,
 			ContentProperty.ShortAuthenticationStringEnum ShortAuthenticationString
-		) : IContentProperty
+		) : KeyVerificationStartEvent.ContentProperty(FromDevice, TransactionId, METHOD)
 		{
-			/// <summary>
-			///     The verification method to use.
-			/// </summary>
-			public const string Method = "m.sas.v1";
-
 			/// <summary>
 			///     The SAS methods the sending device (and the sending device's user)
 			///     understands. Must include at least ``decimal``. Optionally can include

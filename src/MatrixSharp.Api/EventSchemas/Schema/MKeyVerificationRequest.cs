@@ -6,12 +6,13 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	///     Requests a key verification with another user's devices. Typically sent as a
 	///     `to-device`_ event.
 	/// </summary>
-	[MatrixEventType("m.key.verification.request")]
+	[MatrixEventType(TYPE)]
 	public record KeyVerificationRequestEvent : Event<KeyVerificationRequestEvent.ContentProperty>
 	{
+		private const string TYPE = "m.key.verification.request";
+
 		/// <inheritdoc cref="KeyVerificationRequestEvent" />
-		public KeyVerificationRequestEvent(ContentProperty content, string type) : base(content,
-			type)
+		public KeyVerificationRequestEvent(ContentProperty content) : base(content, TYPE)
 		{
 		}
 

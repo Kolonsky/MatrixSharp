@@ -11,12 +11,14 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	///     Usage of this event is discouraged in favor of the** `receipts module`_. **Most clients will not recognize
 	///     this event.
 	/// </remarks>
-	[MatrixEventType("m.room.message.feedback")]
+	[MatrixEventType(TYPE)]
 	public record RoomMessageFeedbackEvent : RoomEvent<RoomMessageFeedbackEvent.ContentProperty>
 	{
+		private const string TYPE = "m.room.message.feedback";
+
 		/// <inheritdoc cref="RoomMessageFeedbackEvent" />
-		public RoomMessageFeedbackEvent(ContentProperty content, string type, string eventId,
-			string sender, long originServerTs, string roomId) : base(content, type, eventId, sender, originServerTs,
+		public RoomMessageFeedbackEvent(ContentProperty content, string eventId,
+			string sender, long originServerTs, string roomId) : base(content, TYPE, eventId, sender, originServerTs,
 			roomId)
 		{
 		}

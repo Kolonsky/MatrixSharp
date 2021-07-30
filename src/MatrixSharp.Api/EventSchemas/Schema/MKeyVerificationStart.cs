@@ -7,11 +7,13 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	///     field determines the type of verification. The fields in the event will differ depending
 	///     on the ``method``. This definition includes fields that are in common among all variants.
 	/// </summary>
-	[MatrixEventType("m.key.verification.start")]
+	[MatrixEventType(TYPE)]
 	public record KeyVerificationStartEvent : Event<KeyVerificationStartEvent.ContentProperty>
 	{
+		protected const string TYPE = "m.key.verification.start";
+
 		/// <inheritdoc cref="KeyVerificationStartEvent" />
-		public KeyVerificationStartEvent(ContentProperty content, string type) : base(content, type)
+		public KeyVerificationStartEvent(ContentProperty content) : base(content, TYPE)
 		{
 		}
 

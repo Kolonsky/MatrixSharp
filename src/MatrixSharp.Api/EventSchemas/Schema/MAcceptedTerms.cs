@@ -6,11 +6,13 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	///     A list of terms URLs the user has previously accepted. Clients SHOULD use this
 	///     to avoid presenting the user with terms they have already agreed to.
 	/// </summary>
-	[MatrixEventType("m.accepted_terms")]
+	[MatrixEventType(TYPE)]
 	public record AcceptedTermsEvent : Event<AcceptedTermsEvent.ContentProperty>
 	{
+		private const string TYPE = "m.accepted_terms";
+
 		/// <inheritdoc cref="AcceptedTermsEvent" />
-		public AcceptedTermsEvent(ContentProperty content, string type) : base(content, type)
+		public AcceptedTermsEvent(ContentProperty content) : base(content, TYPE)
 		{
 		}
 

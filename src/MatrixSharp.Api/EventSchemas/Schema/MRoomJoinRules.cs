@@ -7,14 +7,15 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	///     ``invite`` meaning that a user who wishes to join the room must first receive an invite to the room from someone
 	///     already inside of the room. Currently, ``knock`` and ``private`` are reserved keywords which are not implemented.
 	/// </summary>
-	[MatrixEventType("m.room.join_rules")]
+	[MatrixEventType(TYPE)]
 	public record RoomJoinRulesEvent : StateEvent<RoomJoinRulesEvent.ContentProperty>
 	{
+		private const string TYPE = "m.room.join_rules";
+
 		/// <inheritdoc cref="RoomJoinRulesEvent" />
 		/// <param name="stateKey"> A zero-length string.</param>
-		public RoomJoinRulesEvent(ContentProperty content, string type, string eventId, string sender,
-			long originServerTs, string stateKey, string roomId) : base(content, type, eventId, sender, originServerTs,
-			stateKey, roomId)
+		public RoomJoinRulesEvent(ContentProperty content, string eventId, string sender, long originServerTs,
+			string stateKey, string roomId) : base(content, TYPE, eventId, sender, originServerTs, stateKey, roomId)
 		{
 		}
 

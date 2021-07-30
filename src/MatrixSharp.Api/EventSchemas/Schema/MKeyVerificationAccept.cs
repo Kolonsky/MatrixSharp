@@ -7,11 +7,13 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	///     Accepts a previously sent ``m.key.verification.start`` message. Typically sent as a
 	///     `to-device`_ event.
 	/// </summary>
-	[MatrixEventType("m.key.verification.accept")]
+	[MatrixEventType(TYPE)]
 	public record KeyVerificationAcceptEvent : Event<KeyVerificationAcceptEvent.ContentProperty>
 	{
+		private const string TYPE = "m.key.verification.accept";
+
 		/// <inheritdoc cref="KeyVerificationAcceptEvent" />
-		public KeyVerificationAcceptEvent(ContentProperty content, string type) : base(content, type)
+		public KeyVerificationAcceptEvent(ContentProperty content) : base(content, TYPE)
 		{
 		}
 

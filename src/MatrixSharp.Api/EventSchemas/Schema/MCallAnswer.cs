@@ -5,12 +5,14 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	/// <summary>
 	///     This event is sent by the callee when they wish to answer the call.
 	/// </summary>
-	[MatrixEventType("m.call.answer")]
+	[MatrixEventType(TYPE)]
 	public record CallAnswerEvent : RoomEvent<CallAnswerEvent.ContentProperty>
 	{
+		private const string TYPE = "m.call.answer";
+
 		/// <inheritdoc cref="CallAnswerEvent" />
-		public CallAnswerEvent(ContentProperty content, string type, string eventId, string sender,
-			long originServerTs, string roomId) : base(content, type, eventId, sender, originServerTs, roomId)
+		public CallAnswerEvent(ContentProperty content, string eventId, string sender,
+			long originServerTs, string roomId) : base(content, TYPE, eventId, sender, originServerTs, roomId)
 		{
 		}
 

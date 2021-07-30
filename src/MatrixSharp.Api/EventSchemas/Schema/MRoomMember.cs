@@ -9,17 +9,19 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	///     restricted set of valid transformations. For example, user A cannot force user B to join a room, and trying to
 	///     force this state change directly will fail.
 	/// </summary>
-	[MatrixEventType("m.room.member")]
+	[MatrixEventType(TYPE)]
 	public record RoomMemberEvent : StateEvent<RoomMemberEvent.ContentProperty>
 	{
+		private const string TYPE = "m.room.member";
+
 		/// <inheritdoc cref="RoomMemberEvent" />
 		/// <param name="stateKey">
 		///     The ``user_id`` this membership event relates to. In all cases except for when ``membership`` is
 		///     ``join``, the user ID sending the event does not need to match the user ID in the ``state_key``,
 		///     unlike other events. Regular authorization rules still apply.
 		/// </param>
-		public RoomMemberEvent(ContentProperty content, string type, string eventId, string sender,
-			long originServerTs, string stateKey, string roomId) : base(content, type, eventId, sender, originServerTs,
+		public RoomMemberEvent(ContentProperty content, string eventId, string sender,
+			long originServerTs, string stateKey, string roomId) : base(content, TYPE, eventId, sender, originServerTs,
 			stateKey, roomId)
 		{
 		}

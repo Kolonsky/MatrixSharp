@@ -13,10 +13,10 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	///     in the original sending client receiving keys over the newly established session.
 	/// </summary>
 	[MatrixEventType("m.dummy")]
-	public record DummyEvent : Event<EventContentPlaceholder>
+	public record DummyEvent : Event<ContentPropertyPlaceholder>
 	{
 		/// <inheritdoc cref="DummyEvent" />
-		public DummyEvent(EventContentPlaceholder content, string type) : base(content, type)
+		public DummyEvent(ContentPropertyPlaceholder content, string type) : base(content, type)
 		{
 		}
 	}

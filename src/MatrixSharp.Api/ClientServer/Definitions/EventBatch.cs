@@ -4,6 +4,6 @@ using MatrixSharp.Api.EventSchemas.Schema.CoreEventSchema;
 namespace MatrixSharp.Api.ClientServer.Definitions
 {
 	public record EventBatch(
-		Event<EventContentPlaceholder>[]? Events
+		Event<ContentPropertyPlaceholder>[]? Events
 	);
 }

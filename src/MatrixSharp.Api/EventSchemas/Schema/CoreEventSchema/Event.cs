@@ -19,7 +19,7 @@ namespace MatrixSharp.Api.EventSchemas.Schema.CoreEventSchema
 	public record Event<T>(
 		T Content,
 		string Type
-	) where T : IEventContent
+	) where T : IContentProperty
 	{
 		[JsonExtensionData] public IDictionary<string, JsonElement>? ExtensionData { get; init; }
 	}

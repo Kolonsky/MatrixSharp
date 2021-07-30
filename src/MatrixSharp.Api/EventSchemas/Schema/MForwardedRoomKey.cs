@@ -2,44 +2,43 @@
 
 namespace MatrixSharp.Api.EventSchemas.Schema
 {
-	/// <inheritdoc cref="ForwardedRoomKeyEventContent" />
-	[MatrixEventType("m.forwarded_room_key")]
-	public record ForwardedRoomKeyEvent : Event<ForwardedRoomKeyEventContent>
-	{
-		/// <inheritdoc cref="ForwardedRoomKeyEvent" />
-		public ForwardedRoomKeyEvent(ForwardedRoomKeyEventContent content, string type) : base(content, type)
-		{
-		}
-	}
-
 	/// <summary>
 	///     This event type is used to forward keys for end-to-end encryption.
 	/// </summary>
-	/// <param name="Algorithm"> The encryption algorithm the key in this event is to be used with.</param>
-	/// <param name="RoomId"> The room where the key is used.</param>
-	/// <param name="SessionId"> The ID of the session that the key is for.</param>
-	/// <param name="SessionKey"> The key to be exchanged.</param>
-	/// <param name="SenderKey"> The Curve25519 key of the device which initiated the session originally.</param>
-	/// <param name="SenderClaimedEd25519Key">
-	///     The Ed25519 key of the device which initiated the session originally.
-	///     It is 'claimed' because the receiving device has no way to tell that the
-	///     original room_key actually came from a device which owns the private part of
-	///     this key unless they have done device verification.
-	/// </param>
-	/// <param name="ForwardingCurve25519KeyChain">
-	///     Chain of Curve25519 keys. It starts out empty, but each time the
-	///     key is forwarded to another device, the previous sender in the chain is added
-	///     to the end of the list. For example, if the key is forwarded from A to B to
-	///     C, this field is empty between A and B, and contains A's Curve25519 key between
-	///     B and C.
-	/// </param>
-	public record ForwardedRoomKeyEventContent(
-		string Algorithm,
-		string RoomId,
-		string SessionId,
-		string SessionKey,
-		string SenderKey,
-		string SenderClaimedEd25519Key,
-		string[] ForwardingCurve25519KeyChain
-	) : IEventContent;
+	[MatrixEventType("m.forwarded_room_key")]
+	public record ForwardedRoomKeyEvent : Event<ForwardedRoomKeyEvent.ContentProperty>
+	{
+		/// <inheritdoc cref="ForwardedRoomKeyEvent" />
+		public ForwardedRoomKeyEvent(ContentProperty content, string type) : base(content, type)
+		{
+		}
+
+		/// <param name="Algorithm"> The encryption algorithm the key in this event is to be used with.</param>
+		/// <param name="RoomId"> The room where the key is used.</param>
+		/// <param name="SessionId"> The ID of the session that the key is for.</param>
+		/// <param name="SessionKey"> The key to be exchanged.</param>
+		/// <param name="SenderKey"> The Curve25519 key of the device which initiated the session originally.</param>
+		/// <param name="SenderClaimedEd25519Key">
+		///     The Ed25519 key of the device which initiated the session originally.
+		///     It is 'claimed' because the receiving device has no way to tell that the
+		///     original room_key actually came from a device which owns the private part of
+		///     this key unless they have done device verification.
+		/// </param>
+		/// <param name="ForwardingCurve25519KeyChain">
+		///     Chain of Curve25519 keys. It starts out empty, but each time the
+		///     key is forwarded to another device, the previous sender in the chain is added
+		///     to the end of the list. For example, if the key is forwarded from A to B to
+		///     C, this field is empty between A and B, and contains A's Curve25519 key between
+		///     B and C.
+		/// </param>
+		public record ContentProperty(
+			string Algorithm,
+			string RoomId,
+			string SessionId,
+			string SessionKey,
+			string SenderKey,
+			string SenderClaimedEd25519Key,
+			string[] ForwardingCurve25519KeyChain
+		) : IContentProperty;
+	}
 }

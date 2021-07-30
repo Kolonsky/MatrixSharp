@@ -2,59 +2,60 @@
 
 namespace MatrixSharp.Api.EventSchemas.Schema
 {
-	/// <inheritdoc cref="KeyVerificationCancelEventContent" />
-	public record KeyVerificationCancelEvent : Event<KeyVerificationCancelEventContent>
-	{
-		/// <inheritdoc cref="KeyVerificationCancelEvent" />
-		public KeyVerificationCancelEvent(KeyVerificationCancelEventContent content, string type) : base(content, type)
-		{
-		}
-	}
-
 	/// <summary>
 	///     Cancels a key verification process/request. Typically sent as a `to-device`_ event.
 	/// </summary>
-	/// <param name="TransactionId"> The opaque identifier for the verification process/request.</param>
-	/// <param name="Reason">
-	///     A human readable description of the ``code``. The client should only rely on this
-	///     string if it does not understand the ``code``.
-	/// </param>
-	/// <param name="Code"> The error code for why the process/request was cancelled by the user.</param>
-	// Error codes should use the Java package naming convention if not in the following
-	// list:
-	// 
-	// ``m.user``: The user cancelled the verification.
-	// 
-	// ``m.timeout``: The verification process timed out. Verification processes
-	// can define their own timeout parameters.
-	// 
-	// ``m.unknown_transaction``: The device does not know about the given transaction
-	// ID.
-	// 
-	// ``m.unknown_method``: The device does not know how to handle the requested
-	// method. This should be sent for ``m.key.verification.start`` messages and
-	// messages defined by individual verification processes.
-	// 
-	// ``m.unexpected_message``: The device received an unexpected message. Typically
-	// raised when one of the parties is handling the verification out of order.
-	// 
-	// ``m.key_mismatch``: The key was not verified.
-	// 
-	// ``m.user_mismatch``: The expected user did not match the user verified.
-	// 
-	// ``m.invalid_message``: The message received was invalid.
-	// 
-	// ``m.accepted``: A ``m.key.verification.request`` was accepted by a different
-	// device. The device receiving this error can ignore the verification request.
-	// 
-	// Clients should be careful to avoid error loops. For example, if a device sends
-	// an incorrect message and the client returns ``m.invalid_message`` to which it
-	// gets an unexpected response with ``m.unexpected_message``, the client should not
-	// respond again with ``m.unexpected_message`` to avoid the other device potentially
-	// sending another error response.
-	public record KeyVerificationCancelEventContent(
-		string TransactionId,
-		string Reason,
-		string Code
-	) : IEventContent;
+	[MatrixEventType("m.key.verification.cancel")]
+	public record KeyVerificationCancelEvent : Event<KeyVerificationCancelEvent.ContentProperty>
+	{
+		/// <inheritdoc cref="KeyVerificationCancelEvent" />
+		public KeyVerificationCancelEvent(ContentProperty content, string type) : base(content, type)
+		{
+		}
+
+
+		/// <param name="TransactionId"> The opaque identifier for the verification process/request.</param>
+		/// <param name="Reason">
+		///     A human readable description of the ``code``. The client should only rely on this
+		///     string if it does not understand the ``code``.
+		/// </param>
+		/// <param name="Code"> The error code for why the process/request was cancelled by the user.</param>
+		// Error codes should use the Java package naming convention if not in the following
+		// list:
+		// 
+		// ``m.user``: The user cancelled the verification.
+		// 
+		// ``m.timeout``: The verification process timed out. Verification processes
+		// can define their own timeout parameters.
+		// 
+		// ``m.unknown_transaction``: The device does not know about the given transaction
+		// ID.
+		// 
+		// ``m.unknown_method``: The device does not know how to handle the requested
+		// method. This should be sent for ``m.key.verification.start`` messages and
+		// messages defined by individual verification processes.
+		// 
+		// ``m.unexpected_message``: The device received an unexpected message. Typically
+		// raised when one of the parties is handling the verification out of order.
+		// 
+		// ``m.key_mismatch``: The key was not verified.
+		// 
+		// ``m.user_mismatch``: The expected user did not match the user verified.
+		// 
+		// ``m.invalid_message``: The message received was invalid.
+		// 
+		// ``m.accepted``: A ``m.key.verification.request`` was accepted by a different
+		// device. The device receiving this error can ignore the verification request.
+		// 
+		// Clients should be careful to avoid error loops. For example, if a device sends
+		// an incorrect message and the client returns ``m.invalid_message`` to which it
+		// gets an unexpected response with ``m.unexpected_message``, the client should not
+		// respond again with ``m.unexpected_message`` to avoid the other device potentially
+		// sending another error response.
+		public record ContentProperty(
+			string TransactionId,
+			string Reason,
+			string Code
+		) : IContentProperty;
+	}
 }

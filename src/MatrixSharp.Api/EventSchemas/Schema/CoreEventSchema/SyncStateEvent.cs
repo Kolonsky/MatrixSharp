@@ -23,7 +23,7 @@ namespace MatrixSharp.Api.EventSchemas.Schema.CoreEventSchema
 		string Sender,
 		long OriginServerTs,
 		string StateKey
-	) : SyncRoomEvent<T>(Content, Type, EventId, Sender, OriginServerTs) where T : IEventContent
+	) : SyncRoomEvent<T>(Content, Type, EventId, Sender, OriginServerTs) where T : IContentProperty
 	{
 		/// <summary>
 		///     Optional. The previous ``content`` for this event. If there is no

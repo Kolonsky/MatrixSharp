@@ -12,5 +12,5 @@ namespace MatrixSharp.Api.EventSchemas
 		string Entity,
 		string Recommendation,
 		string Reason
-	) : IEventContent;
+	) : IContentProperty;
 }

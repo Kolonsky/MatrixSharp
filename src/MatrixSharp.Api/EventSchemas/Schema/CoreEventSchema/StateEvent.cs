@@ -11,5 +11,5 @@
 		long OriginServerTs,
 		string StateKey,
 		string RoomId
-	) : SyncStateEvent<T>(Content, Type, EventId, Sender, OriginServerTs, StateKey) where T : IEventContent;
+	) : SyncStateEvent<T>(Content, Type, EventId, Sender, OriginServerTs, StateKey) where T : IContentProperty;
 }

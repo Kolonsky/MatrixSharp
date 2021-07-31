@@ -7,7 +7,7 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 	///     This message represents a single audio clip.
 	/// </summary>
 	[MatrixEventType(TYPE, MSGTYPE)]
-	public sealed record RoomAudioMessageEvent : RoomMessageEvent
+	public record RoomAudioMessageEvent : RoomMessageEvent
 	{
 		private const string MSGTYPE = "m.audio";
 

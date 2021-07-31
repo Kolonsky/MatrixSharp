@@ -25,11 +25,8 @@ namespace MatrixSharp.Api.EventSchemas.Schema
 			/// <summary>
 			///     Whether users on other servers can join this room. Defaults to ``true`` if key does not exist.
 			/// </summary>
-			/// <remarks>
-			///     The value of this property will be true if the response body does not contain this key.
-			/// </remarks>
 			[JsonPropertyName("m.federate")]
-			public bool CanFederate { get; init; } = true;
+			public bool CanFederate { get; init; }
 
 			/// <summary>
 			///     The version of the room. Defaults to ``"1"`` if the key does not exist.

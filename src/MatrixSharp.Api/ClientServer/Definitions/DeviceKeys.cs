@@ -19,15 +19,20 @@ namespace MatrixSharp.Api.ClientServer.Definitions
 	///     format ``&lt;algorithm&gt;:&lt;device_id&gt;``. The keys themselves should be
 	///     encoded as specified by the key algorithm.
 	/// </param>
-	/// <param name="Signatures">
-	///     Signatures for the device key object. A map from user ID, to a map from
-	///     ``&lt;algorithm&gt;:&lt;device_id&gt;`` to the signature.
-	/// </param>
 	public record DeviceKeys(
 		string UserId,
 		string DeviceId,
 		string[] Algorithms,
 		IDictionary<string, string> Keys,
-		IDictionary<string, IDictionary<string, string>> Signatures
-	);
+		DeviceKeys.SignaturesProp Signatures
+	)
+	{
+		/// <summary>
+		///     Signatures for the device key object. A map from user ID, to a map from
+		///     ``&lt;algorithm&gt;:&lt;device_id&gt;`` to the signature.
+		/// </summary>
+		public class SignaturesProp : Dictionary<string, IDictionary<string, string?>?>
+		{
+		}
+	}
 }
